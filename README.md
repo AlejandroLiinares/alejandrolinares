@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# 👨‍💻 Portafolio Profesional: alejandrolinares.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio aloja el código fuente del portafolio personal de **Alejandro Linares**, Desarrollador Frontend con enfoque en la estética y usabilidad, y con sólidas bases Full-Stack (Python/Django).
 
-Currently, two official plugins are available:
+El objetivo de este proyecto es demostrar mi capacidad para construir aplicaciones modernas, escalables y con un diseño impecable, siguiendo la filosofía de "menos es más".
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🛠️ Stack Tecnológico
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Área | Tecnología | Propósito y Enfoque |
+| :--- | :--- | :--- |
+| **Frontend Core** | **React.js, TypeScript** | Construcción de componentes tipados, modulares y reutilizables. |
+| **Estilización** | **Styled Components (CSS-in-JS)** | Estética minimalista "Apple": fluidez, tipografía limpia y control de estilos a nivel de componente. |
+| **Build Tool** | **Vite** | Entorno de desarrollo ultrarrápido (HMR) y *build* optimizado para la producción. |
+| **Quality Control** | **ESLint & TypeScript (Strict)** | Aplicación de reglas de calidad de código y tipado estricto (React-X, StrictTypeChecked). |
+| **Deployment** | **Render** | Despliegue continuo y eficiente del sitio estático. |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Proyectos Destacados (Project Showcase)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+El portafolio se centra en 3 proyectos clave que validan mis habilidades:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1.  **[Un Millón de Traumas]** (Frontend Avanzado): Demostración de experiencia visual y UX/UI impecable.
+2.  **[Gestión de Partos Clínicos]** (Full-Stack Engineering): Sistema complejo que valida mi conocimiento en Backend (Django API), bases de datos, y digitalización de procesos.
+3.  **[IWIE Drones]** (Experiencia Laboral): Prueba de mi capacidad para gestionar requerimientos de clientes y crecer profesionalmente.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Inicio Rápido (Local Development)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Para ejecutar este proyecto en tu máquina local:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  Clona el repositorio: `git clone https://www.youtube.com/watch?v=dnxdIzF8p3k`
+2.  Instala las dependencias: `npm install`
+3.  Inicia el servidor de desarrollo: `npm run dev`
+
+---
+
+## 📝 Documentación de Código
+
+Toda la lógica de desarrollo sigue las mejores prácticas de la ingeniería:
+* Convención de archivos: `.jsx` para componentes de *markup*, `.js` para lógica pura.
+* Uso de interfaces de TypeScript (`.tsx`) para todos los componentes.

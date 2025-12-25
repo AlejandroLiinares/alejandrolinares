@@ -1,12 +1,12 @@
 // src/components/home/Home.tsx
-import TitleHome from './TitleHome';
+import TextHome from './TextHome';
 import GradientHome from './GradientHome';
 
 const Home = () => {
   return (
     <section>
       <GradientHome />
-      <TitleHome />
+      <TextHome />
     </section>
   );
 };

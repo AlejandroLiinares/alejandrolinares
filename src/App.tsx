@@ -1,11 +1,15 @@
 // src/App.tsx
+import { ThemeProvider } from 'styled-components';
+import { theme } from './MyTheme';
+import { GlobalStyles } from './layout/GlobalStyles';
 import Home from './components/home/Home';
 
 function App() {
   return (
-    <main>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <Home />
-    </main>
+    </ThemeProvider>
   );
 }
 

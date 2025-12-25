@@ -1,10 +1,7 @@
-// src/styled.d.ts
-
-// Importa la interfaz de tu tema (asegúrate que la ruta sea correcta)
 import 'styled-components';
-import { DefaultTheme } from './theme'; 
+import { MyTheme } from './MyTheme'; 
 
 // Declara que el DefaultTheme de Styled Components es tu interfaz
 declare module 'styled-components' {
-  export interface DefaultTheme extends DefaultTheme {}
+  export interface DefaultTheme extends MyTheme {}
 }

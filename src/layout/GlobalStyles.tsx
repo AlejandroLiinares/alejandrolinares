@@ -5,8 +5,8 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
     font-family: ${(props) => props.theme.typography.body};
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    transition: all 0.3s ease;
   }
 `;

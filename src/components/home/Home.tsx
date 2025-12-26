@@ -4,10 +4,10 @@ import GradientHome from './GradientHome';
 
 const Home = () => {
   return (
-    <section>
+    <>
       <GradientHome />
       <TextHome />
-    </section>
+    </>
   );
 };
 

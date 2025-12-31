@@ -1,10 +1,9 @@
-// src/components/home/Home.tsx
-import TextHome from './TextHome';
+import HeroHome from './HeroHome';
 
 const Home = () => {
   return (
     <>
-      <TextHome />
+      <HeroHome />
     </>
   );
 };

@@ -13,11 +13,11 @@ export interface MyTheme {
 export const theme: MyTheme = {
   colors: {
     background: '#FFFFFF', 
-    text: '#000000ff',       
+    text: '#222222ff',       
     primary: '#ff7c11ff',
   },
   typography: {
-    heading: "'Playfair Display', serif", 
-    body: "'Plus Jakarta Sans', sans-serif",
+    heading: "'DM Serif Display', serif",
+    body: "apple-system, sans-serif"
   }
 };

@@ -1,15 +1,13 @@
-// src/App.tsx
-import { ThemeProvider } from 'styled-components';
-import { theme } from './MyTheme'; 
-import { GlobalStyles } from './layout/GlobalStyles';
-import Home from './components/home/Home';
+import './styles/global.css'; 
+import HeroHome from './components/home/HeroHome';
+import ThemeToggle from './components/common/ThemeToggle/ThemeToggle';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-        <Home /> 
-    </ThemeProvider>
+    <div className="app-layout">
+        <ThemeToggle />
+        <HeroHome /> 
+    </div>
   );
 }
 

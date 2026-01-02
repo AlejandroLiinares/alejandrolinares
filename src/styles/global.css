@@ -3,7 +3,8 @@
 }
 
 :root {
-  --color-background: #fafafa; 
+  --color-background: #ffd0d0; 
+  --color-text-btn: #fafafa;
   --color-text-heading: #fafafa;
   --color-text: #101010;
   --color-primary: #FF832A;

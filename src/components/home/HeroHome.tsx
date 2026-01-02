@@ -1,5 +1,6 @@
 import styles from './HeroHome.module.css';
 import { useLanguage } from '../../context/LanguageContext';
+import Aurora from './AuroraBackground/AuroraBackground';
 
 const HeroHome = () => {
   const { t } = useLanguage();
@@ -7,9 +8,14 @@ const HeroHome = () => {
   return (
     <section className={styles.section}>
       
-      {/* CAPA 1: Fondo (Aquí irá el gradiente fluido y las ondas) */}
       <div className={styles.backgroundLayer}>
-        {/* Dejamos esto vacío por ahora, lo llenaremos con CSS o Canvas después */}
+        {/* 2. COMPONENTE CON TUS COLORES (Orange Brand) */}
+        <Aurora 
+          colorStops={["#FF832A", "#FF4D00", "#FFB74D"]} 
+          blend={0.5} 
+          amplitude={5.0} 
+          speed={.5} 
+        />
       </div>
 
       {/* CAPA 2: Contenido (Texto y Botones) */}

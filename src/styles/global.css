@@ -7,7 +7,14 @@
   --color-text: #1A1A1A;
   --color-primary: #FF832A;
 
-  --font-heading: 'DM Serif Display', serif;
+  /* Fuentes importadas escritas para ahorrar tiempo: 
+  - 'Noto Serif Display'
+  - 'Momo Trust Display'
+  - 'Gloock' 
+  */
+
+  --font-heading: 'Momo Trust Display', sans-serif;
+  --font-heading-cursive: 'Noto Serif Display', serif;
   --font-body: 'apple-system', sans-serif;
 }
 

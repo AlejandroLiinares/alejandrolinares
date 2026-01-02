@@ -1,48 +1,155 @@
+/* --- ESTRUCTURA GENERAL --- */
 .section {
+  position: relative; /* Necesario para contener las capas absolutas */
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 1.5rem;
+  height: 100vh; /* Ocupa toda la pantalla */
+  overflow: hidden; /* Evita scroll si el gradiente se sale */
   background-color: var(--color-background);
 }
 
+/* --- CAPA 1: FONDO (Gradiente) --- */
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Al fondo */
+  pointer-events: none; /* Que no bloquee los clics */
+  
+  /* Gradiente Temporal (Para que veas algo mientras hacemos la animación final después) */
+  background: radial-gradient(circle at 80% 20%, rgba(255, 131, 30, 0.15), transparent 20%);
+}
+
+/* --- CAPA 2: CONTENIDO (Texto y Botones) --- */
+.contentLayer {
+  position: relative;
+  z-index: 10; /* Encima del fondo */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrado vertical */
+  align-items: flex-start; /* Alineado a la IZQUIERDA */
+  margin-top: 5%;
+  padding-left: 2.5%; /* Margen izquierdo elegante (Desktop) */
+  padding-right: 2.5%;
+}
+
+/* --- TIPOGRAFÍA --- */
 .title {
   font-family: var(--font-heading);
-  font-size: 6rem;
+  font-size: 5.5rem; /* Grande y bold */
   font-weight: 500;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.5rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
   color: var(--color-text);
+}
+
+.title2 {
+  font-family: var(--font-heading-cursive); /* Tu fuente Serif (Vidaloka) */
+  font-size: 6rem; /* Un poco más grande para destacar */
+  font-weight: 400; /* Serif suele verse mejor regular o light */
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-text);
+  font-style: italic; /* Opcional: Le da más elegancia */
 }
 
 .description {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  margin: 0;
-  max-width: 50ch;
-  opacity: 0.9;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  max-width: 55ch; /* Ancho de lectura óptimo */
+  opacity: 0.8;
   color: var(--color-text);
 }
 
-@media (max-width: 1024px) {
-  .title {
-    font-size: 5rem;
-  }
+/* --- BOTONES DE ACCIÓN --- */
+.buttonContainer {
+  display: flex;
+  gap: 1rem; /* Espacio entre botones */
+  align-items: center;
 }
 
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem; /* Espacio entre icono y texto */
+  
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem; /* Bordes suaves modernos */
+  
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  
+  transition: all 0.2s ease; /* Animación suave al hover */
+  border: 1px solid transparent; /* Prepara el borde para evitar saltos */
+}
+
+/* Botón 1: GitHub (Negro Solido) */
+.button:first-child {
+  background-color: var(--color-text); /* Negro en light mode */
+  color: var(--color-background); /* Texto blanco */
+}
+
+/* Hover GitHub */
+.button:first-child:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Botón 2: LinkedIn (Gris Suave / Fantasma) */
+.button:last-child {
+  background-color: #E5E5E5; /* Gris muy suave */
+  color: #1A1A1A; /* Texto oscuro */
+}
+
+/* Hover LinkedIn */
+.button:last-child:hover {
+  background-color: #d4d4d4; /* Un poco más oscuro */
+}
+
+/* --- MANEJO DE ICONOS SVG --- */
+.button svg {
+  width: 20px; /* Redimensionamos los SVGs gigantes a un tamaño icono */
+  height: 20px;
+  /* IMPORTANTE: Esto permite que 'currentColor' funcione si el SVG está limpio */
+  fill: currentColor; 
+}
+
+/* --- RESPONSIVE DESIGN (Móvil) --- */
 @media (max-width: 768px) {
+  .contentLayer {
+    align-items: flex-start; /* En móvil también se ve bien a la izquierda */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .title {
-    font-size: 3.5rem;
-    letter-spacing: -0.01em;
+    font-size: 3rem;
   }
   
+  .title2 {
+    font-size: 3.5rem;
+  }
+
   .description {
     font-size: 1rem;
     max-width: 100%;
+  }
+
+  .buttonContainer {
+    flex-direction: column; /* Botones uno debajo del otro en pantallas muy chicas */
+    align-items: stretch; /* Botones de ancho completo */
+    width: 10rem;
+  }
+
+  .button {
+    width: 10rem;
   }
 }

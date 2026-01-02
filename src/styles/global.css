@@ -3,8 +3,9 @@
 }
 
 :root {
-  --color-background: #FAFAFA; 
-  --color-text: #1A1A1A;
+  --color-background: #fafafa; 
+  --color-text-heading: #fafafa;
+  --color-text: #101010;
   --color-primary: #FF832A;
 
   /* Fuentes importadas escritas para ahorrar tiempo: 
@@ -19,8 +20,8 @@
 }
 
 [data-theme="dark"] {
-  --color-background: #0A0A0A; 
-  --color-text: #E5E5E5;
+  --color-background: #101010; 
+  --color-text: #fafafa;
 }
 
 body {

@@ -1,9 +1,47 @@
 .section {
-  position: relative; /* Necesario para contener las capas absolutas */
+  position: relative;
   width: 100%;
-  height: 100vh; /* Ocupa toda la pantalla */
-  overflow: hidden; /* Evita scroll si el gradiente se sale */
-  background-color: var(--color-background);
+  height: 100vh;
+  background-color: var(--color-background); /* Tu fondo crema #FFF5EE */
+  overflow: hidden; /* Vital para que el brillo no cree scrollbars */
+}
+
+/* Capa contenedora del fondo */
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%; /* Limitamos el efecto a la parte superior */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* El elemento que crea el arco de luz */
+.backgroundLayer::before {
+  content: '';
+  position: absolute;
+  /* Posicionamos el centro del gradiente FUERA de la pantalla hacia arriba */
+  top: -40%; 
+  left: 50%;
+  /* Lo hacemos mucho más ancho que la pantalla para que el arco sea suave */
+  width: 200%;
+  height: 110%;
+  /* Centramos horizontalmente */
+  transform: translateX(-60%);
+  
+  /* El gradiente radial: Naranja intenso en el centro, transparente en los bordes */
+  background: radial-gradient(
+    ellipse at center,
+    rgb(255, 117, 12) 60%,   /* Centro luminoso (tu color primario) */
+    rgb(255, 145, 67) 40%,   /* Centro luminoso (tu color primario) */
+    rgb(255, 162, 96) 20%,   /* Centro luminoso (tu color primario) */
+    transparent 100%              
+  );
+  
+  /* El desenfoque MASIVO es lo que crea el efecto de "brillo" suave */
+  filter: blur(70px);
+  /* Una pequeña capa de opacidad extra para mezclarlo mejor con el fondo */
 }
 
 /* --- CAPA 2: CONTENIDO (Texto y Botones) --- */
@@ -27,7 +65,7 @@
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin: 0;
-  color: var(--color-text-heading);
+  color: var(--color-text);
 }
 
 .title2 {
@@ -36,7 +74,7 @@
   font-weight: 400; 
   line-height: 1.2;
   margin: 0;
-  color: var(--color-text-heading);
+  color: var(--color-text);
   font-style: italic; 
 }
 
@@ -45,7 +83,7 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-top: 0.5rem;
-  max-width: 60ch; 
+  max-width: 65ch; 
   color: var(--color-text);
 }
 

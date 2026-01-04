@@ -1,12 +1,10 @@
-// src/i18n/translations.ts
-
 export const translations = {
   en: {
     hero: {
       line1: "I serve you today",
       line2: "So you can",
       line3: "Serve others tomorrow",
-      description: "Crafting today's solutions for your tomorrow's success. I guarantee perpetual growth and refinement to ensure your impact remains enduring."
+      description: "I build software solutions with intention: focused on growth, quality, and meaningful human impact over time."
     },
 
     // Despues añadiré las secciones que quiero traducir controladamente
@@ -16,8 +14,8 @@ export const translations = {
     hero: {
       line1: "Yo te sirvo hoy",
       line2: "Para que tú", 
-      line3: "Puedas servir a otros mañana",
-      description: "Diseño hoy pensando en tu éxito mañana, garantizando mantenimiento y evolución constante para que tu impacto sea por siempre."
+      line3: "Sirvas a otros mañana",
+      description: "Construyo soluciones de software con intención: enfocadas en el crecimiento, la calidad y un impacto humano significativo a lo largo del tiempo."
     },
   }
 };

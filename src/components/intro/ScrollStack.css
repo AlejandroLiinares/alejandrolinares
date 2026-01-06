@@ -1,0 +1,103 @@
+/* =========================================
+   1. MOTOR DEL SCROLL (Lógica Pura)
+   ========================================= */
+
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  /* IMPORTANTE: overflow visible para que useWindowScroll={true} funcione */
+  overflow: visible; 
+  will-change: transform;
+}
+
+.scroll-stack-inner {
+  /* Padding para que el mazo respire en la pantalla */
+  padding: 15vh 0 40vh 0; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra todo el mazo horizontalmente */
+}
+
+.scroll-stack-card {
+  /* Solo propiedades de física y posicionamiento */
+  position: relative;
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* ELIMINAMOS: height, padding, shadows y borders de aquí para evitar conflictos */
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
+
+/* =========================================
+   2. TUS ESTILOS (Diseño Visual)
+   ========================================= */
+
+/* Clase Base: Todo lo que comparten tus 5 cartas */
+.card-base {
+  border: none;
+  border-radius: 3.5rem; /* Bordes más modernos */
+  height: 32rem;         /* Altura fija y generosa */
+  width: 90%;            /* Ocupa buen ancho */
+  max-width: 1000px;     /* Tope para pantallas gigantes */
+  
+  display: flex;
+  flex-direction: column; /* Apila Título e Icono verticalmente */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  /* Sombra suave para dar profundidad al mazo */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+/* Variantes de Color (Alternancia Naranja/Negro) */
+.card-primary {
+  background: var(--color-primary);
+}
+
+.card-dark {
+  background: var(--color-text);
+}
+
+/* =========================================
+   3. CONTENIDO INTERNO
+   ========================================= */
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* Espacio entre el Título y el SVG */
+  width: 100%;
+}
+
+.card-inner h2 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  margin: 0;
+  text-align: center;
+  color: var(--color-background); /* Crema */
+}
+
+/* Estilos para los SVGs */
+.card-inner svg {
+  width: 80px;
+  height: 80px;
+  fill: var(--color-background);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto Hover opcional */
+.card-base:hover svg {
+  transform: scale(1.1);
+}

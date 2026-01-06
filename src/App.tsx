@@ -2,6 +2,8 @@ import './styles/global.css';
 import HeroHome from './components/home/HeroHome';
 import ThemeToggle from './components/common/ThemeToggle/ThemeToggle';
 import LanguajeToggle from './components/common/LenguageToggle/LenguageToggle';
+import IntroSection from './components/intro/IntroSection';
+import ProjectSection from './components/projects/ProjectSection';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
         <ThemeToggle />
         <LanguajeToggle />
         <HeroHome /> 
+        <IntroSection />
+        <ProjectSection />
     </div>
   );
 }

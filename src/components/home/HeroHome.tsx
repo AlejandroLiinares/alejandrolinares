@@ -14,16 +14,20 @@ const HeroHome = () => {
 
       <div className={styles.contentLayer}>
         
-        <h1 className={styles.title}>
-          {t.hero.line1} 
-        </h1>
+        <h1 className={styles.mainHeading}>
+          
+          <span className={styles.lineStandard}>
+            {t.hero.line1}
+          </span>
 
-        <h1 className={styles.title2}>
-          {t.hero.line2}
-        </h1>
+          <span className={styles.lineCursive}>
+            {t.hero.line2}
+          </span>
 
-        <h1 className={styles.title}>
-          {t.hero.line3}
+          <span className={styles.lineStandard}>
+            {t.hero.line3}
+          </span>
+
         </h1>
 
         <p className={styles.description}>

@@ -15,7 +15,7 @@ export const translations = {
       line1: "Yo te sirvo hoy",
       line2: "Para que tú", 
       line3: "Sirvas a otros mañana",
-      description: "Construyo soluciones de software con intención: enfocadas en el crecimiento, la calidad y un impacto humano significativo a lo largo del tiempo."
+      description: "Construyo soluciones de software enfocadas en el crecimiento, la calidad y un impacto humano significativo a lo largo del tiempo."
     },
   }
 };

@@ -29,26 +29,39 @@
   padding-left: 13%; 
   padding-right: 13%;
 }
+.mainHeading {
+  margin: 0;
+  padding: 0;
+  display: flex;       /* Usamos flex para apilar las líneas ordenadamente */
+  flex-direction: column;
+  align-items: flex-start;
+  /* Quitamos estilos de fuente aquí para que no se hereden por error,
+     cada span controlará su propia fuente. */
+}
 
-.title {
+/* --- ESTILOS DE LÍNEA ESTÁNDAR (Antes .title) --- */
+.lineStandard {
+  display: block;      /* Fuerza que ocupe su propia línea */
   font-family: var(--font-heading);
   font-size: 4.7rem; 
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  max-width: 12ch;
-  margin: 0;
+  max-width: 12ch;     /* Mantenemos tu restricción de ancho */
   color: var(--color-text);
 }
 
-.title2 {
+/* --- ESTILOS DE LÍNEA CURSIVA (Antes .title2) --- */
+.lineCursive {
+  display: block;      /* Fuerza que ocupe su propia línea */
   font-family: var(--font-heading-cursive); 
-  font-size: 5.5rem; /* Un poco más grande para destacar */
+  font-size: 5.5rem;   /* Mantenemos el tamaño mayor */
   font-weight: 400; 
   line-height: 1.2;
-  margin: 0;
   color: var(--color-text);
   font-style: italic; 
+  /* Nota: Si la cursiva necesita más espacio horizontal que la estándar, 
+     aquí no tiene max-width restringido, lo cual está bien. */
 }
 
 .description {

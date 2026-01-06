@@ -1,31 +1,120 @@
+/* src/components/home/HeroBackground/HeroBackground.module.css */
+
 .container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50%; /* Restricción visual a la parte superior */
+  height: 70vh;
   z-index: 0;
-  pointer-events: none;
   overflow: hidden;
-  /* El desenfoque masivo crea la atmósfera de "luz" */
-  filter: blur(120px); 
+  background-color: var(--color-background);
+  pointer-events: none;
+
+  /* MÁSCARA APROBADA: Gradiente que "baja" desde arriba a la izquierda */
+  -webkit-mask-image: radial-gradient(
+    ellipse 180% 110% at 35% -10%, 
+    black 40%, 
+    transparent 85% 
+  );
+  mask-image: radial-gradient(
+    ellipse 180% 110% at 35% -10%,
+    black 40%,
+    transparent 85%
+  );
 }
 
-.blobLeft, .blobRight {
+.blob {
   position: absolute;
-  width: 600px;
-  height: 400px;
   border-radius: 50%;
-  /* Usamos tu color primario #FF832A */
-  background: radial-gradient(circle, rgba(255, 131, 42, 0.8) 0%, transparent 75%);
+  filter: blur(150px); 
+  opacity: .8;        
+  z-index: 0;
+  mix-blend-mode: normal; 
 }
 
-.blobLeft {
-  top: -200px;
-  left: -100px;
+/* --- TUS 8 FIGURAS PARA COLOREAR --- */
+
+/* 1. Gigante - Naranja Intenso (Esquina Sup. Izq) */
+.blob1 {
+  width: 60vw;
+  height: 60vw;
+  background: #ff005d; 
+  top: -20%;
+  left: -10%;
 }
 
-.blobRight {
-  top: -150px;
-  right: -50px;
+/* 2. Gigante - Naranja Rojizo (Esquina Sup. Der) */
+.blob2 {
+  width: 50vw;
+  height: 60vw; /* Ovalado vertical */
+  background: #ff3c00; 
+  top: -10%;
+  right: -5%;
+}
+
+/* 3. Mediano - Rojo Puro (Centro) */
+.blob3 {
+  width: 40vw;
+  height: 40vw;
+  background: #ff2600; 
+  top: 10%;
+  left: 30%;
+  opacity: 0.5;
+}
+
+/* 4. Mediano - Naranja Brillante (Centro Izq) */
+.blob4 {
+  width: 45vw;
+  height: 30vw; /* Ovalado horizontal */
+  background: #ff7918; /* Tu color de marca */
+  top: 30%;
+  left: -10%;
+}
+
+/* 5. Mediano - Tomate (Centro Der) */
+.blob5 {
+  width: 35vw;
+  height: 35vw;
+  background: #ff5537; 
+  top: 25%;
+  right: 0%;
+}
+
+/* 6. Pequeño - Naranja Claro (Arriba Centro) */
+.blob6 {
+  width: 30vw;
+  height: 30vw;
+  background: #ff3737; 
+  top: -15%;
+  left: 40%;
+}
+
+/* 7. Pequeño - Rojo Oscuro (Abajo Izq) */
+.blob7 {
+  width: 25vw;
+  height: 35vw;
+  background: #eb3d0e; 
+  bottom: 0%;
+  left: 10%;
+}
+
+/* 8. Pequeño - Naranja Vibrante (Abajo Der) */
+.blob8 {
+  width: 30vw;
+  height: 30vw;
+  background: #ff811b; 
+  bottom: 10%;
+  right: 15%;
+}
+
+/* 9. El Especial - Amarillo Dorado Solar (Luz dinámica) */
+.blob9 {
+  width: 25vw;
+  height: 25vw;
+  background: #ff9100; 
+  top: 15%;
+  right: -25%; /* Comienza escondido a la derecha */
+  z-index: 5;    /* IMPORTANTE: Pasa por encima de las otras (que tienen z-index:0) */
+  mix-blend-mode: screen; /* Modo de fusión 'screen' para que parezca luz pura */
 }

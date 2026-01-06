@@ -1,5 +1,6 @@
 import styles from './HeroHome.module.css';
 import { useLanguage } from '../../context/LanguageContext';
+import HeroBackground from './HeroBackground/HeroBackground';
 
 const HeroHome = () => {
   const { t } = useLanguage();
@@ -7,8 +8,9 @@ const HeroHome = () => {
   return (
     <section className={styles.section}>
       
-      {/* CAPA 1: Fondo con el gradiente CSS puro */}
-      <div className={styles.backgroundLayer}></div>
+      <div className={styles.backgroundLayer}>
+        <HeroBackground />
+      </div>
 
       <div className={styles.contentLayer}>
         

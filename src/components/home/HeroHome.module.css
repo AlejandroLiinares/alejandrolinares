@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: var(--color-background); /* Tu fondo crema #FFF5EE */
   overflow: hidden; /* Vital para que el brillo no cree scrollbars */
 }
 
@@ -17,33 +16,6 @@
   pointer-events: none;
 }
 
-/* El elemento que crea el arco de luz */
-.backgroundLayer::before {
-  content: '';
-  position: absolute;
-  /* Posicionamos el centro del gradiente FUERA de la pantalla hacia arriba */
-  top: -40%; 
-  left: 50%;
-  /* Lo hacemos mucho más ancho que la pantalla para que el arco sea suave */
-  width: 200%;
-  height: 110%;
-  /* Centramos horizontalmente */
-  transform: translateX(-60%);
-  
-  /* El gradiente radial: Naranja intenso en el centro, transparente en los bordes */
-  background: radial-gradient(
-    ellipse at center,
-    rgb(255, 117, 12) 60%,   /* Centro luminoso (tu color primario) */
-    rgb(255, 145, 67) 40%,   /* Centro luminoso (tu color primario) */
-    rgb(255, 162, 96) 20%,   /* Centro luminoso (tu color primario) */
-    transparent 100%              
-  );
-  
-  /* El desenfoque MASIVO es lo que crea el efecto de "brillo" suave */
-  filter: blur(70px);
-  /* Una pequeña capa de opacidad extra para mezclarlo mejor con el fondo */
-}
-
 /* --- CAPA 2: CONTENIDO (Texto y Botones) --- */
 .contentLayer {
   position: relative;
@@ -53,9 +25,9 @@
   flex-direction: column;
   justify-content: center; 
   align-items: flex-start; 
-  margin-top: 7.5%;
-  padding-left: 2.5%; 
-  padding-right: 2.5%;
+  margin-top: 4.5%;
+  padding-left: 13%; 
+  padding-right: 13%;
 }
 
 .title {
@@ -64,6 +36,7 @@
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.03em;
+  max-width: 12ch;
   margin: 0;
   color: var(--color-text);
 }
@@ -83,14 +56,13 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-top: 0.5rem;
-  max-width: 65ch; 
+  max-width: 53ch; 
   color: var(--color-text);
 }
 
-/* --- BOTONES DE ACCIÓN --- */
 .buttonContainer {
   display: flex;
-  gap: 1rem; /* Espacio entre botones */
+  gap: 1rem; 
   align-items: center;
 }
 
@@ -98,17 +70,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .75rem; /* Espacio entre icono y texto */
+  gap: .75rem; 
 
   padding: .7rem 1.3rem;
-  border-radius: .8rem; /* Bordes suaves modernos */
+  border-radius: .8rem; 
   
   font-family: var(--font-body);
   font-size: .880rem;
   font-weight: 550;
   text-decoration: none;
   
-  border: 1px solid transparent; /* Prepara el borde para evitar saltos */
+  border: 1px solid transparent; 
 }
 
 /* Botón 1: GitHub (Negro Solido) */
@@ -117,20 +89,11 @@
   color: var(--color-background); /* Texto blanco */
 }
 
-/* Hover GitHub */
-.button:first-child:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
 
 /* Botón 2: LinkedIn (Gris Suave / Fantasma) */
 .button:last-child {
   background-color: var(--color-primary); 
   color: var(--color-background); 
-}
-
-/* Hover LinkedIn */
-.button:last-child:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* --- MANEJO DE ICONOS SVG --- */

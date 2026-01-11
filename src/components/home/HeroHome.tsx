@@ -20,11 +20,11 @@ const HeroHome = () => {
             {t.hero.line1}
           </span>
 
-          <span className={styles.h1Cursive}>
+          <span className={styles.h1Title}>
             {t.hero.line2}
           </span>
 
-          <span className={styles.h1Title}>
+          <span className={styles.h1Cursive}>
             {t.hero.line3}
           </span>
 

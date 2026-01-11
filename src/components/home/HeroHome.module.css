@@ -39,7 +39,6 @@
      cada span controlará su propia fuente. */
 }
 
-/* --- ESTILOS DE LÍNEA ESTÁNDAR (Antes .title) --- */
 .h1Title {
   display: block;      /* Fuerza que ocupe su propia línea */
   font-family: var(--font-heading);
@@ -51,24 +50,22 @@
   color: var(--color-text);
 }
 
-/* --- ESTILOS DE LÍNEA CURSIVA (Antes .title2) --- */
 .h1Cursive {
-  display: block;      /* Fuerza que ocupe su propia línea */
+  display: block;     
   font-family: var(--font-heading-cursive); 
-  font-size: 5.5rem;   /* Mantenemos el tamaño mayor */
-  font-weight: 400; 
-  line-height: 1.2;
-  color: var(--color-text);
   font-style: italic; 
-  /* Nota: Si la cursiva necesita más espacio horizontal que la estándar, 
-     aquí no tiene max-width restringido, lo cual está bien. */
+  font-size: 5.5rem;   
+  font-weight: 680; 
+  line-height: .9;
+  max-width: 13ch;
+  color: var(--color-primary);
 }
 
 .description {
   font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-top: 0.5rem;
+  margin: 1.5rem 0 1.9rem 0;
   max-width: 53ch; 
   color: var(--color-text);
 }

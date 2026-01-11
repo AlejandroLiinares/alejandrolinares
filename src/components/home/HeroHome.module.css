@@ -40,7 +40,7 @@
 }
 
 /* --- ESTILOS DE LÍNEA ESTÁNDAR (Antes .title) --- */
-.lineStandard {
+.h1Title {
   display: block;      /* Fuerza que ocupe su propia línea */
   font-family: var(--font-heading);
   font-size: 4.7rem; 
@@ -52,7 +52,7 @@
 }
 
 /* --- ESTILOS DE LÍNEA CURSIVA (Antes .title2) --- */
-.lineCursive {
+.h1Cursive {
   display: block;      /* Fuerza que ocupe su propia línea */
   font-family: var(--font-heading-cursive); 
   font-size: 5.5rem;   /* Mantenemos el tamaño mayor */
@@ -120,31 +120,31 @@
 /* --- RESPONSIVE DESIGN (Móvil) --- */
 @media (max-width: 768px) {
   .contentLayer {
-    align-items: flex-start; /* En móvil también se ve bien a la izquierda */
+    align-items: flex-start;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
-  .title {
-    font-size: 3rem;
+  .h1Title {
+    font-size: 2.5rem;
   }
-  
-  .title2 {
-    font-size: 3.5rem;
+
+  .h1Cursive {
+    font-size: 3rem;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: .8rem;
     max-width: 100%;
   }
 
   .buttonContainer {
-    flex-direction: column; /* Botones uno debajo del otro en pantallas muy chicas */
-    align-items: stretch; /* Botones de ancho completo */
-    width: 10rem;
+    flex-direction: center;
+    align-items: center;
+    width: 9rem;
   }
 
   .button {
-    width: 10rem;
+    width: 8.3rem;
   }
 }

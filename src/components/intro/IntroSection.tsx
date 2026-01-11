@@ -1,4 +1,3 @@
-// src/components/intro/IntroSection.tsx
 import ScrollStack, { ScrollStackItem } from './ScrollStack';
 import { useLanguage } from '../../context/LanguageContext';
 import './ScrollStack.css'; 
@@ -9,13 +8,13 @@ const IntroSection = () => {
   return (
     <section className="intro-wrapper">
       <ScrollStack 
-        useWindowScroll={true} 
+        useWindowScroll={false} 
         itemDistance={80}      
         itemStackDistance={25}  
         stackPosition="15%"     
         baseScale={0.88}        
-        blurAmount={1}          
-        itemScale={0.04}         
+        blurAmount={.35}          
+        itemScale={.04}         
       >
         {/* Card 1: Projects (Naranja) */}
         <ScrollStackItem itemClassName="card-base card-primary">

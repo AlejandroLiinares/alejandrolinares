@@ -202,8 +202,18 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   ]);
 
   const handleScroll = useCallback(() => {
-    updateCardTransforms();
-  }, [updateCardTransforms]);
+  updateCardTransforms();
+
+  if (!useWindowScroll && scrollerRef.current && lenisRef.current) {
+    const { atTop, atBottom } = shouldReleaseScroll(scrollerRef.current);
+
+    if (atTop || atBottom) {
+      lenisRef.current.stop();   // Libera el wheel
+    } else {
+      lenisRef.current.start();  // Mantiene smooth scroll interno
+    }
+  }
+}, [updateCardTransforms, useWindowScroll]);
 
   const setupLenis = useCallback(() => {
     if (useWindowScroll) {
@@ -263,6 +273,11 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;
+    if (lenisRef.current) {
+    lenisRef.current.stop();
+    lenisRef.current.destroy();
+    lenisRef.current = null;
+    }
     if (!scroller) return;
 
     const cards = Array.from(
@@ -318,6 +333,15 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     setupLenis,
     updateCardTransforms
   ]);
+
+  const shouldReleaseScroll = (scroller: HTMLElement) => {
+  const { scrollTop, scrollHeight, clientHeight } = scroller;
+
+  const atTop = scrollTop <= 0;
+  const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+  return { atTop, atBottom };
+  };
 
   return (
     <div className={`scroll-stack-scroller ${className}`.trim()} ref={scrollerRef}>

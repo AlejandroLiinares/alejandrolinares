@@ -1,13 +1,14 @@
-/* =========================================
-   1. MOTOR DEL SCROLL (Lógica Pura)
-   ========================================= */
-
 .scroll-stack-scroller {
   position: relative;
   width: 100%;
-  /* IMPORTANTE: overflow visible para que useWindowScroll={true} funcione */
-  overflow: visible; 
-  will-change: transform;
+  height: 730px;     
+  overflow-y: auto;        /* Permite que este div tenga su propio scrollbar */
+  overscroll-behavior: contain;
+  scrollbar-width: none; 
+}
+
+.scroll-stack-scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll-stack-inner {
@@ -20,7 +21,6 @@
 }
 
 .scroll-stack-card {
-  /* Solo propiedades de física y posicionamiento */
   position: relative;
   transform-origin: top center;
   will-change: transform, filter;
@@ -29,7 +29,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  /* ELIMINAMOS: height, padding, shadows y borders de aquí para evitar conflictos */
 }
 
 .scroll-stack-end {
@@ -37,30 +36,21 @@
   height: 1px;
 }
 
-/* =========================================
-   2. TUS ESTILOS (Diseño Visual)
-   ========================================= */
-
-/* Clase Base: Todo lo que comparten tus 5 cartas */
 .card-base {
   border: none;
-  border-radius: 3.5rem; /* Bordes más modernos */
-  height: 32rem;         /* Altura fija y generosa */
-  width: 90%;            /* Ocupa buen ancho */
-  max-width: 1000px;     /* Tope para pantallas gigantes */
+  border-radius: 3.5rem; 
+  height: 27rem;         
+  max-width: 50%;     
   
   display: flex;
-  flex-direction: column; /* Apila Título e Icono verticalmente */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   
-  /* Sombra suave para dar profundidad al mazo */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 2rem;
 }
 
-/* Variantes de Color (Alternancia Naranja/Negro) */
 .card-primary {
   background: var(--color-primary);
 }
@@ -68,10 +58,6 @@
 .card-dark {
   background: var(--color-text);
 }
-
-/* =========================================
-   3. CONTENIDO INTERNO
-   ========================================= */
 
 .card-inner {
   display: flex;
@@ -100,4 +86,23 @@
 /* Efecto Hover opcional */
 .card-base:hover svg {
   transform: scale(1.1);
+}
+
+/* añadir la seccion de @media queries para pantallas pequeñas */
+
+@media (max-width: 768px) {
+  .card-inner h2 {
+    font-size: 2.5rem;
+  }
+
+  .card-base {
+    max-width: 80%;
+    height: 18rem;
+    padding: 1.5rem;
+  }
+
+  .card-inner svg {
+    width: 60px;
+    height: 60px;
+  }
 }

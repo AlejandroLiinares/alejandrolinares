@@ -16,15 +16,15 @@ const HeroHome = () => {
         
         <h1 className={styles.mainHeading}>
           
-          <span className={styles.lineStandard}>
+          <span className={styles.h1Title}>
             {t.hero.line1}
           </span>
 
-          <span className={styles.lineCursive}>
+          <span className={styles.h1Cursive}>
             {t.hero.line2}
           </span>
 
-          <span className={styles.lineStandard}>
+          <span className={styles.h1Title}>
             {t.hero.line3}
           </span>
 

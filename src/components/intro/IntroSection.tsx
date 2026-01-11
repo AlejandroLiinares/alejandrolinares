@@ -13,7 +13,7 @@ const IntroSection = () => {
         itemStackDistance={25}  
         stackPosition="15%"     
         baseScale={0.88}        
-        blurAmount={.35}          
+        blurAmount={0}          
         itemScale={.04}         
       >
         {/* Card 1: Projects (Naranja) */}

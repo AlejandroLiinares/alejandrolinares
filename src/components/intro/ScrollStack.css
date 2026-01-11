@@ -1,23 +1,29 @@
 .scroll-stack-scroller {
   position: relative;
   width: 100%;
-  height: 730px;     
-  overflow-y: auto;        /* Permite que este div tenga su propio scrollbar */
-  overscroll-behavior: contain;
-  scrollbar-width: none; 
+  height: 730px;
+  
+  /* ESENCIAL PARA SCROLL NATIVO */
+  overflow-y: auto;        /* Habilita la barra de scroll nativa */
+  overscroll-behavior: auto; /* Permite burbujear el scroll al body al llegar al final */
+  scroll-behavior: smooth; /* Opcional: suavidad nativa de CSS */
+  
+  /* Ocultar barra de scroll visualmente pero manteniendo funcionalidad */
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
 }
 
 .scroll-stack-scroller::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome/Safari */
 }
 
 .scroll-stack-inner {
-  /* Padding para que el mazo respire en la pantalla */
-  padding: 15vh 0 40vh 0; 
-  min-height: 100vh;
+  padding: 15vh 0 40vh 0;
+  width: 100%;
+  /* Asegura que el contenido interior tenga altura real para scrollear */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra todo el mazo horizontalmente */
+  align-items: center;
 }
 
 .scroll-stack-card {

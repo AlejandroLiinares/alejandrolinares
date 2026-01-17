@@ -1,20 +1,21 @@
 # 👨‍💻 Alejandro Linares • Software Developer
 ### Fullstack Developer | Specialized in Frontend
 
-> "Servir hoy para que otros sirvan mañana."
+> "Yo te sirvo hoy, para que tú sirvas a otros mañana."
+
 > La tecnología es un medio para ayudar; mi propósito es construir software con intención que sirva a las personas y genere un impacto humano real.
 
 ---
 
 ## 🛠️ Filosofía y Stack Técnico
 
-Este portafolio representa un compromiso con el **control total** y el **rendimiento**. He eliminado abstracciones innecesarias para construir una base sólida, ligera y escalable.
+Este portafolio representa un compromiso con el **control total** y el **rendimiento**.
 
 * **Entorno:** Node.js v24 (LTS)
 * **Core:** React 18 + Vite
 * **Lenguaje:** TypeScript (Strict Mode)
-* **Estilización:** CSS Modules (Control 100% manual, sin Tailwind ni Framer Motion)
-* **Arquitectura:** Diseño basado en **Bento Grid** con márgenes consistentes del 13% para máxima legibilidad.
+* **Estilización:** CSS Modules (Control 100% manual)
+* **Arquitectura:** Diseño basado en **Bento Grid**
 
 ---
 
@@ -23,8 +24,13 @@ Este portafolio representa un compromiso con el **control total** y el **rendimi
 ### 1. Sistema de Información Obstétrico (SIO)
 Software integral para la gestión de una clínica de partos. Este proyecto demuestra mi capacidad para digitalizar procesos complejos, priorizando la usabilidad en entornos críticos de salud.
 
-### 2. Elevate Program — Roraimax
-Rediseño profesional de la subpágina para el programa Elevate. Enfoque en estética de alto nivel, rendimiento de carga y una experiencia de usuario fluida.
+### 2. Página Web - Roraimax
+Rediseño profesional de páginas y subpáginas. Enfoque en estética de alto nivel, rendimiento de carga y una experiencia de usuario fluida.
+https://roraimax.com
+
+### 3. Página Web - Un Millón de Truamas
+Una experiencia de usuario unica e inmersiva que se encuentra en desarrollo para la promoción de mi primera autobiografía novelada.
+https://unmillondetraumas.com
 
 ---
 
@@ -53,7 +59,7 @@ Para ejecutar este proyecto en tu entorno local:
 
 ## 📅 Estado del Proyecto
 
-Actualmente finalizando detalles técnicos y consolidando el **Bento Grid** de proyectos antes de concluir mi práctica profesional el **02 de febrero de 2026**.
+Actualmente construyendo un diseño y experiencia de usuario a **la altura** de los estandares actuales y personales.
 
 ---
 
@@ -65,5 +71,3 @@ Actualmente finalizando detalles técnicos y consolidando el **Bento Grid** de p
 
 ---
 *Construido con dedicación y enfoque en el servicio por Alejandro Linares.*
-
-```

@@ -1,45 +1,69 @@
-# 👨‍💻 Portafolio Profesional: alejandrolinares.dev
+# 👨‍💻 Alejandro Linares • Software Developer
+### Fullstack Developer | Specialized in Frontend
 
-Este repositorio aloja el código fuente del portafolio personal de **Alejandro Linares**, Desarrollador Frontend con enfoque en la estética y usabilidad, y con sólidas bases Full-Stack (Python/Django).
-
-El objetivo de este proyecto es demostrar mi capacidad para construir aplicaciones modernas, escalables y con un diseño impecable, siguiendo la filosofía de "menos es más".
-
----
-
-## 🛠️ Stack Tecnológico
-
-| Área | Tecnología | Propósito y Enfoque |
-| :--- | :--- | :--- |
-| **Frontend Core** | **React.js, TypeScript** | Construcción de componentes tipados, modulares y reutilizables. |
-| **Estilización** | **Styled Components (CSS-in-JS)** | Estética minimalista "Apple": fluidez, tipografía limpia y control de estilos a nivel de componente. |
-| **Build Tool** | **Vite** | Entorno de desarrollo ultrarrápido (HMR) y *build* optimizado para la producción. |
-| **Quality Control** | **ESLint & TypeScript (Strict)** | Aplicación de reglas de calidad de código y tipado estricto (React-X, StrictTypeChecked). |
-| **Deployment** | **Render** | Despliegue continuo y eficiente del sitio estático. |
+> "Servir hoy para que otros sirvan mañana."
+> La tecnología es un medio para ayudar; mi propósito es construir software con intención que sirva a las personas y genere un impacto humano real.
 
 ---
 
-## ✨ Proyectos Destacados (Project Showcase)
+## 🛠️ Filosofía y Stack Técnico
 
-El portafolio se centra en 3 proyectos clave que validan mis habilidades:
+Este portafolio representa un compromiso con el **control total** y el **rendimiento**. He eliminado abstracciones innecesarias para construir una base sólida, ligera y escalable.
 
-1.  **[Un Millón de Traumas]** (Frontend Avanzado): Demostración de experiencia visual y UX/UI impecable.
-2.  **[Gestión de Partos Clínicos]** (Full-Stack Engineering): Sistema complejo que valida mi conocimiento en Backend (Django API), bases de datos, y digitalización de procesos.
-3.  **[IWIE Drones]** (Experiencia Laboral): Prueba de mi capacidad para gestionar requerimientos de clientes y crecer profesionalmente.
-
----
-
-## 🚀 Inicio Rápido (Local Development)
-
-Para ejecutar este proyecto en tu máquina local:
-
-1.  Clona el repositorio: `git clone https://www.youtube.com/watch?v=dnxdIzF8p3k`
-2.  Instala las dependencias: `npm install`
-3.  Inicia el servidor de desarrollo: `npm run dev`
+* **Entorno:** Node.js v24 (LTS)
+* **Core:** React 18 + Vite
+* **Lenguaje:** TypeScript (Strict Mode)
+* **Estilización:** CSS Modules (Control 100% manual, sin Tailwind ni Framer Motion)
+* **Arquitectura:** Diseño basado en **Bento Grid** con márgenes consistentes del 13% para máxima legibilidad.
 
 ---
 
-## 📝 Documentación de Código
+## ✨ Proyectos Destacados
 
-Toda la lógica de desarrollo sigue las mejores prácticas de la ingeniería:
-* Convención de archivos: `.jsx` para componentes de *markup*, `.js` para lógica pura.
-* Uso de interfaces de TypeScript (`.tsx`) para todos los componentes.
+### 1. Sistema de Información Obstétrico (SIO)
+Software integral para la gestión de una clínica de partos. Este proyecto demuestra mi capacidad para digitalizar procesos complejos, priorizando la usabilidad en entornos críticos de salud.
+
+### 2. Elevate Program — Roraimax
+Rediseño profesional de la subpágina para el programa Elevate. Enfoque en estética de alto nivel, rendimiento de carga y una experiencia de usuario fluida.
+
+---
+
+## 🚀 Desarrollo Local
+
+Para ejecutar este proyecto en tu entorno local:
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/AlejandroLiinares/alejandroliinares.git](https://github.com/AlejandroLiinares/alejandroliinares.git)
+    ```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+3.  **Iniciar servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+4.  **Generar build de producción:**
+    ```bash
+    npm run build
+    ```
+
+---
+
+## 📅 Estado del Proyecto
+
+Actualmente finalizando detalles técnicos y consolidando el **Bento Grid** de proyectos antes de concluir mi práctica profesional el **02 de febrero de 2026**.
+
+---
+
+## 📬 Contacto
+
+* **Website:** [alejandrolinares.dev](https://alejandrolinares.dev)
+* **LinkedIn:** [Alejandro Linares](https://www.linkedin.com/in/alejandroliinares/)
+* **GitHub:** [@AlejandroLiinares](https://github.com/AlejandroLiinares)
+
+---
+*Construido con dedicación y enfoque en el servicio por Alejandro Linares.*
+
+```

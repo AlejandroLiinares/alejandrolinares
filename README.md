@@ -40,7 +40,7 @@ Para ejecutar este proyecto en tu entorno local:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/AlejandroLiinares/alejandroliinares.git](https://github.com/AlejandroLiinares/alejandroliinares.git)
+    git clone https://github.com/AlejandroLiinares/alejandrolinares.git .
     ```
 2.  **Instalar dependencias:**
     ```bash

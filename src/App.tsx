@@ -2,9 +2,7 @@ import './styles/global.css';
 import HeroHome from './components/home/HeroHome';
 import ThemeToggle from './components/common/ThemeToggle/ThemeToggle';
 import LanguajeToggle from './components/common/LenguageToggle/LenguageToggle';
-import IntroSection from './components/intro/IntroSection';
 import ProjectSection from './components/projects/ProjectSection';
-import Technologies from './components/technologies/technologies';
 
 function App() {
   return (
@@ -12,9 +10,7 @@ function App() {
         <ThemeToggle />
         <LanguajeToggle />
         <HeroHome /> 
-        <IntroSection />
         <ProjectSection />
-        <Technologies />
     </div>
   );
 }

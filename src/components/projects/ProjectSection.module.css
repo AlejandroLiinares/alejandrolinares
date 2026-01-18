@@ -3,17 +3,14 @@
   margin-top: 2.5%;
   width: 100%;
   min-height: 100vh;
-  padding-left: 13%;
-  padding-right: 13%;
   background-color: var(--color-background); 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  z-index: 30; 
+  z-index: 0; 
 }
 
 .h2Title {
-  margin-left: 0;
   font-family: var(--font-heading);
   font-size: 3.5rem;
   font-weight: 500;
@@ -21,16 +18,9 @@
   text-align: center;
 }
 
-/* Añadir toda la seccion de @media queries para pantallas pequeñas aqui */
-
 @media (max-width: 768px) {
-  .container {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
   .h2Title {
     font-size: 2.5rem;
-    text-align: left;
+    text-align: center;
   }
 }

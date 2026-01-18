@@ -117,7 +117,7 @@
 @media (max-width: 768px) {
   /* En un futuro dejare mi foto por detras y arriba del texto y un gradient bonito muy por arriba */
   .contentLayer {
-    margin-top: 48vh;
+    margin-top: 35vh;
     align-items: center;
   }
 
@@ -130,11 +130,11 @@
   }
 
   .h1Cursive {
-    font-size: 3.3rem;
+    font-size: 3.1rem;
   }
 
   .description {
-    font-size: .85rem;
+    font-size: .82rem;
     max-width: 100%;
     text-align: center;
   }

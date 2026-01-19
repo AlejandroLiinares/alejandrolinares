@@ -1,57 +1,209 @@
+/* Layout general */
 .sliderWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
   gap: 2rem;
-  margin-top: 3rem;
 }
 
 .gridContainer {
-  flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  grid-auto-rows: 15rem;
+  grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
+  width: 80vw;
 }
 
-.navButton {
-  background: none;
-  border: 1px solid rgba(0,0,0,0.1);
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: var(--color-text);
-  transition: all 0.3s ease;
+/* Cards base */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0.6)
+  );
+  border-radius: 32px;
+  padding: 2.2rem;
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Sutil separación visual */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+}
+
+/* Tamaños */
+.large {
+  grid-column: span 8;
+  min-height: 380px;
+}
+
+.medium {
+  grid-column: span 4;
+  min-height: 240px;
+}
+
+.small {
+  grid-column: span 4;
+  min-height: 200px;
+}
+
+/* Estructura interna */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cardTitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.85;
+  max-width: 90%;
+}
+
+
+/* Animación base */
+.animate {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Delays escalonados */
+.delay0 {
+  animation-delay: 0.05s;
+}
+
+.delay1 {
+  animation-delay: 0.18s;
+}
+
+.delay2 {
+  animation-delay: 0.32s;
+}
+
+/* Card especial: velocidad */
+.speedCard {
+  background: radial-gradient(
+    120% 120% at 20% 20%,
+    rgba(255, 70, 70, 0.18),
+    rgba(255, 70, 70, 0.05)
+  );
+}
+
+/* Número dominante */
+.speedValue {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #e54848; /* rojo cálido, no agresivo */
+}
+
+.speedValue span {
+  font-size: 2rem;
+  margin-left: 0.2rem;
+}
+
+/* Texto de soporte */
+.speedLabel {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  max-width: 80%;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gridContainer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .large,
+  .medium,
+  .small {
+    grid-column: span 6;
+  }
+}
+
+/* Controles inferiores */
+.controlsWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 5vh;;
+  margin-bottom: 15vh;
 }
 
-.navButton:hover {
-  background-color: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
-  transform: scale(1.1);
+/* Botones laterales */
+.controlButton {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.large {
-  grid-column: span 2;
-  grid-row: span 2;
-  /* El resto de estilos de .card que ya teníamos */
-  background-color: #ffffff;
-  border-radius: 28px;
-  padding: 2rem;
-  border: 1px solid rgba(0,0,0,0.05);
+.controlButton:hover {
+  opacity: 1;
 }
 
-.tag {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  letter-spacing: 0.05em;
+/* Paginación central */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.2rem 1rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Dots */
+.dot {
+  width: .475rem;
+  height: .475rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3); 
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+/* Activo */
+.dot.active {
+  width: 2.5rem;
+  border-radius: 6px;
+  background: var(--color-text); 
+  /* background: rgba(0, 0, 0, 0.5); */
 }

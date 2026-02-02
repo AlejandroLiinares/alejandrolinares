@@ -1,0 +1,60 @@
+.controlsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 5vh;
+  margin-bottom: 15vh;
+}
+
+.controlButton {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s ease; /* Transición rápida para el click */
+}
+
+/* Efecto solicitado: un color un poco más claro al darle click */
+.controlButton:active {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Estado desactivado: desaparece la opción visualmente */
+.disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controlButton img {
+  width: 1.2rem;
+  height: auto;
+}
+
+.paginationPill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.2rem 1rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dot {
+  width: .475rem;
+  height: .475rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3); 
+  transition: width 0.25s ease;
+}
+
+.dot.active {
+  width: 2.5rem;
+  border-radius: 6px;
+  background: var(--color-text); 
+}

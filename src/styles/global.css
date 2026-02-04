@@ -3,14 +3,13 @@
 }
 
 :root {
-  --color-background: #fff8f4; 
+  --color-background: #fbfbfb; 
   --color-text: #101010;
   --color-primary: #FF832A;
 
   /* Fuentes importadas escritas para ahorrar tiempo: 
   - 'Noto Serif Display'
   - 'Momo Trust Display'
-  - 'Gloock' 
   */
 
   --font-heading: 'Momo Trust Display', sans-serif;

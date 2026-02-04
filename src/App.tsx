@@ -1,5 +1,5 @@
-import './styles/global.css'; 
-import Layout from './components/layout/Layout';
+import './styles/global.css';
+
 import HeroHome from './components/home/HeroHome';
 import ThemeToggle from './components/common/ThemeToggle/ThemeToggle';
 import LanguajeToggle from './components/common/LenguageToggle/LenguageToggle';
@@ -9,14 +9,14 @@ import CallToAction from './components/calltoaction/CallToAction';
 
 function App() {
   return (
-    <Layout>
-        <ThemeToggle />
-        <LanguajeToggle />
-        <HeroHome /> 
-        <ProjectSection />
-        <AboutMe />
-        <CallToAction />
-    </Layout>
+    <>
+      <ThemeToggle />
+      <LanguajeToggle />
+      <HeroHome />
+      <ProjectSection />
+      <AboutMe />
+      <CallToAction />
+    </>
   );
 }
 

@@ -9,7 +9,6 @@ interface HeroBackgroundProps {
   speed?: number;
 }
 
-// Shaders: El "cerebro" matemático que dibuja el movimiento
 const VERT = `#version 300 es
 in vec2 position;
 void main() {
@@ -53,14 +52,15 @@ void main() {
   float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5 * uAmplitude;
   height = exp(height);
   height = (uv.y * 2.0 - height + 0.2);
+  
   float intensity = 0.6 * height;
   float auroraAlpha = smoothstep(0.2 - uBlend * 0.5, 0.2 + uBlend * 0.5, intensity);
   
-  // Interpolación simple de colores basada en el eje X
   vec3 rampColor = mix(uColorStops[0], uColorStops[1], smoothstep(0.0, 0.5, uv.x));
   rampColor = mix(rampColor, uColorStops[2], smoothstep(0.5, 1.0, uv.x));
   
-  fragColor = vec4(intensity * rampColor * auroraAlpha, auroraAlpha);
+  // FIX: No multiplicamos RGB por alpha para evitar el tinte gris en fondos claros.
+  fragColor = vec4(rampColor, auroraAlpha * uBlend);
 }`;
 
 const HeroBackground = ({ 
@@ -82,8 +82,10 @@ const HeroBackground = ({
 
     const renderer = new Renderer({ alpha: true, antialias: true });
     const gl = renderer.gl;
+    
+    // FIX: Activamos el blending estándar para manejar transparencia sin pre-oscurecimiento.
     gl.enable(gl.BLEND);
-    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {

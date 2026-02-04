@@ -119,17 +119,26 @@
 
 @media (max-width: 768px) {
   /* En un futuro dejare mi foto por detras y arriba del texto y un gradient bonito muy por arriba */
+  .heroSection {
+    width: 100%;
+    overflow-x: hidden; 
+    padding: 0 1.5rem; /* Margen interno de seguridad */
+  }
+
   .contentLayer {
-    margin-top: 37.5vh;
+    margin-top: 25vh; /* Bajamos un poco la agresividad del margin */
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
   .h1Title, 
   .h1Cursive {
-    font-size: 2.7rem;
+    font-size: clamp(2.2rem, 10vw, 2.7rem); /* Tipografía fluida */
     text-align: center;
-    width: 100%; 
-    max-width: none; 
+    width: 100%;
+    max-width: 100%;
+    line-height: 1.1;
   }
 
   .h1Cursive {
@@ -143,13 +152,94 @@
   }
 
   .buttonContainer {
-    flex-direction: row;
+    display: flex;
+    flex-direction: row; /* Mantienes tu diseño horizontal */
     justify-content: center;
     width: 100%;
-    gap: 1rem;
+    gap: 0.8rem;
+    margin-top: 2.5rem;
   }
 
   .button {
-    width: 11.5rem;
+    /* En lugar de 11.5rem fijo, usamos un ancho flexible */
+    flex: 1; 
+    max-width: 160px; /* Evita que crezcan demasiado en tablets */
+    min-width: 120px;
+    padding: 0.8rem 0; /* Padding vertical para que se vean bien */
   }
 }
+
+/* CODIGO ANTERIOR 
+
+@media (max-width: 768px) {
+
+
+  .contentLayer {
+
+    margin-top: 37.5vh;
+
+    align-items: center;
+
+  }
+
+
+
+  .h1Title,
+
+  .h1Cursive {
+
+    font-size: 2.7rem;
+
+    text-align: center;
+
+    width: 100%;
+
+    max-width: none;
+
+  }
+
+
+
+  .h1Cursive {
+
+    font-size: 3rem;
+
+  }
+
+
+
+  .description {
+
+    font-size: .82rem;
+
+    max-width: 100%;
+
+    text-align: center;
+
+  }
+
+
+
+  .buttonContainer {
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 1rem;
+
+  }
+
+
+
+  .button {
+
+    width: 11.5rem;
+
+  }
+
+}
+
+*/

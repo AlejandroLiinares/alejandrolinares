@@ -7,7 +7,6 @@
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  /* El color de fondo del contenedor ayuda a la transición */
   background-color: transparent;
 }
 
@@ -15,4 +14,16 @@
   display: block;
   width: 100% !important;
   height: 100% !important;
+  /* Elimina el ruido en los bordes y suaviza la transición visual */
+  filter: blur(25px); 
+  /* Tinte orgánico sobre el fondo crema para el modo día */
+  mix-blend-mode: multiply; 
+  opacity: 0.85;
+}
+
+/* En modo noche, cambiamos a screen para que los colores brillen sobre el fondo oscuro */
+:global([data-theme='dark']) .auroraContainer canvas {
+  mix-blend-mode: screen;
+  filter: blur(15px);
+  opacity: 0.6;
 }

@@ -9,12 +9,7 @@ const HeroHome = () => {
     <section className={styles.section}>
       
       <div className={styles.backgroundLayer}>
-        <HeroBackground 
-          speed={5}      // Sube a 4.0 para "tormenta solar", baja a 0.5 para calma total.
-          amplitude={.01}  // Qué tan "altas" son las ondas. Un valor de 0.1 a 0.5 es lo ideal.
-          blend={.9}      // La intensidad/opacidad general del efecto.
-          colorStops={["#FF832A", "#FF832A", "#FF832A"]} // Tus colores actuales.
-        />
+        <HeroBackground />
       </div>
 
       <div className={styles.contentLayer}>

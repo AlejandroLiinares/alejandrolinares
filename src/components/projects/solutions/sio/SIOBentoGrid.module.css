@@ -1,0 +1,217 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.4rem;
+  width: 100%;
+}
+
+/* ================= CARD BASE ================= */
+
+.card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--color-border-subtle);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  grid-column: span 8;
+  min-height: 420px;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 100%;
+}
+
+.heroText h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.heroText p {
+  color: var(--color-text-muted);
+  max-width: 420px;
+}
+
+.heroMedia {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.heroMedia img {
+  max-height: 240px;
+  object-fit: contain;
+}
+
+.mobilePreview {
+  max-height: 200px;
+}
+
+/* ================= DESIGN ================= */
+
+.design {
+  grid-column: span 4;
+  min-height: 220px;
+}
+
+.emojiImage {
+  margin-top: 1rem;
+  max-height: 110px;
+}
+
+/* ================= MVP ================= */
+
+.mvp {
+  grid-column: span 4;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.metricValue {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+
+/* ================= STACK ================= */
+
+.stack {
+  grid-column: span 4;
+}
+
+.stackGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+}
+
+.stackGrid img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ================= SECURITY ================= */
+
+.security {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ================= OFFLINE ================= */
+
+.offline {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+}
+
+.offlineRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ================= 2FA ================= */
+
+.auth {
+  grid-column: span 4;
+}
+
+/* ================= PERFORMANCE ================= */
+
+.performance {
+  grid-column: span 4;
+}
+
+.metricValueHighlight {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* ================= THEME ================= */
+
+.theme {
+  grid-column: span 4;
+}
+
+/* ================= ICONS ================= */
+
+.iconLarge {
+  width: 56px;
+  height: 56px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .hero {
+    grid-column: span 6;
+  }
+
+  .design,
+  .mvp,
+  .stack,
+  .security,
+  .offline,
+  .auth,
+  .performance,
+  .theme {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero,
+  .design,
+  .mvp,
+  .stack,
+  .security,
+  .offline,
+  .auth,
+  .performance,
+  .theme {
+    grid-column: span 4;
+  }
+
+  .heroContent {
+    flex-direction: column;
+  }
+
+  .heroMedia {
+    justify-content: flex-start;
+  }
+}

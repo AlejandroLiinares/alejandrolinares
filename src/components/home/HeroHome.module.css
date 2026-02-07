@@ -134,7 +134,7 @@
 
   .h1Title, 
   .h1Cursive {
-    font-size: clamp(2.2rem, 10vw, 2.7rem); /* Tipografía fluida */
+    font-size: clamp(2.2rem, 10vw, 2.7rem); 
     text-align: center;
     width: 100%;
     max-width: 100%;
@@ -175,59 +175,33 @@
 
 
   .contentLayer {
-
     margin-top: 37.5vh;
-
     align-items: center;
-
   }
-
 
 
   .h1Title,
-
   .h1Cursive {
-
     font-size: 2.7rem;
-
     text-align: center;
-
     width: 100%;
-
     max-width: none;
-
   }
-
-
 
   .h1Cursive {
-
     font-size: 3rem;
-
   }
-
-
 
   .description {
-
     font-size: .82rem;
-
     max-width: 100%;
-
     text-align: center;
-
   }
 
-
-
   .buttonContainer {
-
     flex-direction: row;
-
     justify-content: center;
-
     width: 100%;
-
     gap: 1rem;
 
   }

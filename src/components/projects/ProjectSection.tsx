@@ -1,14 +1,14 @@
 import styles from './ProjectSection.module.css';
-import BentoGrid from './bentogrid/BentoGrid';
+import ProjectsBento from './projectsbento/ProjectsBento';
 
 const ProjectSection = () => {
   return (
-    <section className={styles.section}>
+    <section className={styles.sectionWrapper}>
       <h2 className={styles.h2Title}>
         Solutions in Practice
       </h2>
 
-      <BentoGrid />
+      <ProjectsBento />
     </section>
   );
 };

@@ -1,12 +1,12 @@
 .button {
   position: fixed;
   top: 2rem;
-  right: 2rem;
+  right: 6rem;
   z-index: 1000;
 
-  background: transparent;
-  border: 1px solid var(--color-text);
-  color: var(--color-text);
+  background: var(--color-text);
+  border: none;
+  color: var(--color-background);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   cursor: pointer;
@@ -17,11 +17,10 @@
   
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: .3rem;
 }
 
 .button:hover {
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
   color: var(--color-background);
-  transform: translateY(-2px);
 }

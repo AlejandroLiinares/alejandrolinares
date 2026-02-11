@@ -2,59 +2,70 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 5vh;
-  margin-bottom: 15vh;
+  gap: 1.2rem;
+  margin: 8vh 0 12vh;
+  width: 100%;
 }
 
 .controlButton {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.05);
-  cursor: pointer;
+  background: var(--color-btn-secundary); 
+  color: var(--color-text);
+  padding: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.1s ease; /* Transición rápida para el click */
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Efecto solicitado: un color un poco más claro al darle click */
-.controlButton:active {
-  background: rgba(0, 0, 0, 0.02);
+.controlButton:hover {
+  background: var(--color-btn-secundary-hover);
 }
 
-/* Estado desactivado: desaparece la opción visualmente */
+:global([data-theme='dark']) .controlButton {
+  background: var(--color-btn-secundary);
+}
+
+:global([data-theme='dark']) .controlButton:hover {
+  background: var(--color-btn-secundary-hover);
+}
+
 .disabled {
-  opacity: 0;
+  opacity: 0.3; /* Lo dejamos visible pero tenue si está bloqueado */
   pointer-events: none;
-}
-
-.controlButton img {
-  width: 1.2rem;
-  height: auto;
 }
 
 .paginationPill {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 1.2rem 1rem;
+  gap: 0.6rem;
+  padding: 1.25rem 3rem;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--color-btn-secundary);
+}
+
+:global([data-theme='dark']) .paginationPill {
+  background: var(--color-btn-secundary);
 }
 
 .dot {
-  width: .475rem;
-  height: .475rem;
+  width: .5rem;
+  height: .5rem;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.3); 
-  transition: width 0.25s ease;
+  background: var(--color-dot);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dot.active {
-  width: 2.5rem;
-  border-radius: 6px;
-  background: var(--color-text); 
+  width: 3rem; 
+  border-radius: 10px;
+  background: var(--color-dot-hover);
+}
+
+:global([data-theme='dark']) .dot {
+  background: var(--color-dot);
 }

@@ -23,17 +23,19 @@ export const useLanguage = () => {
 // 3. EXPORTAMOS EL PROVIDER
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    return (localStorage.getItem('language') as Language) || 'en';
+    // Cambiamos el fallback de 'en' a 'es'
+    return (localStorage.getItem('language') as Language) || 'es';
   });
 
   const t = translations[language];
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'es' : 'en'));
+    setLanguage((prev) => (prev === 'es' ? 'en' : 'es'));
   };
 
   useEffect(() => {
     localStorage.setItem('language', language);
+    // Esto sobreescribe el lang del index.html dinámicamente
     document.documentElement.lang = language;
   }, [language]);
 

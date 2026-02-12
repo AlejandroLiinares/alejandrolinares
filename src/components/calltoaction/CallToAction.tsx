@@ -3,7 +3,7 @@ import styles from './CallToAction.module.css';
 const CallToAction = () => {
   return (
     <section className={styles.section}>
-      <h2 className={styles.h2Title}>Let's build</h2>
+      <h2 className={styles.h2Title}>Hagámoslo realidad.</h2>
     </section>
   );
 };

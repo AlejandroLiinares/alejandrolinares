@@ -1,13 +1,16 @@
+/* ============================================================
+   SIOBentoGrid.module.css
+   ============================================================ */
+
 .sioGrid {
   display: grid;
   width: 100%;
-  max-width: 1200px;
+  max-width: 85%;
   margin: 0 auto;
-  gap: .9rem;
-  padding: 0 1rem;
+  gap: 0.9rem;
+  padding: 0 2rem;
 
-  /* 4 columnas base */
-  grid-template-columns: 280px 1fr 1fr 280px;
+  grid-template-columns: 250px 1fr 1fr 1fr 300px;
   grid-template-rows: auto auto auto;
 }
 
@@ -21,7 +24,6 @@
   overflow: hidden;
   position: relative;
 
-  /* Estado inicial para animación */
   opacity: 0;
   transform: translateY(20px) scale(0.985);
   will-change: transform, opacity;
@@ -34,15 +36,46 @@
 }
 
 /* ── Posiciones en el grid ───────────────────────────────── */
-.cardDesign   { grid-column: 1 / 2; grid-row: 1 / 2; min-height: 200px; justify-content: space-between; }
-.cardHero     { grid-column: 2 / 4; grid-row: 1 / 3; min-height: 400px; }
-.cardDays     { grid-column: 4 / 5; grid-row: 1 / 2; justify-content: space-between; }
-.cardTech     { grid-column: 1 / 2; grid-row: 2 / 3; }
-.cardSecurity { grid-column: 4 / 5; grid-row: 2 / 3; }
-.cardOffline  { grid-column: 1 / 2; grid-row: 3 / 4; flex-direction: row; align-items: center; gap: 12px; }
-.cardHistory  { grid-column: 2 / 3; grid-row: 3 / 4; justify-content: space-between; }
-.cardSpeed    { grid-column: 3 / 4; grid-row: 3 / 4; justify-content: space-between; }
-.cardTheme    { grid-column: 4 / 5; grid-row: 3 / 4; justify-content: space-between; }
+.cardDesign  { grid-column: 1 / 2; grid-row: 1 / 2; min-height: 200px; justify-content: space-between; }
+.cardHero    { grid-column: 2 / 5; grid-row: 1 / 3; min-height: 400px; gap: 1rem; }
+.cardDays    { grid-column: 5 / 6; grid-row: 1 / 2; justify-content: center; }
+.cardTech    { grid-column: 1 / 2; grid-row: 2 / 3; }
+.cardOffline { grid-column: 1 / 2; grid-row: 3 / 4; flex-direction: row; align-items: center; gap: 12px; }
+.cardHistory { grid-column: 2 / 3; grid-row: 3 / 4; justify-content: center; }
+.cardSpeed   { grid-column: 3 / 5; grid-row: 3 / 4; justify-content: center; }
+.cardTheme   { grid-column: 5 / 6; grid-row: 3 / 4; justify-content: space-between; }
+
+/* ── Wrapper roles + 2FA (col 5, fila 2) ────────────────── */
+.cardSecurityWrapper {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.cardRoles,
+.card2FA {
+  background-color: var(--color-card);
+  border-radius: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  will-change: transform, opacity;
+  transition: transform 0.22s ease, background-color 0.3s ease;
+}
+
+.cardRoles:hover,
+.card2FA:hover {
+  transform: translateY(-3px) scale(1.005);
+}
 
 /* ── Animación ───────────────────────────────────────────── */
 .animate {
@@ -68,15 +101,24 @@
   line-height: 1.3;
 }
 
+.statEyebrow {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text);
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
 /* ── CARD 1: Diseño amigable ─────────────────────────────── */
 .designImg {
-  margin-bottom: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 0 -1rem 0;
   align-self: flex-start;
 }
 
 /* ── CARD 2: Hero ────────────────────────────────────────── */
-.cardHero { gap: 1rem; }
-
 .heroTitle {
   font-family: var(--font-body);
   font-size: 1.4rem;
@@ -90,100 +132,58 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 12px;
   margin-top: 8px;
 }
 
-.mockupLaptop {
-  width: 75%;
-  max-width: 340px;
-  height: auto;
+.mockupImg {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
   object-fit: contain;
-}
-
-.mockupMobile {
-  width: 20%;
-  max-width: 90px;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 8px;
 }
 
 /* ── CARD 3: 28 días ─────────────────────────────────────── */
-.statEyebrow {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--color-text);
-  opacity: 0.6;
-  line-height: 1.4;
-}
-
 .statValue {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 3.4rem;
   font-weight: 800;
-  color: var(--sio-accent);
   margin: 0;
   line-height: 1;
-}
-
-.statUnit {
-  font-size: 1.8rem;
-  font-weight: 700;
 }
 
 /* ── CARD 4: Tech stack ──────────────────────────────────── */
 .techGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 2.1rem;
   height: 100%;
   align-content: center;
 }
 
 .techItem {
-  background: var(--color-background);
-  border-radius: 12px;
-  aspect-ratio: 1;
+  background: transparent;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
-  cursor: default;
+  cursor: pointer;
 }
 
-.techItem:hover {
-  transform: scale(1.1);
-}
+.techItem:hover { transform: scale(1.1); }
 
-.techEmoji {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-/* ── CARD 5: Security (roles + 2FA) ──────────────────────── */
-.cardSecurity { gap: 0; }
-
-.securityItem {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-align: center;
-  padding: 8px 4px;
-}
-
-.securityDivider {
+.techIcon {
   width: 100%;
-  height: 1px;
-  background: var(--color-background);
-  flex-shrink: 0;
+  height: 100%;
+  object-fit: contain;
 }
 
-.securityEmoji {
-  font-size: 1.7rem;
+/* ── Todos los SVGs ───────────────────────────── */
+.Icon {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
 }
 
 .securityLabel {
@@ -193,11 +193,6 @@
   line-height: 1.3;
 }
 
-/* ── CARD 6: Offline ─────────────────────────────────────── */
-.offlineEmoji {
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
 
 /* ── CARD 7: Historial ───────────────────────────────────── */
 .historyLabel {
@@ -207,18 +202,11 @@
   line-height: 1.45;
 }
 
-.historyEmoji {
-  font-size: 2.2rem;
-  margin-top: auto;
-  align-self: flex-start;
-}
-
 /* ── CARD 8: x4000 ───────────────────────────────────────── */
 .speedValue {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 3rem;
   font-weight: 800;
-  color: var(--sio-accent);
   margin: 0;
   line-height: 1;
 }
@@ -239,89 +227,7 @@
   flex: 1;
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 960px) {
-  .sioGrid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  .cardHero     { grid-column: 1 / 3; grid-row: 1 / 2; min-height: 280px; }
-  .cardDesign   { grid-column: 1 / 2; grid-row: 2 / 3; }
-  .cardDays     { grid-column: 2 / 3; grid-row: 2 / 3; }
-  .cardTech     { grid-column: 1 / 2; grid-row: 3 / 4; }
-  .cardSecurity { grid-column: 2 / 3; grid-row: 3 / 4; }
-  .cardOffline  { grid-column: 1 / 2; grid-row: 4 / 5; }
-  .cardHistory  { grid-column: 2 / 3; grid-row: 4 / 5; }
-  .cardSpeed    { grid-column: 1 / 2; grid-row: 5 / 6; }
-  .cardTheme    { grid-column: 2 / 3; grid-row: 5 / 6; }
-}
-
-@media (max-width: 540px) {
-  .sioGrid {
-    grid-template-columns: 1fr;
-    padding: 0 12px;
-  }
-
-  .cardHero,
-  .cardDesign,
-  .cardDays,
-  .cardTech,
-  .cardSecurity,
-  .cardOffline,
-  .cardHistory,
-  .cardSpeed,
-  .cardTheme {
-    grid-column: 1 / 2;
-    grid-row: auto;
-  }
-}
-
-/* ── Imágenes ────────────────────────────────────────────── */
-.designImg {
-  width: 100%;
-  max-width: 160px;
-  height: auto;
-  object-fit: contain;
-  margin-top: auto;
-  align-self: flex-start;
-}
-
-.mockupImg {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.techIcon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-.securityIcon {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-}
-
-.offlineIcon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.historyIcon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  margin-top: auto;
-  align-self: flex-start;
-}
-
-/* ── Gradient text (28 días / x4000) ────────────────────── */
+/* ── Gradient text (tus colores, que eran mejores) ───────── */
 .gradientText {
   background: linear-gradient(
     180deg,
@@ -332,4 +238,36 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .sioGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cardHero            { grid-column: 1 / 4; grid-row: 1 / 2; min-height: 280px; }
+  .cardDesign          { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .cardDays            { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .cardTech            { grid-column: 3 / 4; grid-row: 2 / 3; }
+  .cardSecurityWrapper { grid-column: 1 / 3; grid-row: 3 / 4; }
+  .cardOffline         { grid-column: 3 / 4; grid-row: 3 / 4; }
+  .cardHistory         { grid-column: 1 / 2; grid-row: 4 / 5; }
+  .cardSpeed           { grid-column: 2 / 3; grid-row: 4 / 5; }
+  .cardTheme           { grid-column: 3 / 4; grid-row: 4 / 5; }
+}
+
+@media (max-width: 640px) {
+  .sioGrid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 1rem;
+  }
+  .cardHero            { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .cardDesign          { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .cardDays            { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .cardTech            { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .cardSecurityWrapper { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .cardOffline         { grid-column: 1 / 2; grid-row: 4 / 5; }
+  .cardHistory         { grid-column: 2 / 3; grid-row: 4 / 5; }
+  .cardSpeed           { grid-column: 1 / 2; grid-row: 5 / 6; }
+  .cardTheme           { grid-column: 2 / 3; grid-row: 5 / 6; }
 }

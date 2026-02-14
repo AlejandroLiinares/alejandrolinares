@@ -32,24 +32,16 @@ const SIOBentoGrid = () => {
       {/* ── 1. DISEÑO AMIGABLE ─────────────────────────── */}
       <div className={`${styles.card} ${styles.cardDesign} ${styles.animate} ${styles.delay0}`}>
         <span className={styles.cardLabel}>Diseño amigable</span>
-        <img
-          src={medicosImg}
-          alt="Médicos ilustración"
-          className={styles.designImg}
-        />
+        <img src={medicosImg} alt="Médicos ilustración" className={styles.designImg} />
       </div>
 
       {/* ── 2. HERO — Título + Mockup ─────────────────── */}
       <div className={`${styles.card} ${styles.cardHero} ${styles.animate} ${styles.delay1}`}>
         <h3 className={styles.heroTitle}>
-          Sistema de Información<br />Obstétrico (SIO)
+          Sistema de Información Obstétrico (SIO)
         </h3>
         <div className={styles.mockupArea}>
-          <img
-            src={sioMockup}
-            alt="Mockup SIO laptop y móvil"
-            className={styles.mockupImg}
-          />
+          <img src={sioMockup} alt="Mockup SIO" className={styles.mockupImg} />
         </div>
       </div>
 
@@ -57,8 +49,7 @@ const SIOBentoGrid = () => {
       <div className={`${styles.card} ${styles.cardDays} ${styles.animate} ${styles.delay2}`}>
         <span className={styles.statEyebrow}>MVP desarrollado en</span>
         <p className={styles.statValue}>
-          <span className={styles.gradientText}>28</span>
-          <span className={styles.statUnit}> días</span>
+          <span className={styles.gradientText}>28 días</span>
         </p>
       </div>
 
@@ -67,45 +58,28 @@ const SIOBentoGrid = () => {
         <div className={styles.techGrid}>
           {techStack.map((tech) => (
             <div key={tech.name} className={styles.techItem} title={tech.name}>
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                className={styles.techIcon}
-              />
+              <img src={tech.icon} alt={tech.name} className={styles.techIcon} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* ── 5. ROLES + 2FA ────────────────────────────── */}
-      <div className={`${styles.card} ${styles.cardSecurity} ${styles.animate} ${styles.delay1}`}>
-        <div className={styles.securityItem}>
-          <img
-            src={practitionerIcon}
-            alt="Ingreso basado en roles"
-            className={styles.securityIcon}
-          />
+      {/* ── 5. ROLES + 2FA — dos cards independientes ─── */}
+      <div className={styles.cardSecurityWrapper}>
+        <div className={`${styles.cardRoles} ${styles.animate} ${styles.delay1}`}>
+          <img src={practitionerIcon} alt="Roles" className={styles.Icon} />
           <span className={styles.securityLabel}>Ingreso basado en roles</span>
         </div>
-        <div className={styles.securityDivider} />
-        <div className={styles.securityItem}>
-          <img
-            src={heartLockIcon}
-            alt="Doble factor 2FA"
-            className={styles.securityIcon}
-          />
+        <div className={`${styles.card2FA} ${styles.animate} ${styles.delay1}`}>
           <span className={styles.securityLabel}>Identificación de doble factor 2FA</span>
+          <img src={heartLockIcon} alt="2FA" className={styles.Icon} />
         </div>
       </div>
 
       {/* ── 6. OFFLINE ────────────────────────────────── */}
       <div className={`${styles.card} ${styles.cardOffline} ${styles.animate} ${styles.delay0}`}>
-        <img
-          src={noWifiIcon}
-          alt="Sin conexión"
-          className={styles.offlineIcon}
-        />
-        <span className={styles.cardLabel}>Funcionando sin conexión</span>
+        <img src={noWifiIcon} alt="Sin conexión" className={styles.Icon} />
+        <span className={styles.cardLabel}>Funcionando con conexión inestable de internet</span>
       </div>
 
       {/* ── 7. HISTORIAL ──────────────────────────────── */}
@@ -113,11 +87,7 @@ const SIOBentoGrid = () => {
         <span className={styles.historyLabel}>
           Retroceder acciones mediante historial
         </span>
-        <img
-          src={timeIcon}
-          alt="Historial de acciones"
-          className={styles.historyIcon}
-        />
+        <img src={timeIcon} alt="Historial" className={styles.Icon} />
       </div>
 
       {/* ── 8. STAT — x4000 ───────────────────────────── */}
@@ -132,11 +102,7 @@ const SIOBentoGrid = () => {
       {/* ── 9. TEMA CLARO / OSCURO ────────────────────── */}
       <div className={`${styles.card} ${styles.cardTheme} ${styles.animate} ${styles.delay2}`}>
         <span className={styles.cardLabel}>Tema claro y oscuro</span>
-        <img
-          src={sioThemeImg}
-          alt="Tema claro y oscuro del SIO"
-          className={styles.themeImg}
-        />
+        <img src={sioThemeImg} alt="Tema claro y oscuro" className={styles.themeImg} />
       </div>
 
     </div>

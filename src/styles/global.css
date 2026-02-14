@@ -4,18 +4,19 @@
 
 :root {
   /* COLORES */
-  --color-background: #fbfbfb; 
+  --color-background: #ffffff; 
   --color-text: #1a1a1a;
   --color-primary: #FF832A;
   --color-btn-secundary: #e5e5e5;
   --color-btn-secundary-hover: #d1d1d1;
   --color-dot: #727272;
   --color-dot-hover: #6a6a6a;
+  --color-card: #eee;
 
   /* TIPOGRAFÍAS */
   --font-heading: 'Momo Trust Display', sans-serif;
   --font-heading-cursive: 'Noto Serif Display', serif;
-  --font-body: 'apple-system', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 [data-theme="dark"] {
@@ -25,6 +26,7 @@
   --color-btn-secundary-hover: #4e4e4e;
   --color-dot: #dbdbdb;
   --color-dot-hover: #c1c1c1;
+  --color-card: #000000;
 }
 
 body {

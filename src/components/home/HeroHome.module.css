@@ -1,3 +1,7 @@
+/* ============================================================
+   Hero.module.css
+   ============================================================ */
+
 .section {
   position: relative;
   width: 100%;
@@ -8,7 +12,7 @@
   overflow: hidden;
 }
 
-/* Capa contenedora del fondo */
+/* ── Capa de fondo ───────────────────────────────────────── */
 .backgroundLayer {
   position: absolute;
   top: 0;
@@ -19,27 +23,32 @@
   pointer-events: none;
 }
 
-/* --- CAPA 2: CONTENIDO (Texto y Botones) --- */
+/* ── Capa de contenido ───────────────────────────────────── */
 .contentLayer {
   position: relative;
-  margin-top: 10vh;
   z-index: 10;
   flex: 1;
+
+  /* Margen izquierdo centralizado aquí — un solo lugar para cambiarlo */
+  padding-left: 13%;
+  padding-top: 10%;
+
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: flex-start; 
+  justify-content: center;
+  align-items: flex-start;
 }
 
+/* ── Heading container ───────────────────────────────────── */
 .mainHeading {
   margin: 0;
-  margin-left: 13%;
   padding: 0;
-  display: flex;       
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
+/* ── Tipografía ──────────────────────────────────────────── */
 .h1Title {
   display: block;
   font-family: var(--font-heading);
@@ -52,31 +61,30 @@
 }
 
 .h1Cursive {
-  display: block;     
-  font-family: var(--font-heading-cursive); 
-  font-size: clamp(3.3rem, 10vw, 5.3rem);   
-  font-style: italic; 
-  font-weight: 680; 
-  line-height: .9;
+  display: block;
+  font-family: var(--font-heading-cursive);
+  font-size: clamp(3.3rem, 10vw, 5.3rem);
+  font-style: italic;
+  font-weight: 700; /* FIX: 680 no existe, el más cercano es 700 */
+  line-height: 0.9;
   max-width: 13ch;
   color: var(--color-primary);
 }
 
 .description {
   font-family: var(--font-body);
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: normal;
   line-height: 1.6;
-  margin: 1.5rem 0 1.5rem 0;
-  margin-left: 13%;
-  max-width: 53ch; 
+  margin: 1.5rem 0;
+  max-width: 53ch;
   color: var(--color-text);
 }
 
+/* ── Botones ─────────────────────────────────────────────── */
 .buttonContainer {
   display: flex;
-  gap: 1rem; 
-  margin-left: 13%;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -84,136 +92,99 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .75rem; 
+  gap: 0.75rem;
 
-  padding: .7rem 1.2rem;
-  border-radius: .6rem; 
-  
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.6rem;
+
   font-family: var(--font-body);
-  font-size: .880rem;
-  font-weight: 550;
+  font-size: 0.88rem;
+  font-weight: 600; 
   text-decoration: none;
-  
-  border: 1px solid transparent; 
+
+  border: 1px solid transparent;
   white-space: nowrap;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Botón 1: GitHub (Negro Solido) */
+.button:hover {
+  transform: translateY(-1px);
+}
+
+/* Botón 1: GitHub */
 .button:first-child {
-  background-color: var(--color-text); 
-  color: var(--color-background); 
+  background-color: var(--color-text);
+  color: var(--color-background);
 }
 
-/* Botón 2: LinkedIn (Gris Suave / Fantasma) */
+/* Botón 2: LinkedIn */
 .button:last-child {
-  background-color: var(--color-primary); 
-  color: var(--color-background); 
+  background-color: var(--color-primary);
+  color: var(--color-background);
 }
 
-/* --- CCS MINIMO DE ICONOS SVG --- */
+/* ── Iconos SVG ──────────────────────────────────────────── */
 .button svg {
   width: 20px;
   height: 20px;
-  fill: currentColor; 
+  fill: currentColor;
 }
 
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* En un futuro dejare mi foto por detras y arriba del texto y un gradient bonito muy por arriba */
-  .heroSection {
-    width: 100%;
-    overflow-x: hidden; 
-    padding: 0 1.5rem; /* Margen interno de seguridad */
+  .section {
+    overflow-x: hidden;
   }
 
   .contentLayer {
-    margin-top: 25vh; /* Bajamos un poco la agresividad del margin */
-    display: flex;
-    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     align-items: center;
+    justify-content: flex-start;
+    margin-top: 40vh;
   }
 
-  .h1Title, 
-  .h1Cursive {
-    font-size: clamp(2.2rem, 10vw, 2.7rem); 
-    text-align: center;
+  .mainHeading {
+    align-items: center;
     width: 100%;
+  }
+
+  .h1Title {
+    font-size: clamp(2.2rem, 10vw, 2.7rem);
+    text-align: center;
     max-width: 100%;
     line-height: 1.1;
   }
 
   .h1Cursive {
-    font-size: 3rem;
+    font-size: clamp(2.6rem, 10vw, 3rem);
+    text-align: center;
+    max-width: 100%;
+    margin-top: .5rem;
+    line-height: 1.1;
+    max-width: 13ch;
   }
 
   .description {
-    font-size: .82rem;
+    font-size: 0.82rem;
     max-width: 100%;
     text-align: center;
-  }
-
-  .buttonContainer {
-    display: flex;
-    flex-direction: row; /* Mantienes tu diseño horizontal */
-    justify-content: center;
-    width: 100%;
-    gap: 0.8rem;
-    margin-top: 2.5rem;
-  }
-
-  .button {
-    /* En lugar de 11.5rem fijo, usamos un ancho flexible */
-    flex: 1; 
-    max-width: 160px; /* Evita que crezcan demasiado en tablets */
-    min-width: 120px;
-    padding: 0.8rem 0; /* Padding vertical para que se vean bien */
-  }
-}
-
-/* CODIGO ANTERIOR 
-
-@media (max-width: 768px) {
-
-
-  .contentLayer {
-    margin-top: 37.5vh;
-    align-items: center;
-  }
-
-
-  .h1Title,
-  .h1Cursive {
-    font-size: 2.7rem;
-    text-align: center;
-    width: 100%;
-    max-width: none;
-  }
-
-  .h1Cursive {
-    font-size: 3rem;
-  }
-
-  .description {
-    font-size: .82rem;
-    max-width: 100%;
-    text-align: center;
+    margin: 1.5rem 0;
+    max-width: 53ch;
   }
 
   .buttonContainer {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    gap: 1rem;
-
+    gap: 0.8rem;
   }
-
-
 
   .button {
-
-    width: 11.5rem;
-
+    flex: 1;
+    max-width: 160px;
+    min-width: 120px;
+    padding: 0.8rem 0;
   }
-
 }
-
-*/

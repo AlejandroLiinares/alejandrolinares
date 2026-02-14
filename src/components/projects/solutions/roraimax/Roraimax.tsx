@@ -1,64 +1,48 @@
-import styles from './SIOBentoGrid.module.css';
+import styles from './Roraimax.module.css';
 
-// ── Assets SIO ────────────────────────────────────────────
-import medicosImg       from '../../../../assets/SIO/medicos.png';
-import sioMockup        from '../../../../assets/SIO/SIO.png';
-import vanillaIcon      from '../../../../assets/SIO/vanilla.png';
-import figmaIcon        from '../../../../assets/SIO/Figma-color.svg';
-import githubIcon       from '../../../../assets/SIO/github-circular.svg';
-import djangoIcon       from '../../../../assets/SIO/django-color.svg';
-import postgresIcon     from '../../../../assets/SIO/postgresql-icon.png';
-import reportLabIcon    from '../../../../assets/SIO/ReportLab.png';
-import practitionerIcon from '../../../../assets/SIO/practitioner.svg';
-import heartLockIcon    from '../../../../assets/SIO/red-heart-padlock.svg';
-import noWifiIcon       from '../../../../assets/SIO/green-no-wifi.svg';
-import timeIcon         from '../../../../assets/SIO/time.svg';
-import sioThemeImg      from '../../../../assets/SIO/SIO-dark.png';
-
-// ── Tech stack ────────────────────────────────────────────
+// ── Iconos de tecnologías (SVG inline o puedes reemplazar con tus imágenes) ──
 const techStack = [
-  { name: 'HTML / CSS',  icon: vanillaIcon },
-  { name: 'Figma',       icon: figmaIcon },
-  { name: 'GitHub',      icon: githubIcon },
-  { name: 'Django',      icon: djangoIcon },
-  { name: 'PostgreSQL',  icon: postgresIcon },
-  { name: 'ReportLab',   icon: reportLabIcon },
+  { name: 'HTML5',      emoji: '🌐' },
+  { name: 'CSS3',       emoji: '🎨' },
+  { name: 'Figma',      emoji: '✏️' },
+  { name: 'GitHub',     emoji: '🐙' },
+  { name: 'Django',     emoji: '🐍' },
+  { name: 'PostgreSQL', emoji: '🐘' },
 ];
 
-const SIOBentoGrid = () => {
+const Roraimax = () => {
   return (
     <div className={styles.sioGrid}>
 
       {/* ── 1. DISEÑO AMIGABLE ─────────────────────────── */}
       <div className={`${styles.card} ${styles.cardDesign} ${styles.animate} ${styles.delay0}`}>
-        <span className={styles.cardLabel}>Diseño amigable</span>
-        <img
-          src={medicosImg}
-          alt="Médicos ilustración"
-          className={styles.designImg}
-        />
+        <span className={styles.cardLabel}>Reuniones semanales</span>
+        <span className={styles.bigEmoji}>👩‍⚕️</span>
       </div>
 
       {/* ── 2. HERO — Título + Mockup ─────────────────── */}
       <div className={`${styles.card} ${styles.cardHero} ${styles.animate} ${styles.delay1}`}>
-        <h3 className={styles.heroTitle}>
-          Sistema de Información<br />Obstétrico (SIO)
-        </h3>
+        <h3 className={styles.heroTitle}>Roraimax</h3>
         <div className={styles.mockupArea}>
+          {/* Reemplaza el src con tu imagen real */}
           <img
-            src={sioMockup}
-            alt="Mockup SIO laptop y móvil"
-            className={styles.mockupImg}
+            src="/images/sio-mockup-laptop.png"
+            alt="Mockup SIO en laptop"
+            className={styles.mockupLaptop}
+          />
+          <img
+            src="/images/sio-mockup-mobile.png"
+            alt="Mockup SIO en móvil"
+            className={styles.mockupMobile}
           />
         </div>
       </div>
 
       {/* ── 3. STAT — 28 días ─────────────────────────── */}
       <div className={`${styles.card} ${styles.cardDays} ${styles.animate} ${styles.delay2}`}>
-        <span className={styles.statEyebrow}>MVP desarrollado en</span>
+        <span className={styles.statEyebrow}>MVP Desarrollado en</span>
         <p className={styles.statValue}>
-          <span className={styles.gradientText}>28</span>
-          <span className={styles.statUnit}> días</span>
+          28<span className={styles.statUnit}> días</span>
         </p>
       </div>
 
@@ -67,44 +51,28 @@ const SIOBentoGrid = () => {
         <div className={styles.techGrid}>
           {techStack.map((tech) => (
             <div key={tech.name} className={styles.techItem} title={tech.name}>
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                className={styles.techIcon}
-              />
+              <span className={styles.techEmoji}>{tech.emoji}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ── 5. ROLES + 2FA ────────────────────────────── */}
+      {/* ── 5. ROLES + 2FA (card doble) ───────────────── */}
       <div className={`${styles.card} ${styles.cardSecurity} ${styles.animate} ${styles.delay1}`}>
         <div className={styles.securityItem}>
-          <img
-            src={practitionerIcon}
-            alt="Ingreso basado en roles"
-            className={styles.securityIcon}
-          />
+          <span className={styles.securityEmoji}>🔐</span>
           <span className={styles.securityLabel}>Ingreso basado en roles</span>
         </div>
         <div className={styles.securityDivider} />
         <div className={styles.securityItem}>
-          <img
-            src={heartLockIcon}
-            alt="Doble factor 2FA"
-            className={styles.securityIcon}
-          />
+          <span className={styles.securityEmoji}>🔒</span>
           <span className={styles.securityLabel}>Identificación de doble factor 2FA</span>
         </div>
       </div>
 
       {/* ── 6. OFFLINE ────────────────────────────────── */}
       <div className={`${styles.card} ${styles.cardOffline} ${styles.animate} ${styles.delay0}`}>
-        <img
-          src={noWifiIcon}
-          alt="Sin conexión"
-          className={styles.offlineIcon}
-        />
+        <span className={styles.offlineEmoji}>🌐</span>
         <span className={styles.cardLabel}>Funcionando sin conexión</span>
       </div>
 
@@ -113,27 +81,22 @@ const SIOBentoGrid = () => {
         <span className={styles.historyLabel}>
           Retroceder acciones mediante historial
         </span>
-        <img
-          src={timeIcon}
-          alt="Historial de acciones"
-          className={styles.historyIcon}
-        />
+        <span className={styles.historyEmoji}>⏳</span>
       </div>
 
       {/* ── 8. STAT — x4000 ───────────────────────────── */}
       <div className={`${styles.card} ${styles.cardSpeed} ${styles.animate} ${styles.delay2}`}>
         <span className={styles.statEyebrow}>Generación de reportes</span>
-        <p className={styles.speedValue}>
-          <span className={styles.gradientText}>x4000</span>
-        </p>
+        <p className={styles.speedValue}>x4000</p>
         <span className={styles.speedSublabel}>Veces más rápido</span>
       </div>
 
       {/* ── 9. TEMA CLARO / OSCURO ────────────────────── */}
       <div className={`${styles.card} ${styles.cardTheme} ${styles.animate} ${styles.delay2}`}>
         <span className={styles.cardLabel}>Tema claro y oscuro</span>
+        {/* Reemplaza src con tu screenshot real */}
         <img
-          src={sioThemeImg}
+          src="/images/sio-theme-preview.png"
           alt="Tema claro y oscuro del SIO"
           className={styles.themeImg}
         />
@@ -143,4 +106,4 @@ const SIOBentoGrid = () => {
   );
 };
 
-export default SIOBentoGrid;
+export default Roraimax;

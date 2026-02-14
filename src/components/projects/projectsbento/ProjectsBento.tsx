@@ -2,12 +2,11 @@ import { useState } from "react";
 import styles from "./ProjectsBento.module.css";
 import SIO from "../solutions/sio/SIOBentoGrid";
 import Pagination from "../pagination/Pagination";
+import Roraimax from "../solutions/roraimax/Roraimax";
 
-// Definimos los proyectos. 
-// Cuando tengas el de Roraimax listo, solo reemplazas el div.
 const projects = [
   { id: "sio", component: SIO },
-  { id: "roraimax", component: () => <div style={{height: '50vh'}}>Próximamente: Roraimax</div> },
+  { id: "roraimax", component: Roraimax },
 ];
 
 const ProjectsBento = () => {

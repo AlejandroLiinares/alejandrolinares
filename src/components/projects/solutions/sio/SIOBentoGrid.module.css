@@ -1,31 +1,21 @@
-/* ============================================================
-   SIOBentoGrid.module.css
-   Color de acento SIO: rojo cálido
-   Solo usa variables definidas en tu Global.css
-   ============================================================ */
-
-/* ── Acento propio del proyecto SIO ─────────────────────── */
 .sioGrid {
-  --sio-accent: #C0392B;
-  --sio-accent-soft: rgba(192, 57, 43, 0.08);
-
   display: grid;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 14px;
-  padding: 0 16px;
+  gap: .9rem;
+  padding: 0 1rem;
 
   /* 4 columnas base */
-  grid-template-columns: 240px 1fr 1fr 220px;
+  grid-template-columns: 280px 1fr 1fr 280px;
   grid-template-rows: auto auto auto;
 }
 
 /* ── Base card ───────────────────────────────────────────── */
 .card {
-  background-color: var(--color-btn-secundary);
-  border-radius: 22px;
-  padding: 22px;
+  background-color: var(--color-card);
+  border-radius: 1.2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -71,31 +61,28 @@
 
 /* ── Tipografía compartida ───────────────────────────────── */
 .cardLabel {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-text);
   line-height: 1.3;
 }
 
 /* ── CARD 1: Diseño amigable ─────────────────────────────── */
-.bigEmoji {
-  font-size: 3.8rem;
-  line-height: 1;
-  margin-top: auto;
+.designImg {
+  margin-bottom: 0;
   align-self: flex-start;
 }
 
 /* ── CARD 2: Hero ────────────────────────────────────────── */
-.cardHero { gap: 16px; }
+.cardHero { gap: 1rem; }
 
 .heroTitle {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
-  line-height: 1.3;
 }
 
 .mockupArea {
@@ -338,9 +325,9 @@
 .gradientText {
   background: linear-gradient(
     180deg,
-    #ffffff 0%,
-    #ff6b8a 45%,
-    #C0392B 100%
+    #ffffff 5%,
+    #ff2655 45%,
+    #ff1515 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

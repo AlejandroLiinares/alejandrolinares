@@ -54,7 +54,7 @@
   font-family: var(--font-heading);
   font-size: clamp(2.8rem, 8vw, 4.5rem);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: .9;
   letter-spacing: -0.03em;
   max-width: 12ch;
   color: var(--color-text);
@@ -65,8 +65,9 @@
   font-family: var(--font-heading-cursive);
   font-size: clamp(3.3rem, 10vw, 5.3rem);
   font-style: italic;
-  font-weight: 700; /* FIX: 680 no existe, el más cercano es 700 */
-  line-height: 0.9;
+  margin-top: .2rem;
+  font-weight: 700;
+  line-height: .80;
   max-width: 13ch;
   color: var(--color-primary);
 }
@@ -142,7 +143,7 @@
     padding-right: 1.5rem;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 40vh;
+    margin-top: 43vh;
   }
 
   .mainHeading {
@@ -154,15 +155,14 @@
     font-size: clamp(2.2rem, 10vw, 2.7rem);
     text-align: center;
     max-width: 100%;
-    line-height: 1.1;
+    line-height: .95;
   }
 
   .h1Cursive {
-    font-size: clamp(2.6rem, 10vw, 3rem);
+    font-size: clamp(2.7rem, 10vw, 3rem);
     text-align: center;
     max-width: 100%;
-    margin-top: .5rem;
-    line-height: 1.1;
+    line-height: .9;
     max-width: 13ch;
   }
 

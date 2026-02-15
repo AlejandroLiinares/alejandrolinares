@@ -1,6 +1,24 @@
-/* ============================================================
-   Hero.module.css
-   ============================================================ */
+/* ── Animación de entrada hero ───────────────────────────── */
+.h1Title,
+.h1Cursive,
+.description,
+.buttonContainer {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.h1Title       { animation-delay: 0.1s; }
+.h1Cursive     { animation-delay: 0.22s; }
+.description   { animation-delay: 0.36s; }
+.buttonContainer { animation-delay: 0.5s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .section {
   position: relative;
@@ -162,6 +180,7 @@
     font-size: clamp(2.7rem, 10vw, 3rem);
     text-align: center;
     max-width: 100%;
+    margin-top: -.1rem;
     line-height: .9;
     max-width: 13ch;
   }

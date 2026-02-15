@@ -1,10 +1,3 @@
-/* ============================================================
-   SIOBentoGrid.module.css
-   Color de acento SIO: rojo cálido
-   Solo usa variables definidas en tu Global.css
-   ============================================================ */
-
-/* ── Acento propio del proyecto SIO ─────────────────────── */
 .sioGrid {
   --sio-accent: #C0392B;
   --sio-accent-soft: rgba(192, 57, 43, 0.08);
@@ -273,7 +266,7 @@
 @media (max-width: 540px) {
   .sioGrid {
     grid-template-columns: 1fr;
-    padding: 0 12px;
+    padding: 0 1.5rem;
   }
 
   .cardHero,

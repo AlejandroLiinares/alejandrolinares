@@ -97,12 +97,12 @@
   line-height: 1.3;
 }
 
-.statEyebrow {
-  font-size: 0.78rem;
-  font-weight: 500;
+.cardMedicoLabel {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--color-text);
-  opacity: 0.6;
-  line-height: 1.4;
+  margin-top: -1.1rem;
 }
 
 /* ── CARD 1: Diseño amigable ─────────────────────────────── */
@@ -182,20 +182,11 @@
   object-fit: contain;
 }
 
-.securityLabel {
-  font-size: 0.72rem;
-  color: var(--color-text);
-  opacity: 0.7;
-  line-height: 1.3;
-}
-
-
-/* ── CARD 7: Historial ───────────────────────────────────── */
-.historyLabel {
-  font-size: 0.82rem;
-  color: var(--color-text);
-  opacity: 0.7;
-  line-height: 1.45;
+.medicoIcon {
+  width: 7.3rem;
+  height: 7.3rem;
+  margin-top: -1.2rem;
+  object-fit: contain;
 }
 
 /* ── CARD 8: x4000 ───────────────────────────────────────── */
@@ -207,20 +198,12 @@
   line-height: 1;
 }
 
-.speedSublabel {
-  font-size: 0.78rem;
-  color: var(--color-text);
-  opacity: 0.55;
-}
-
 /* ── CARD 9: Tema ────────────────────────────────────────── */
 .themeImg {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-top: 8px;
-  flex: 1;
+  height: 100%;
+  max-height: 100px;
+  object-fit: contain;
 }
 
 /* ── Gradient text ───────── */

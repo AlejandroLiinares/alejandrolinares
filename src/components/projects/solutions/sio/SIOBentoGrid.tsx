@@ -103,20 +103,20 @@ const SIOBentoGrid = () => {
           <span className={styles.cardMedicoLabel}>Ingreso basado en roles</span>
         </div>
         <div className={`${styles.card2FA} ${styles.animate} ${styles.delay1}`}>
-          <span className={styles.cardLabel}>Identificación de doble factor 2FA</span>
+          <span className={styles.cardSubLabel}>Identificación de doble factor 2FA</span>
           <img src={heartLockIcon} alt="2FA" className={styles.Icon} />
         </div>
       </div>
 
       {/* ── 6. OFFLINE ──────────────────────────────────── */}
       <div className={`${styles.card} ${styles.cardOffline} ${styles.animate} ${styles.delay0}`}>
+        <span className={styles.cardSubLabel}>Funcionando con conexión inestable de internet</span>
         <img src={noWifiIcon} alt="Sin conexión" className={styles.Icon} />
-        <span className={styles.cardLabel}>Funcionando con conexión inestable de internet</span>
       </div>
 
       {/* ── 7. HISTORIAL ────────────────────────────────── */}
       <div className={`${styles.card} ${styles.cardHistory} ${styles.animate} ${styles.delay1}`}>
-        <span className={styles.cardLabel}>
+        <span className={styles.cardSubLabel}>
           Retroceder acciones mediante historial
         </span>
         <img src={timeIcon} alt="Historial" className={styles.Icon} />

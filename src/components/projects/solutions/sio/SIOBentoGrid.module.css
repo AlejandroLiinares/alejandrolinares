@@ -35,11 +35,11 @@
 .cardDesign  { grid-column: 1 / 2; grid-row: 1 / 2; min-height: 200px; justify-content: space-between; }
 .cardHero    { grid-column: 2 / 5; grid-row: 1 / 3; min-height: 400px; gap: 1rem; }
 .cardDays    { grid-column: 5 / 6; grid-row: 1 / 2; justify-content: center; }
-.cardTech    { grid-column: 1 / 2; grid-row: 2 / 3; }
+.cardTech    { grid-column: 1 / 2; grid-row: 2 / 3; justify-content: center; }
 .cardOffline { grid-column: 1 / 2; grid-row: 3 / 4; flex-direction: row; align-items: center; gap: 12px; }
 .cardHistory { grid-column: 2 / 3; grid-row: 3 / 4; justify-content: center; }
 .cardSpeed   { grid-column: 3 / 5; grid-row: 3 / 4; justify-content: center; }
-.cardTheme   { grid-column: 5 / 6; grid-row: 3 / 4; justify-content: space-between; }
+.cardTheme   { grid-column: 5 / 6; grid-row: 3 / 4; justify-content: center; }
 
 /* ── Wrapper roles + 2FA (col 5, fila 2) ────────────────── */
 .cardSecurityWrapper {
@@ -95,6 +95,7 @@
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.3;
+  text-align: center;
 }
 
 .cardMedicoLabel {
@@ -121,6 +122,7 @@
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
+  text-align: center;
 }
 
 .mockupArea {
@@ -138,16 +140,7 @@
   object-fit: contain;
 }
 
-/* ── CARD 3: 28 días ─────────────────────────────────────── */
-.statValue {
-  font-family: var(--font-body);
-  font-size: 3.4rem;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1;
-}
-
-/* ── CARD 4: Tech stack ──────────────────────────────────── */
+/* ── CARD 3: Tech stack (ahora arriba a la derecha) ──────── */
 .techGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -165,6 +158,7 @@
   justify-content: center;
   transition: transform 0.2s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .techItem:hover { transform: scale(1.1); }
@@ -175,13 +169,16 @@
   object-fit: contain;
 }
 
-/* ── Todos los SVGs ───────────────────────────── */
-.Icon {
-  width: 5rem;
-  height: 5rem;
-  object-fit: contain;
+/* ── CARD 4: 28 días (ahora abajo a la izquierda) ─────────── */
+.statValue {
+  font-family: var(--font-body);
+  font-size: 3.4rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
 }
 
+/* ── CARD 5: Roles + 2FA ─────────────────────────────────── */
 .medicoIcon {
   width: 7.3rem;
   height: 7.3rem;
@@ -189,7 +186,21 @@
   object-fit: contain;
 }
 
-/* ── CARD 8: x4000 ───────────────────────────────────────── */
+/* ── CARD 6: Offline ─────────────────────────────────────── */
+/* (estilos ya definidos en .cardOffline arriba) */
+
+/* ── CARD 7: Historial ───────────────────────────────────── */
+/* (estilos ya definidos en .cardHistory arriba) */
+
+/* ── CARD 8: Tema claro y oscuro (ahora en col 3-5) ──────── */
+.themeImg {
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* ── CARD 9: x4000 (ahora en col 5) ──────────────────────── */
 .speedValue {
   font-family: var(--font-body);
   font-size: 3rem;
@@ -198,15 +209,14 @@
   line-height: 1;
 }
 
-/* ── CARD 9: Tema ────────────────────────────────────────── */
-.themeImg {
-  width: 100%;
-  height: 100%;
-  max-height: 100px;
+/* ── Todos los SVGs generales ────────────────────────────── */
+.Icon {
+  width: 5rem;
+  height: 5rem;
   object-fit: contain;
 }
 
-/* ── Gradient text ───────── */
+/* ── Gradient text ───────────────────────────────────────── */
 .gradientText {
   background: linear-gradient(
     180deg,
@@ -253,4 +263,14 @@
     grid-column: 1 / 2;
     grid-row: auto;
   }
+}
+
+/* ── Etiqueta secundaria (textos más discretos) ──────────── */
+.cardSubLabel {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  text-align: center;
 }

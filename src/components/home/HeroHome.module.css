@@ -84,7 +84,7 @@
   font-size: clamp(3.3rem, 10vw, 5.3rem);
   font-style: italic;
   margin-top: .2rem;
-  font-weight: 700;
+  font-weight: 650;
   line-height: .80;
   max-width: 13ch;
   color: var(--color-primary);

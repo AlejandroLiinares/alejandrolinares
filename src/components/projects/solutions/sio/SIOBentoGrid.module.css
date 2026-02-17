@@ -37,7 +37,7 @@
 .cardDays    { grid-column: 5 / 6; grid-row: 1 / 2; justify-content: center; }
 .cardTech    { grid-column: 1 / 2; grid-row: 2 / 3; justify-content: center; }
 .cardOffline { grid-column: 1 / 2; grid-row: 3 / 4; flex-direction: row; align-items: center; gap: 12px; }
-.cardHistory { grid-column: 2 / 3; grid-row: 3 / 4; justify-content: center; }
+.cardHistory { grid-column: 2 / 3; grid-row: 3 / 4; justify-content: center; align-items: center; }
 .cardSpeed   { grid-column: 3 / 5; grid-row: 3 / 4; justify-content: center; }
 .cardTheme   { grid-column: 5 / 6; grid-row: 3 / 4; justify-content: center; }
 
@@ -136,7 +136,7 @@
 .mockupImg {
   width: 100%;
   height: 100%;
-  max-height: 340px;
+  max-height: 320px;
   object-fit: contain;
 }
 
@@ -147,6 +147,8 @@
   gap: 2.1rem;
   height: 100%;
   align-content: center;
+  justify-content: center;  /* centra el grupo horizontalmente */
+  justify-items: center;    /* centra cada item dentro de su celda */
 }
 
 .techItem {
@@ -154,6 +156,7 @@
   width: 48px;
   height: 48px;
   display: flex;
+  margin-top: .5rem;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
@@ -186,18 +189,37 @@
   object-fit: contain;
 }
 
+/* ── Etiqueta secundaria (textos más discretos) ──────────── */
+.cardSubLabel {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  text-align: center;
+}
+
 /* ── CARD 6: Offline ─────────────────────────────────────── */
 /* (estilos ya definidos en .cardOffline arriba) */
 
 /* ── CARD 7: Historial ───────────────────────────────────── */
 /* (estilos ya definidos en .cardHistory arriba) */
 
-/* ── CARD 8: Tema claro y oscuro (ahora en col 3-5) ──────── */
+/* ── CARD 8: Tema claro y oscuro ─────────────────────────── */
+.themeWrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;  /* pega las imágenes al fondo del wrapper */
+  margin: -0rem 0rem -1.4rem -0.5rem;
+}
+
 .themeImg {
-  width: 100%;
-  height: 100%;
-  max-height: 100px;
-  object-fit: contain;
+  width: 50%;
+  height: 120px;
+  object-fit: cover;
+  object-position: top;  /* muestra la parte superior de la imagen — la más relevante */
+  border-radius: 8px 8px 0 0;
+  flex-shrink: 0;
 }
 
 /* ── CARD 9: x4000 (ahora en col 5) ──────────────────────── */
@@ -218,15 +240,21 @@
 
 /* ── Gradient text ───────────────────────────────────────── */
 .gradientText {
+  display: block;
+  text-align: center;
   background: linear-gradient(
     180deg,
-    #ffffff 5%,
-    #ff2655 45%,
-    #ff1515 100%
+    #ffaaaa 0%,
+    #ff4454 30%,
+    #e30d2d 65%,
+    #aa0022 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none; /* text-shadow no funciona con text transparent */
+  filter: drop-shadow(0 0 1px rgba(247, 154, 168, 0.5));
+  letter-spacing: -0.04em;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -245,7 +273,22 @@
   .cardTheme           { grid-column: 3 / 4; grid-row: 4 / 5; }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 800px) {
+  .sioGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cardHero            { grid-column: 1 / 3; grid-row: 1 / 2; min-height: 280px; }
+  .cardDesign          { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .cardDays            { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .cardTech            { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .cardSecurityWrapper { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .cardOffline         { grid-column: 1 / 2; grid-row: 4 / 5; }
+  .cardHistory         { grid-column: 2 / 3; grid-row: 4 / 5; }
+  .cardSpeed           { grid-column: 1 / 2; grid-row: 5 / 6; }
+  .cardTheme           { grid-column: 2 / 3; grid-row: 5 / 6; }
+}
+
+@media (max-width: 600px) {
   .sioGrid {
     grid-template-columns: 1fr;
     padding: 0 0rem;
@@ -263,14 +306,7 @@
     grid-column: 1 / 2;
     grid-row: auto;
   }
-}
 
-/* ── Etiqueta secundaria (textos más discretos) ──────────── */
-.cardSubLabel {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.3;
-  text-align: center;
+  .cardHero    { order: -1; } /* fuerza al hero a ser el primero */
+  .cardDesign  { order: 0; }  /* el resto sigue su orden natural */
 }

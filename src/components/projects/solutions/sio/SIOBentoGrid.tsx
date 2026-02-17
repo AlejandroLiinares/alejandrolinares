@@ -14,11 +14,12 @@ import heartLockIcon    from '../../../../assets/SIO/red-heart-padlock.svg';
 import noWifiIcon       from '../../../../assets/SIO/green-no-wifi.svg';
 import timeIcon         from '../../../../assets/SIO/time.svg';
 import sioThemeImg      from '../../../../assets/SIO/SIO-dark.png';
+import sioLightImg      from '../../../../assets/SIO/SIO-light.png';
 
 // ── Tech stack con links ──────────────────────────────────
 const techStack = [
   { 
-    name: 'HTML / CSS',  
+    name: 'HTML / CSS / JS',  
     icon: vanillaIcon,
     link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
   },
@@ -125,7 +126,10 @@ const SIOBentoGrid = () => {
       {/* ── 8. TEMA CLARO/OSCURO ────────────────────────── */}
       <div className={`${styles.card} ${styles.cardSpeed} ${styles.animate} ${styles.delay2}`}>
         <span className={styles.cardLabel}>Tema claro y oscuro</span>
-        <img src={sioThemeImg} alt="Tema claro y oscuro" className={styles.themeImg} />
+        <div className={styles.themeWrapper}>
+          <img src={sioLightImg} alt="Tema claro" className={styles.themeImg} />
+          <img src={sioThemeImg} alt="Tema oscuro" className={styles.themeImg} />
+        </div>
       </div>
 
       {/* ── 9. STAT — x4000 ─────────────────────────────── */}

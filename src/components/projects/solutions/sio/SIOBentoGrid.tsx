@@ -21,32 +21,38 @@ const techStack = [
   { 
     name: 'HTML / CSS / JS',  
     icon: vanillaIcon,
-    link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
+    link: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    darkInvert: false
   },
   { 
     name: 'Figma',       
     icon: figmaIcon,
-    link: 'https://www.figma.com/design/yDYdCQUM14nTt2R8Y1ylVn/HermindaMartinLayout?node-id=0-1&m=dev&t=9yIFBdvGDHkDd6SX-1'
+    link: 'https://www.figma.com/design/yDYdCQUM14nTt2R8Y1ylVn/HermindaMartinLayout?node-id=0-1&m=dev&t=9yIFBdvGDHkDd6SX-1',
+    darkInvert: false
   },
   { 
     name: 'GitHub',      
     icon: githubIcon,
-    link: 'https://github.com/DaniielVJ/sio_hospital'
+    link: 'https://github.com/DaniielVJ/sio_hospital',
+    darkInvert: true
   },
   { 
     name: 'Django',      
     icon: djangoIcon,
-    link: 'https://www.djangoproject.com/'
+    link: 'https://www.djangoproject.com/',
+    darkInvert: false
   },
   { 
     name: 'PostgreSQL',  
     icon: postgresIcon,
-    link: 'https://www.postgresql.org/'
+    link: 'https://www.postgresql.org/',
+    darkInvert: false
   },
   { 
     name: 'ReportLab',   
     icon: reportLabIcon,
-    link: 'https://www.reportlab.com/'
+    link: 'https://www.reportlab.com/',
+    darkInvert: false
   },
 ];
 
@@ -83,7 +89,10 @@ const SIOBentoGrid = () => {
               className={styles.techItem}
               title={tech.name}
             >
-              <img src={tech.icon} alt={tech.name} className={styles.techIcon} />
+              <img
+                src={tech.icon} alt={tech.name} className={`${styles.techIcon} ${
+                tech.darkInvert ? styles.darkInvert : "" }`}
+              />
             </a>
           ))}
         </div>
@@ -100,7 +109,7 @@ const SIOBentoGrid = () => {
       {/* ── 5. ROLES + 2FA ──────────────────────────────── */}
       <div className={styles.cardSecurityWrapper}>
         <div className={`${styles.cardRoles} ${styles.animate} ${styles.delay1}`}>
-          <img src={practitionerIcon} alt="Roles" className={styles.medicoIcon} />
+          <img src={practitionerIcon} alt="Roles" className={`${styles.medicoIcon} ${styles.darkInvert}`} />
           <span className={styles.cardMedicoLabel}>Ingreso basado en roles</span>
         </div>
         <div className={`${styles.card2FA} ${styles.animate} ${styles.delay1}`}>
@@ -120,7 +129,7 @@ const SIOBentoGrid = () => {
         <span className={styles.cardSubLabel}>
           Retroceder acciones mediante historial
         </span>
-        <img src={timeIcon} alt="Historial" className={styles.Icon} />
+        <img src={timeIcon} alt="Historial" className={`${styles.Icon} ${styles.darkInvert}`} />
       </div>
 
       {/* ── 8. TEMA CLARO/OSCURO ────────────────────────── */}

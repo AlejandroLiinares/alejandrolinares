@@ -5,7 +5,7 @@ const ProjectSection = () => {
   return (
     <section className={styles.sectionWrapper}>
       <h2 className={styles.h2Title}>
-        Soluciones reales.
+        Soluciones <span className={styles.highlight}>reales</span>.
       </h2>
 
       <ProjectsBento />

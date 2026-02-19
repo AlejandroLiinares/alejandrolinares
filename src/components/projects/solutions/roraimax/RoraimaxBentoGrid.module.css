@@ -1,0 +1,267 @@
+.roraimaxGrid {
+  --roraimax-primary: #d99330;
+  --roraimax-reload: #ffad39;
+
+  display: grid;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+  gap: 0.9rem;
+  padding: 0 2rem;
+
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+/* ── Base card ───────────────────────────────────────────── */
+.card {
+  background-color: var(--color-card);
+  border-radius: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  will-change: transform, opacity;
+
+  transition: transform 0.22s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px) scale(1.005);
+}
+
+/* ── Posiciones en el grid ───────────────────────────────── */
+.cardTech           { grid-column: 1 / 2; grid-row: 1 / 2; }
+.cardHero           { grid-column: 2 / 3; grid-row: 1 / 3; gap: 1rem; }
+.cardBranding       { grid-column: 3 / 4; grid-row: 1 / 2; }
+.cardReload         { grid-column: 1 / 2; grid-row: 2 / 3; }
+.cardMultiplatform  { grid-column: 2 / 3; grid-row: 3 / 4; }
+.cardMentorship     { grid-column: 3 / 4; grid-row: 2 / 4; }
+
+/* ── Animación ───────────────────────────────────────────── */
+.animate {
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.delay0 { animation-delay: 0.05s; }
+.delay1 { animation-delay: 0.18s; }
+.delay2 { animation-delay: 0.32s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Tipografía ──────────────────────────────────────────── */
+.cardLabel {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* ── CARD 1: Stack tecnológico ───────────────────────────── */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1.5rem;
+  align-content: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.techItem {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.techItem:hover { transform: scale(1.1); }
+
+.techIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── CARD 2: Hero ────────────────────────────────────────── */
+.heroTitle {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.heroTextImg {
+  width: auto;
+  max-height: 32px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.mockupArea {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.mockupImg {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+/* ── CARD 3: Dirección visual Premium ────────────────────── */
+.brandingGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.brandingLogo {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+.colorPalette {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.colorCircle {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.brandingButton {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ── CARD 4: De negocio a diseño (naranja) ───────────────── */
+.cardReload {
+  background-color: var(--roraimax-reload);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.reloadIcon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.reloadText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.reloadLabel {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+/* ── CARD 5: Experiencia multiplataforma ─────────────────── */
+.mobileWrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.mobileImg {
+  width: 40%;
+  max-height: 240px;
+  object-fit: contain;
+}
+
+/* ── CARD 6: Liderazgo y mentoría ────────────────────────── */
+.teamImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+}
+
+/* ── Gradient text (Elevate Program) ─────────────────────── */
+.gradientText {
+  display: block;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #ffd89e 0%,
+    #ffad39 30%,
+    #d99330 65%,
+    #a67324 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 2px rgba(217, 147, 48, 0.5));
+  letter-spacing: -0.04em;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .roraimaxGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cardHero           { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .cardTech           { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .cardBranding       { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .cardReload         { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .cardMentorship     { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .cardMultiplatform  { grid-column: 1 / 3; grid-row: 4 / 5; }
+}
+
+@media (max-width: 600px) {
+  .roraimaxGrid {
+    grid-template-columns: 1fr;
+    padding: 0 0rem;
+  }
+
+  .cardHero,
+  .cardTech,
+  .cardBranding,
+  .cardReload,
+  .cardMultiplatform,
+  .cardMentorship {
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .cardHero { order: -1; }
+}

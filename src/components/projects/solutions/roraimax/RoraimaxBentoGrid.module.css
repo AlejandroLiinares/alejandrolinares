@@ -9,11 +9,11 @@
   gap: 0.9rem;
   padding: 0 2rem;
 
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr 1.6fr 1fr;
   grid-template-rows: auto auto auto;
 }
 
-/* ── Base card ───────────────────────────────────────────── */
+/* ── Base Card ───────────────────────────────────────────── */
 .card {
   background-color: var(--color-card);
   border-radius: 1.2rem;
@@ -34,18 +34,30 @@
   transform: translateY(-3px) scale(1.005);
 }
 
-/* ── Posiciones en el grid ───────────────────────────────── */
-.cardTech           { grid-column: 1 / 2; grid-row: 1 / 2; }
-.cardHero           { grid-column: 2 / 3; grid-row: 1 / 3; gap: 1rem; }
-.cardBranding       { grid-column: 3 / 4; grid-row: 1 / 2; }
-.cardReload         { grid-column: 1 / 2; grid-row: 2 / 3; }
-.cardMultiplatform  { grid-column: 2 / 3; grid-row: 3 / 4; }
-.cardMentorship     { grid-column: 3 / 4; grid-row: 2 / 4; }
+/* ── Grid Positions ─────────────────────────────────────── */
 
-/* ── Animación ───────────────────────────────────────────── */
+/* IZQUIERDA */
+.cardImpact     { grid-column: 1 / 2; grid-row: 1 / 2; }
+.cardTech       { grid-column: 1 / 2; grid-row: 2 / 3; }
+
+/* CENTRO */
+.cardHero {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  position: relative;
+  gap: 1rem;
+}
+
+/* DERECHA */
+.cardBranding   { grid-column: 3 / 4; grid-row: 1 / 2; }
+.cardReload     { grid-column: 3 / 4; grid-row: 2 / 3; }
+.cardMentorship { grid-column: 3 / 4; grid-row: 3 / 4; }
+
+/* ── Animaciones ─────────────────────────────────────────── */
 .animate {
   animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
 .delay0 { animation-delay: 0.05s; }
 .delay1 { animation-delay: 0.18s; }
 .delay2 { animation-delay: 0.32s; }
@@ -57,7 +69,7 @@
   }
 }
 
-/* ── Tipografía ──────────────────────────────────────────── */
+/* ── Tipografía ─────────────────────────────────────────── */
 .cardLabel {
   font-family: var(--font-body);
   font-size: 1.2rem;
@@ -67,14 +79,113 @@
   text-align: center;
 }
 
-/* ── CARD 1: Stack tecnológico ───────────────────────────── */
+/* ── HERO ───────────────────────────────────────────────── */
+.heroTitle {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.gradientText {
+  display: block;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #ffd89e 0%,
+    #ffad39 30%,
+    #d99330 65%,
+    #a67324 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 2px rgba(217, 147, 48, 0.5));
+  letter-spacing: -0.04em;
+}
+
+/* ===============================
+   HERO CARD
+================================== */
+
+.heroCard {
+  background: #f4f4f4;
+  border-radius: 32px;
+  padding: 48px 36px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 28px; /* controla el espacio REAL */
+}
+
+/* Título */
+
+.heroTitleWrapper {
+  text-align: center;
+  line-height: 1.1;
+}
+
+.heroBrand {
+  font-size: 34px;
+  font-weight: 700;
+  color: #111;
+}
+
+.heroProgram {
+  font-size: 32px;
+  font-weight: 600;
+  color: #f5a623;
+}
+
+/* Imagenes */
+
+.heroImages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.heroLaptop {
+  width: 100%;
+  max-width: 420px;
+}
+
+.heroPhone {
+  width: 180px;
+}
+
+/* Texto inferior */
+
+.heroExperience {
+  align-self: flex-start;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-top: 8px;
+}
+
+/* ── IMPACTO EN MARCA ───────────────────────────────────── */
+.impactImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-top: 0.5rem;
+}
+
+/* ── STACK TECNOLÓGICO ─────────────────────────────────── */
 .techGrid {
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 1.5rem;
   align-content: center;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
 }
 
 .techItem {
@@ -88,7 +199,9 @@
   text-decoration: none;
 }
 
-.techItem:hover { transform: scale(1.1); }
+.techItem:hover {
+  transform: scale(1.1);
+}
 
 .techIcon {
   width: 100%;
@@ -96,72 +209,80 @@
   object-fit: contain;
 }
 
-/* ── CARD 2: Hero ────────────────────────────────────────── */
-.heroTitle {
-  font-family: var(--font-body);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin: 0;
-  text-align: center;
-  line-height: 1.2;
-}
+/* ===============================
+   DIRECCIÓN VISUAL PREMIUM
+================================== */
 
-.heroTextImg {
-  width: auto;
-  max-height: 32px;
-  object-fit: contain;
-  display: inline-block;
-}
+.premiumCard {
+  background: #f4f4f4;
+  border-radius: 32px;
+  padding: 40px 32px;
 
-.mockupArea {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-top: 8px;
-}
-
-.mockupImg {
-  width: 100%;
-  max-height: 280px;
-  object-fit: contain;
-}
-
-/* ── CARD 3: Dirección visual Premium ────────────────────── */
-.brandingGrid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  margin-top: 0.5rem;
+  text-align: center;
+
+  gap: 20px;
 }
 
-.brandingLogo {
-  width: 80%;
-  height: auto;
-  object-fit: contain;
+.premiumTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
 }
 
-.colorPalette {
+.premiumLogo {
+  width: 160px;
+}
+
+.premiumBrand {
+  font-size: 20px;
+  font-weight: 600;
+  color: #b88b4a;
+}
+
+.premiumColors {
   display: flex;
-  gap: 0.5rem;
-  justify-content: center;
+  gap: 14px;
 }
 
 .colorCircle {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 }
 
-.brandingButton {
-  width: 70%;
-  height: auto;
-  object-fit: contain;
+.gold {
+  background: #b88b4a;
 }
 
-/* ── CARD 4: De negocio a diseño (naranja) ───────────────── */
+.black {
+  background: #111;
+}
+
+.premiumButton {
+  margin-top: 12px;
+  padding: 14px 28px;
+
+  background: #b88b4a;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+
+  border-radius: 999px;
+  border: none;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.premiumButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ── DE NEGOCIO A DISEÑO (NARANJA) ───────────────────────── */
 .cardReload {
   background-color: var(--roraimax-reload);
   flex-direction: row;
@@ -192,22 +313,7 @@
   line-height: 1.2;
 }
 
-/* ── CARD 5: Experiencia multiplataforma ─────────────────── */
-.mobileWrapper {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.mobileImg {
-  width: 40%;
-  max-height: 240px;
-  object-fit: contain;
-}
-
-/* ── CARD 6: Liderazgo y mentoría ────────────────────────── */
+/* ── LIDERAZGO Y MENTORÍA ───────────────────────────────── */
 .teamImg {
   width: 100%;
   height: auto;
@@ -216,52 +322,34 @@
   margin-top: 0.5rem;
 }
 
-/* ── Gradient text (Elevate Program) ─────────────────────── */
-.gradientText {
-  display: block;
-  text-align: center;
-  background: linear-gradient(
-    180deg,
-    #ffd89e 0%,
-    #ffad39 30%,
-    #d99330 65%,
-    #a67324 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 2px rgba(217, 147, 48, 0.5));
-  letter-spacing: -0.04em;
-}
+/* ── RESPONSIVE ─────────────────────────────────────────── */
 
-/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 800px) {
   .roraimaxGrid {
     grid-template-columns: 1fr 1fr;
   }
-  .cardHero           { grid-column: 1 / 3; grid-row: 1 / 2; }
-  .cardTech           { grid-column: 1 / 2; grid-row: 2 / 3; }
-  .cardBranding       { grid-column: 2 / 3; grid-row: 2 / 3; }
-  .cardReload         { grid-column: 1 / 2; grid-row: 3 / 4; }
-  .cardMentorship     { grid-column: 2 / 3; grid-row: 3 / 4; }
-  .cardMultiplatform  { grid-column: 1 / 3; grid-row: 4 / 5; }
+
+  .cardHero       { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .cardImpact     { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .cardBranding   { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .cardTech       { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .cardReload     { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .cardMentorship { grid-column: 1 / 3; grid-row: 4 / 5; }
 }
 
 @media (max-width: 600px) {
   .roraimaxGrid {
     grid-template-columns: 1fr;
-    padding: 0 0rem;
+    padding: 0;
   }
 
   .cardHero,
+  .cardImpact,
   .cardTech,
   .cardBranding,
   .cardReload,
-  .cardMultiplatform,
   .cardMentorship {
     grid-column: 1 / 2;
     grid-row: auto;
   }
-
-  .cardHero { order: -1; }
 }

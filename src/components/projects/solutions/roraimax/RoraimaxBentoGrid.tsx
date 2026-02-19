@@ -1,32 +1,38 @@
 import styles from './RoraimaxBentoGrid.module.css';
 
 // ── Assets Roraimax ───────────────────────────────────────
-import elementorIcon     from '../../../../assets/RRMX/elementor.svg';
-import wordpressIcon     from '../../../../assets/RRMX/wordpress.svg';
-import sureformsIcon     from '../../../../assets/RRMX/sureforms.png';
-import laptopMockup      from '../../../../assets/RRMX/RRMX.png';
-import mobileMockup      from '../../../../assets/RRMX/RRMX-mobile.png';
-import arrowsReload      from '../../../../assets/RRMX/arrows-reload.svg';
-import teamGridImg       from '../../../../assets/RRMX/team.png';
-import rrmxLogo          from '../../../../assets/RRMX/rrmx-logo.png';
-import circleGold        from '../../../../assets/RRMX/circle-gold.png';
-import circleBlack       from '../../../../assets/RRMX/circle-black.png';
-import montserratText    from '../../../../assets/RRMX/montserrat.png';
-import rrmxButton        from '../../../../assets/RRMX/rrmx-button.png';
+import elementorIcon  from '../../../../assets/RRMX/elementor.svg';
+import wordpressIcon  from '../../../../assets/RRMX/wordpress.svg';
+import sureformsIcon  from '../../../../assets/RRMX/sureforms.png';
+import laptopMockup   from '../../../../assets/RRMX/RRMX.png';
+import mobileMockup   from '../../../../assets/RRMX/RRMX-mobile.png';
+import arrowsReload   from '../../../../assets/RRMX/arrows-reload.svg';
+import teamGridImg    from '../../../../assets/RRMX/team.png';
+import rrmxLogo       from '../../../../assets/RRMX/rrmx-logo.png';
+import circleGold     from '../../../../assets/RRMX/circle-gold.png';
+import circleBlack    from '../../../../assets/RRMX/circle-black.png';
+import montserratText from '../../../../assets/RRMX/montserrat.png';
+import rrmxButton     from '../../../../assets/RRMX/rrmx-button.png';
 
 // ── Tech stack ────────────────────────────────────────────
 const techStack = [
-  { name: 'Elementor',  icon: elementorIcon, link: 'https://elementor.com/' },
-  { name: 'WordPress',  icon: wordpressIcon, link: 'https://wordpress.org/' },
-  { name: 'SureForms',  icon: sureformsIcon, link: 'https://sureforms.com/' },
+  { name: 'Elementor', icon: elementorIcon, link: 'https://elementor.com/' },
+  { name: 'WordPress', icon: wordpressIcon, link: 'https://wordpress.org/' },
+  { name: 'SureForms', icon: sureformsIcon, link: 'https://sureforms.com/' },
 ];
 
 const RoraimaxBentoGrid = () => {
   return (
     <div className={styles.roraimaxGrid}>
 
-      {/* ── 1. STACK TECNOLÓGICO ───────────────────────── */}
-      <div className={`${styles.card} ${styles.cardTech} ${styles.animate} ${styles.delay0}`}>
+      {/* ── 1. IMPACTO EN MARCA ───────────────────────── */}
+      <div className={`${styles.card} ${styles.cardImpact} ${styles.animate} ${styles.delay0}`}>
+        <span className={styles.cardLabel}>Impacto en marca</span>
+        <img src={laptopMockup} alt="Impacto en marca" className={styles.impactImg} />
+      </div>
+
+      {/* ── 2. STACK TECNOLÓGICO ───────────────────────── */}
+      <div className={`${styles.card} ${styles.cardTech} ${styles.animate} ${styles.delay1}`}>
         <span className={styles.cardLabel}>Stack tecnológico</span>
         <div className={styles.techGrid}>
           {techStack.map((tech) => (
@@ -44,51 +50,61 @@ const RoraimaxBentoGrid = () => {
         </div>
       </div>
 
-      {/* ── 2. HERO — Título + Mockup laptop ───────────── */}
-      <div className={`${styles.card} ${styles.cardHero} ${styles.animate} ${styles.delay1}`}>
-        <h3 className={styles.heroTitle}>
-          <img src={montserratText} alt="Roraimax" className={styles.heroTextImg} /><br />
-          <span className={styles.gradientText}>Elevate Program</span>
-        </h3>
-        <div className={styles.mockupArea}>
-          <img src={laptopMockup} alt="Roraimax laptop" className={styles.mockupImg} />
+      {/* ── 3. HERO CENTRAL UNIFICADO ───────────────────── */}
+      <div className={styles.heroCard}>
+        <div className={styles.heroTitleWrapper}>
+          <div className={styles.heroBrand}>Roraimax</div>
+          <div className={styles.heroProgram}>Elevate Program</div>
         </div>
-      </div>
 
-      {/* ── 3. DIRECCIÓN VISUAL PREMIUM ────────────────── */}
-      <div className={`${styles.card} ${styles.cardBranding} ${styles.animate} ${styles.delay2}`}>
+        <div className={styles.heroImages}>
+          <img
+            src={laptopMockup}
+            alt="Laptop interface"
+            className={styles.heroLaptop}
+          />
+
+          <img
+            src={mobileMockup}
+            alt="Mobile interface"
+            className={styles.heroPhone}
+          />
+        </div>
+
+        <div className={styles.heroExperience}>
+          Experiencia multiplataforma
+        </div>
+      </div>  
+
+      {/* ── 4. DIRECCIÓN VISUAL PREMIUM ────────────────── */}
+      <div className={`${styles.card} ${styles.cardBranding} ${styles.animate} ${styles.delay1}`}>
         <span className={styles.cardLabel}>Dirección visual Premium</span>
+
         <div className={styles.brandingGrid}>
           <img src={rrmxLogo} alt="Logo Roraimax" className={styles.brandingLogo} />
+          <img src={montserratText} alt="Tipografía Montserrat" className={styles.heroTextImg} />
+
           <div className={styles.colorPalette}>
             <img src={circleGold} alt="Dorado" className={styles.colorCircle} />
             <img src={circleBlack} alt="Negro" className={styles.colorCircle} />
           </div>
+
           <img src={rrmxButton} alt="Botón POSTULAR" className={styles.brandingButton} />
         </div>
       </div>
 
-      {/* ── 4. DE NEGOCIO A DISEÑO (card naranja) ──────── */}
-      <div className={`${styles.card} ${styles.cardReload} ${styles.animate} ${styles.delay1}`}>
+      {/* ── 5. DE NEGOCIO A DISEÑO ─────────────────────── */}
+      <div className={`${styles.card} ${styles.cardReload} ${styles.animate} ${styles.delay2}`}>
         <img src={arrowsReload} alt="Reload" className={styles.reloadIcon} />
         <div className={styles.reloadText}>
-          <span className={styles.reloadLabel}>De negocio</span>
-          <span className={styles.reloadLabel}>a diseño</span>
-        </div>
-      </div>
-
-      {/* ── 5. EXPERIENCIA MULTIPLATAFORMA + MOBILE ────── */}
-      <div className={`${styles.card} ${styles.cardMultiplatform} ${styles.animate} ${styles.delay2}`}>
-        <span className={styles.cardLabel}>Experiencia multiplataforma</span>
-        <div className={styles.mobileWrapper}>
-          <img src={mobileMockup} alt="Roraimax móvil" className={styles.mobileImg} />
+          <span className={styles.reloadLabel}>De negocio a diseño.</span>
         </div>
       </div>
 
       {/* ── 6. LIDERAZGO Y MENTORÍA ────────────────────── */}
       <div className={`${styles.card} ${styles.cardMentorship} ${styles.animate} ${styles.delay2}`}>
         <span className={styles.cardLabel}>Liderazgo y mentoría</span>
-        <img src={teamGridImg} alt="Equipo" className={styles.teamImg} />
+        <img src={teamGridImg} alt="Equipo Roraimax" className={styles.teamImg} />
       </div>
 
     </div>

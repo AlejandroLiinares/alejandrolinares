@@ -53,8 +53,8 @@ const RoraimaxBentoGrid = () => {
       {/* ── 3. HERO CENTRAL UNIFICADO ───────────────────── */}
       <div className={styles.heroCard}>
         <div className={styles.heroTitleWrapper}>
-          <div className={styles.heroBrand}>Roraimax</div>
-          <div className={styles.heroProgram}>Elevate Program</div>
+          <h3 className={styles.heroTitle}>Roraimax</h3>
+          <span className={styles.gradientText}>Elevate Program</span>
         </div>
 
         <div className={styles.heroImages}>
@@ -69,27 +69,29 @@ const RoraimaxBentoGrid = () => {
             alt="Mobile interface"
             className={styles.heroPhone}
           />
-        </div>
 
-        <div className={styles.heroExperience}>
-          Experiencia multiplataforma
+          <span className={styles.heroExperience}>
+            Experiencia multiplataforma
+          </span>
         </div>
-      </div>  
+      </div> 
 
       {/* ── 4. DIRECCIÓN VISUAL PREMIUM ────────────────── */}
       <div className={`${styles.card} ${styles.cardBranding} ${styles.animate} ${styles.delay1}`}>
         <span className={styles.cardLabel}>Dirección visual Premium</span>
 
         <div className={styles.brandingGrid}>
-          <img src={rrmxLogo} alt="Logo Roraimax" className={styles.brandingLogo} />
-          <img src={montserratText} alt="Tipografía Montserrat" className={styles.heroTextImg} />
+          <div className={styles.brandingTopRow}>
+            <img src={rrmxLogo} alt="Logo" className={styles.brandingLogo} />
+            <img src={montserratText} alt="Roraimax" className={styles.heroTextImg} />
+          </div>
 
           <div className={styles.colorPalette}>
             <img src={circleGold} alt="Dorado" className={styles.colorCircle} />
             <img src={circleBlack} alt="Negro" className={styles.colorCircle} />
           </div>
 
-          <img src={rrmxButton} alt="Botón POSTULAR" className={styles.brandingButton} />
+          <img src={rrmxButton} alt="POSTULAR" className={styles.brandingButton} />
         </div>
       </div>
 

@@ -1,65 +1,103 @@
 /* ============================================================
-   RoraimaxBentoGrid.module.css — Estilo desalineado
+   RoraimaxBentoGrid.module.css — Estilo Bento Asimétrico
    ============================================================ */
 
 .roraimaxGrid {
   --roraimax-primary: #d99330;
-  --roraimax-reload: #ffad39;
+  --roraimax-reload: #ffa200; /* Ajustado a un naranja más cercano al boceto */
 
   display: grid;
   width: 100%;
-  max-width: 90%;
+  max-width: 1050px;
   margin: 0 auto;
-  gap: 0.9rem;
-  padding: 0 2rem;
+  gap: 1rem;
+  padding: 2rem;
 
-  /* Columnas: izq (ancha para Impacto) | centro (hero más delgado) | der */
-  grid-template-columns: 1.4fr 1.3fr 1.3fr;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1.15fr 1.35fr 1.1fr;
+  /* Magia 1: Forzamos a que las filas se adapten al contenido */
+  grid-template-rows: max-content max-content max-content;
+  /* Magia 2: Alineamos todo arriba para que NO se estiren verticalmente */
+  align-items: start; 
 }
 
 /* ── Base card ───────────────────────────────────────────── */
 .card {
   background-color: var(--color-card);
-  border-radius: 1.2rem;
-  padding: 1rem;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
 
+  /* Magia 3: Obliga a la tarjeta a ocupar solo lo que necesita */
+  height: fit-content;
+
   opacity: 0;
   transform: translateY(20px) scale(0.985);
   will-change: transform, opacity;
-
-  transition: transform 0.22s ease, background-color 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card:hover {
-  transform: translateY(-3px) scale(1.005);
+/* ── Magia del Grid (Posiciones y Spans) ─────────────────── */
+/* Columna Izquierda */
+.cardImpact { 
+  grid-column: 1 / 2; 
+  grid-row: 1 / 3; /* Ocupa la fila 1 y 2 para ser más alta */
+  justify-content: space-between;
 }
 
-/* ── Posiciones en el grid ───────────────────────────────── */
-.cardImpact     { grid-column: 1 / 2; grid-row: 1 / 2; min-height: 220px; }
-.cardTech       { grid-column: 1 / 2; grid-row: 2 / 3; }
-.heroCard       { grid-column: 2 / 3; grid-row: 1 / 4; }
-.cardBranding   { grid-column: 3 / 4; grid-row: 1 / 2; }
-.cardReload     { grid-column: 3 / 4; grid-row: 2 / 3; }
-.cardMentorship { grid-column: 3 / 4; grid-row: 3 / 4; }
+.cardTech { 
+  grid-column: 1 / 2; 
+  grid-row: 3 / 4; /* Se queda abajo */
+  justify-content: center;
+}
+
+/* Columna Central */
+.heroCard {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  
+  /* Como alineamos todo al 'start', sobreescribimos el hero 
+     para que sí estire y ocupe sus 3 filas completas */
+  align-self: stretch;
+  height: auto; 
+
+  background-color: var(--color-card);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+/* Columna Derecha */
+.cardBranding { 
+  grid-column: 3 / 4; 
+  grid-row: 1 / 2; 
+  justify-content: center;
+}
+.cardReload { 
+  grid-column: 3 / 4; 
+  grid-row: 2 / 3; 
+}
+.cardMentorship { 
+  grid-column: 3 / 4; 
+  grid-row: 3 / 4; 
+  justify-content: space-between;
+}
 
 /* ── Animación ───────────────────────────────────────────── */
 .animate {
   animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .delay0 { animation-delay: 0.05s; }
-.delay1 { animation-delay: 0.18s; }
-.delay2 { animation-delay: 0.32s; }
+.delay1 { animation-delay: 0.15s; }
+.delay2 { animation-delay: 0.25s; }
 
 @keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* ── Tipografía compartida ───────────────────────────────── */
@@ -70,36 +108,32 @@
   color: var(--color-text);
   line-height: 1.3;
   text-align: center;
+  margin-bottom: 1rem;
 }
- 
-/* ── CARD 1: Impacto en marca (más ancha) ────────────────── */
+
+/* ── CARD 1: Impacto en marca ────────────────────────────── */
 .impactImg {
   width: 100%;
   height: auto;
   object-fit: contain;
   margin-top: auto;
-  border-radius: 8px;
 }
 
 /* ── CARD 2: Stack tecnológico ───────────────────────────── */
 .techGrid {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 1.5rem;
-  align-content: center;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
   justify-content: center;
-  margin-top: 0.5rem;
 }
 
 .techItem {
-  width: 52px;
-  height: 52px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 .techItem:hover { transform: scale(1.1); }
@@ -110,94 +144,79 @@
   object-fit: contain;
 }
 
-/* ── HERO CARD (columna central, toda la altura) ─────────── */
+/* ── CARD 3: HERO CENTRAL ────────────────────────────────── */
 .heroCard {
   background-color: var(--color-card);
-  border-radius: 1.2rem;
-  padding: 1.8rem 1.2rem;
-  
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-
+  align-items: center;
+  
   opacity: 0;
   transform: translateY(20px) scale(0.985);
-  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.18s forwards;
-  
-  transition: transform 0.22s ease;
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
 
-.heroCard:hover {
-  transform: translateY(-3px) scale(1.005);
-}
 
 .heroTitleWrapper {
   text-align: center;
-  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 .heroTitle {
   font-family: var(--font-body);
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 800;
   color: var(--color-text);
-  margin: 0 0 0.2rem 0;
-  line-height: 1.1;
+  margin: 0 0 0.3rem 0;
 }
 
 .gradientText {
   display: block;
-  font-size: 1.5rem;
-  background: linear-gradient(
-    180deg,
-    #ffd89e 0%,
-    #ffad39 30%,
-    #d99330 65%,
-    #a67324 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 2px rgba(217, 147, 48, 0.5));
-  letter-spacing: -0.04em;
+  font-size: 1.6rem;
+  color: var(--roraimax-primary);
   font-weight: 700;
 }
 
-/* Contenedor horizontal: laptop | móvil | texto */
+/* Layout interno del Hero para replicar el boceto */
 .heroImages {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2rem 0.5rem;
+  align-items: end;
   width: 100%;
   flex: 1;
-  margin-top: 0.5rem;
 }
 
 .heroLaptop {
-  width: 48%;
+  grid-column: 1 / 3; /* La laptop ocupa todo el ancho arriba */
+  grid-row: 1 / 2;
+  width: 100%;
   max-width: 320px;
-  height: auto;
+  margin: 0 auto;
   object-fit: contain;
-  flex-shrink: 0;
-}
-
-.heroPhone {
-  width: 15%;
-  max-width: 90px;
-  height: auto;
-  object-fit: contain;
-  flex-shrink: 0;
 }
 
 .heroExperience {
+  grid-column: 1 / 2; /* Texto abajo a la izquierda */
+  grid-row: 2 / 3;
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: var(--color-text);
-  line-height: 1.3;
-  max-width: 130px;
-  text-align: left;
+  line-height: 1.2;
+  max-width: 120px;
+}
+
+.heroPhone {
+  grid-column: 2 / 3; /* Teléfono abajo a la derecha */
+  grid-row: 2 / 3;
+  justify-self: end;
+  width: 80%;
+  max-width: 110px;
+  object-fit: contain;
 }
 
 /* ── CARD 4: Dirección visual Premium ────────────────────── */
@@ -205,141 +224,104 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.7rem;
-  margin-top: 0.5rem;
+  justify-content: space-between;
+  height: 100%;
+  gap: 1rem;
 }
 
 .brandingTopRow {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  width: 100%;
   justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.brandingLogo {
-  width: 45px;
-  height: auto;
-  object-fit: contain;
-}
-
-.heroTextImg {
-  width: auto;
-  max-width: 110px;
-  height: auto;
-  object-fit: contain;
-}
+.brandingLogo { width: 50px; object-fit: contain; }
+.heroTextImg { width: 100px; object-fit: contain; }
 
 .colorPalette {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.8rem;
   justify-content: center;
 }
 
 .colorCircle {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .brandingButton {
-  width: 90%;
-  max-width: 120px;
-  height: auto;
+  width: 100%;
+  max-width: 140px;
   object-fit: contain;
+  transition: transform 0.2s;
+  cursor: pointer;
 }
+.brandingButton:hover { transform: scale(1.05); }
 
-/* ── CARD 5: De negocio a diseño (naranja) ───────────────── */
+/* ── CARD 5: De negocio a diseño (Naranja - Horizontal) ──── */
 .cardReload {
   background-color: var(--roraimax-reload);
-  flex-direction: column;
+  flex-direction: row; /* Cambiado a fila para alinear icono y texto */
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1rem;
   padding: 1.5rem 1rem;
-  text-align: center;
+  border-radius: 1.5rem; /* Bordes de píldora redondos si quieres más efecto: 3rem */
 }
 
 .reloadIcon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
-}
-
-.reloadText {
-  display: flex;
-  flex-direction: column;
 }
 
 .reloadLabel {
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   color: white;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 /* ── CARD 6: Liderazgo y mentoría ────────────────────────── */
 .teamImg {
   width: 100%;
-  height: auto;
-  max-height: 200px;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  margin-top: 0.5rem;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .roraimaxGrid {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
   }
 
-  .heroCard       { grid-column: 1 / 3; grid-row: 1 / 2; }
-  .cardImpact     { grid-column: 1 / 2; grid-row: 2 / 3; }
-  .cardBranding   { grid-column: 2 / 3; grid-row: 2 / 3; }
-  .cardTech       { grid-column: 1 / 2; grid-row: 3 / 4; }
-  .cardReload     { grid-column: 2 / 3; grid-row: 3 / 4; }
-  .cardMentorship { grid-column: 1 / 3; grid-row: 4 / 5; }
+  /* Reordenamos para Tablet */
+  .heroCard      { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .cardImpact    { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .cardBranding  { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .cardTech      { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .cardReload    { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .cardMentorship{ grid-column: 1 / 3; grid-row: 4 / 5; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .roraimaxGrid {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
-  .heroCard,
-  .cardImpact,
-  .cardTech,
-  .cardBranding,
-  .cardReload,
-  .cardMentorship {
+  .heroCard, .cardImpact, .cardTech, .cardBranding, .cardReload, .cardMentorship {
     grid-column: 1 / 2;
     grid-row: auto;
   }
 
-  .heroCard { order: -1; }
-  
-  .heroImages {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .heroLaptop {
-    width: 85%;
-    max-width: none;
-  }
-  
-  .heroPhone {
-    width: 35%;
-    max-width: none;
-  }
-
-  .heroExperience {
-    text-align: center;
-    max-width: none;
-  }
+  .heroImages { gap: 1rem; }
+  .heroLaptop { max-width: 260px; }
+  .heroPhone { max-width: 80px; }
 }

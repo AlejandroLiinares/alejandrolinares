@@ -13,7 +13,7 @@
   flex-direction: row;
   align-items: center; /* Alinea las tarjetas al centro verticalmente */
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -22,7 +22,7 @@
 
 /* ── Estilos Base para Tarjetas ──────────────────────────── */
 .card, .heroCard {
-  background-color: var(--color-bg-card);
+  background-color: var(--color-card);
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -33,11 +33,6 @@
   transform: translateY(20px) scale(0.985);
   will-change: transform, opacity;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-
-.card:hover, .heroCard:hover {
-  transform: translateY(-3px) scale(1.005);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Sombra suave al hacer hover */
 }
 
 /* ── Sistema de Animación (Fade Up) ──────────────────────── */
@@ -58,7 +53,7 @@
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-text-main);
+  color: var(--color-text);
   text-align: center;
   line-height: 1.2;
 }
@@ -102,7 +97,7 @@
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 2.1rem;
   font-weight: 800;
-  color: var(--color-text-main);
+  color: var(--color-text);
   margin: 0;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -130,7 +125,6 @@
   height: auto;
   object-fit: contain;
   border-radius: 6px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Le da volumen a la portada */
 }
 
 /* ── CARD 3: Stack tecnológico (Rectangular) ─────────────── */

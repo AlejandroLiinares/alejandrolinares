@@ -17,7 +17,7 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
 }
 
 /* ── Estilos Base para Tarjetas ──────────────────────────── */
@@ -82,33 +82,48 @@
 .heroCard {
   width: 280px;
   min-height: 420px;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1rem;
   gap: 1.5rem;
   animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; /* Carga un poco antes para destacar */
 }
 
 .heroTitleWrapper {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   width: 100%;
-  max-width: 200px; /* Fuerza el salto de línea para que quede igual al boceto */
 }
 
 .heroTitle {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 2.1rem;
   font-weight: 800;
-  color: var(--color-text);
+  text-align: center;
   margin: 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: -0.015em; /* más sutil */
 }
 
 .blueText {
-  color: var(--color-blue);
+  background: linear-gradient(
+    180deg,
+    #5144ff 30%,
+    #0600aa 100%
+  );
 }
 
 .redText {
-  color: var(--color-red);
+  background: linear-gradient(
+    180deg,
+    #ff4454 30%,
+    #aa0022 100%
+  );
+}
+
+.blueText,
+.redText {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .heroImage {

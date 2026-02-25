@@ -35,10 +35,9 @@ const UMDTBentoGrid = () => {
       {/* ── CARD 2: HERO DE LA NOVELA ───────────────────── */}
       <div className={styles.heroCard}>
         <div className={styles.heroTitleWrapper}>
-          <h3 className={styles.heroTitle}>Un
-            <span className={styles.blueText}> millón </span>
-            de
-            <span className={styles.redText}> traumas</span>
+          <h3 className={styles.heroTitle}>
+            Un <span className={styles.blueText}>millón</span><br />
+            de <span className={styles.redText}>traumas</span>
           </h3>
         </div>
 

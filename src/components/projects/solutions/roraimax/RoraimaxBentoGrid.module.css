@@ -1,7 +1,3 @@
-/* ============================================================
-   RoraimaxBentoGrid.module.css — Estilo Bento Asimétrico
-   ============================================================ */
-
 .roraimaxGrid {
   --roraimax-primary: #d99330;
   --roraimax-reload: #ffa200; /* Ajustado a un naranja más cercano al boceto */
@@ -11,7 +7,7 @@
   max-width: 1050px;
   margin: 0 auto;
   gap: 1rem;
-  padding: 2rem;
+  padding: 0;
 
   grid-template-columns: 1.15fr 1.35fr 1.1fr;
   /* Magia 1: Forzamos a que las filas se adapten al contenido */

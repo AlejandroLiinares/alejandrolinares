@@ -1,0 +1,192 @@
+/* ============================================================
+   UMDTBentoGrid.module.css — Estilos para "Un Millón de Traumas"
+   ============================================================ */
+
+.umdtGrid {
+  /* Usamos variables locales para los colores del diseño */
+  --color-bg-card: #f4f4f6;
+  --color-text-main: #000000;
+  --color-blue: #0020c2;
+  --color-red: #e60000;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Alinea las tarjetas al centro verticalmente */
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ── Estilos Base para Tarjetas ──────────────────────────── */
+.card, .heroCard {
+  background-color: var(--color-bg-card);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  will-change: transform, opacity;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover, .heroCard:hover {
+  transform: translateY(-3px) scale(1.005);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Sombra suave al hacer hover */
+}
+
+/* ── Sistema de Animación (Fade Up) ──────────────────────── */
+.animate {
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.delay1 { animation-delay: 0.15s; }
+.delay2 { animation-delay: 0.30s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cardLabel {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ── CARD 1: En construcción (Cuadrada) ──────────────────── */
+.cardPencil {
+  width: 200px;
+  height: 200px;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.pencilIcon {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+
+.buildingText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── CARD 2: Hero de la Novela (Alta/Central) ────────────── */
+.heroCard {
+  width: 280px;
+  min-height: 420px;
+  padding: 2rem 1.5rem;
+  gap: 1.5rem;
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; /* Carga un poco antes para destacar */
+}
+
+.heroTitleWrapper {
+  text-align: center;
+  width: 100%;
+  max-width: 200px; /* Fuerza el salto de línea para que quede igual al boceto */
+}
+
+.heroTitle {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.blueText {
+  color: var(--color-blue);
+}
+
+.redText {
+  color: var(--color-red);
+}
+
+.heroImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+}
+
+.umdtNovel {
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Le da volumen a la portada */
+}
+
+/* ── CARD 3: Stack tecnológico (Rectangular) ─────────────── */
+.cardTech {
+  width: 280px;
+  min-height: 200px;
+  padding: 1.8rem 1.5rem;
+  gap: 1.2rem;
+  justify-content: flex-start;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.techItem {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.techItem:hover {
+  transform: scale(1.15); /* Efecto pop en los iconos */
+}
+
+.techIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 850px) {
+  .umdtGrid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .cardPencil, .heroCard, .cardTech {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    min-height: auto;
+  }
+  
+  .heroCard {
+    order: -1; /* Pone la tarjeta de la novela arriba del todo en móviles */
+    padding: 2.5rem 1.5rem;
+  }
+}

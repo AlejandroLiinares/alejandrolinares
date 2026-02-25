@@ -1,12 +1,14 @@
 import { useState } from "react";
 import styles from "./ProjectsBento.module.css";
 import SIO from "../solutions/sio/SIOBentoGrid";
-import Pagination from "../pagination/Pagination";
 import Roraimax from "../solutions/roraimax/RoraimaxBentoGrid";
+import UMDT from "../solutions/umdt/UMDTBentoGrid";
+import Pagination from "../pagination/Pagination";
 
 const projects = [
   { id: "sio", component: SIO },
   { id: "roraimax", component: Roraimax },
+  { id: "umdt", component: UMDT },
 ];
 
 const ProjectsBento = () => {

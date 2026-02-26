@@ -13,6 +13,7 @@ import circleGold     from '../../../../assets/RRMX/circle-gold.png';
 import circleBlack    from '../../../../assets/RRMX/circle-black.png';
 import montserratText from '../../../../assets/RRMX/montserrat.png';
 import rrmxButton     from '../../../../assets/RRMX/rrmx-button.png';
+import meetIcon       from '../../../../assets/RRMX/meeting.png';
 
 // ── Tech stack ────────────────────────────────────────────
 const techStack = [
@@ -28,7 +29,7 @@ const RoraimaxBentoGrid = () => {
       {/* ── 1. IMPACTO EN MARCA ───────────────────────── */}
       <div className={`${styles.card} ${styles.cardImpact} ${styles.animate} ${styles.delay0}`}>
         <span className={styles.cardLabel}>Impacto en marca</span>
-        <img src={laptopMockup} alt="Impacto en marca" className={styles.impactImg} />
+        <img src={meetIcon} alt="Impacto en marca" className={styles.impactImg} />
       </div>
 
       {/* ── 2. STACK TECNOLÓGICO ───────────────────────── */}
@@ -81,17 +82,22 @@ const RoraimaxBentoGrid = () => {
         <span className={styles.cardLabel}>Dirección visual Premium</span>
 
         <div className={styles.brandingGrid}>
-          <div className={styles.brandingTopRow}>
+          
+          {/* Fila Superior: Logo y Círculos */}
+          <div className={styles.brandingRow}>
             <img src={rrmxLogo} alt="Logo" className={styles.brandingLogo} />
+            <div className={styles.colorPalette}>
+              <img src={circleGold} alt="Dorado" className={styles.colorCircle} />
+              <img src={circleBlack} alt="Negro" className={styles.colorCircle} />
+            </div>
+          </div>
+
+          {/* Fila Inferior: Texto y Botón */}
+          <div className={styles.brandingRow}>
             <img src={montserratText} alt="Roraimax" className={styles.heroTextImg} />
+            <img src={rrmxButton} alt="POSTULAR" className={styles.brandingButton} />
           </div>
 
-          <div className={styles.colorPalette}>
-            <img src={circleGold} alt="Dorado" className={styles.colorCircle} />
-            <img src={circleBlack} alt="Negro" className={styles.colorCircle} />
-          </div>
-
-          <img src={rrmxButton} alt="POSTULAR" className={styles.brandingButton} />
         </div>
       </div>
 

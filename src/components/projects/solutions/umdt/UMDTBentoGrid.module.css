@@ -2,13 +2,7 @@
    UMDTBentoGrid.module.css — Estilos para "Un Millón de Traumas"
    ============================================================ */
 
-.umdtGrid {
-  /* Usamos variables locales para los colores del diseño */
-  --color-bg-card: #f4f4f6;
-  --color-text-main: #000000;
-  --color-blue: #0020c2;
-  --color-red: #e60000;
-  
+.umdtGrid {  
   display: flex;
   flex-direction: row;
   align-items: center; /* Alinea las tarjetas al centro verticalmente */
@@ -50,7 +44,7 @@
 }
 
 .cardLabel {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
@@ -171,7 +165,7 @@
 }
 
 .techItem:hover {
-  transform: scale(1.15); /* Efecto pop en los iconos */
+  transform: scale(1.1); /* Efecto pop en los iconos */
 }
 
 .techIcon {

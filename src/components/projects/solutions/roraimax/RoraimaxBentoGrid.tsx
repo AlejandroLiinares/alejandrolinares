@@ -72,7 +72,7 @@ const RoraimaxBentoGrid = () => {
           />
 
           <span className={styles.heroExperience}>
-            Experiencia multiplataforma
+            Experiencia <br />multi <br />plataforma.
           </span>
         </div>
       </div> 

@@ -4,12 +4,12 @@
 
   display: grid;
   width: 100%;
-  max-width: 1050px;
+  max-width: 950px;
   margin: 0 auto;
-  gap: 1rem;
+  gap: .90rem;
   padding: 0;
 
-  grid-template-columns: 1.15fr 1.35fr 1.1fr;
+  grid-template-columns: 1.15fr 1.35fr 1.15fr;
   /* Magia 1: Forzamos a que las filas se adapten al contenido */
   grid-template-rows: max-content max-content max-content;
   /* Magia 2: Alineamos todo arriba para que NO se estiren verticalmente */
@@ -20,7 +20,7 @@
 .card {
   background-color: var(--color-card);
   border-radius: 1.5rem;
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -58,10 +58,11 @@
      para que sí estire y ocupe sus 3 filas completas */
   align-self: stretch;
   height: auto; 
+  overflow: hidden;
 
   background-color: var(--color-card);
   border-radius: 1.5rem;
-  padding: 2rem 1.5rem;
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,12 +114,13 @@
   height: auto;
   object-fit: contain;
   margin-top: auto;
+  border-radius: 6px;
 }
 
 /* ── CARD 2: Stack tecnológico ───────────────────────────── */
 .techGrid {
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
 }
@@ -157,20 +159,20 @@
 
 .heroTitleWrapper {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-top: -1rem;
 }
 
 .heroTitle {
   font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 750;
   color: var(--color-text);
   margin: 0 0 0.3rem 0;
 }
 
 .gradientText {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   background: linear-gradient(
     180deg,
     #ffd89e 0%,
@@ -190,7 +192,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 2rem 0.5rem;
   align-items: end;
   width: 100%;
   flex: 1;
@@ -200,8 +201,7 @@
   grid-column: 1 / 3; /* La laptop ocupa todo el ancho arriba */
   grid-row: 1 / 2;
   width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
+  max-width: 300px;
   object-fit: contain;
 }
 
@@ -209,19 +209,16 @@
   grid-column: 1 / 2; /* Texto abajo a la izquierda */
   grid-row: 2 / 3;
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-size: 1.3rem;
+  font-weight: 650;
   color: var(--color-text);
-  line-height: 1.2;
-  max-width: 120px;
 }
 
 .heroPhone {
   grid-column: 2 / 3; /* Teléfono abajo a la derecha */
   grid-row: 2 / 3;
   justify-self: end;
-  width: 80%;
-  max-width: 110px;
+  max-width: 140px;
   object-fit: contain;
 }
 
@@ -240,7 +237,8 @@
 .brandingRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.2rem;
   width: 100%;
 }
 
@@ -288,8 +286,8 @@
 }
 
 .reloadIcon {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
 }
 
@@ -305,6 +303,7 @@
 .teamImg {
   width: 100%;
   height: 100%;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 1.3rem;
 }
@@ -332,6 +331,7 @@
   .cardImpact,
   .cardTech,
   .cardBranding,
+    /* NECESITO CENTRAR ESTOS ELEMENTOS EN MOBILE */
   .cardReload,
   .cardMentorship {
     grid-column: 1 / 2;
@@ -347,17 +347,17 @@
   }
   
   .heroLaptop {
-    width: 90%;
     max-width: none;
   }
   
   .heroPhone {
-    width: 70%;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    /* NECESITO hacer que desaparezca el resto de imagen del celular que se escapa de la card */
   }
 
   .heroExperience {
-    text-align: center;
+    margin-top: 5.5rem;
+    text-align: left;
     max-width: none;
   }
 }

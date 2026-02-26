@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./ProjectsBento.module.css";
+import styles from "../pagination/Pagination.module.css"
 import SIO from "../solutions/sio/SIOBentoGrid";
 import Roraimax from "../solutions/roraimax/RoraimaxBentoGrid";
 import UMDT from "../solutions/umdt/UMDTBentoGrid";
@@ -23,17 +23,22 @@ const ProjectsBento = () => {
     if (index > 0) setIndex(index - 1);
   };
 
+  // Nueva función para saltar directamente al proyecto clickeado
+  const handleDotClick = (targetIndex: number) => {
+    setIndex(targetIndex);
+  };
+
   return (
     <div className={styles.wrapper}>
       {/* Renderiza el proyecto actual */}
       <CurrentProject />
 
-      {/* El paginador ahora recibirá total={2} */}
       <Pagination
         total={projects.length}
         current={index}
         onNext={handleNext}
         onPrev={handlePrev}
+        onDotClick={handleDotClick}
       />
     </div>
   );

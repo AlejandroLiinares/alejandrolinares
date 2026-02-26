@@ -3,18 +3,20 @@
   align-items: center;
   justify-content: center;
   gap: 1.1rem;
-  margin: 2.3vh 0 2vh;
+  /* Lo mantenemos relativo al flujo de la página, flotando debajo del grid */
+  margin: 2.5rem auto 3rem; 
   width: 100%;
+  position: relative;
+  z-index: 10;
 }
 
 .controlButton {
   width: 3rem;
-  height: 3rem;
+  height: 3rem; /* Altura estricta para igualar la píldora */
   border-radius: 50%;
   border: none;
   background: var(--color-btn-secundary); 
   color: var(--color-text);
-  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,15 +36,17 @@
 }
 
 .disabled {
-  opacity: 0.4; /* Lo dejamos visible pero tenue si está bloqueado */
+  opacity: 0.4; /* Lo dejamos tenue y bloqueado */
   pointer-events: none;
 }
 
 .paginationPill {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-  padding: 1.25rem 2.5rem;
+  height: 3rem; /* Mismo alto que los botones de control */
+  padding: 0 1.5rem; /* Ajustamos el padding para que no rompa la altura */
   border-radius: 999px;
   background: var(--color-btn-secundary);
 }
@@ -56,7 +60,8 @@
   height: .5rem;
   border-radius: 999px;
   background: var(--color-dot);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Tu transición original está perfecta para el dot fluido */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .dot.active {

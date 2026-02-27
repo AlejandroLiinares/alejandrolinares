@@ -47,14 +47,25 @@
   z-index: 10;
   flex: 1;
 
-  /* Margen izquierdo centralizado aquí — un solo lugar para cambiarlo */
+  /* Margen izquierdo y derecho */
   padding-left: 13%;
+  padding-right: 13%;
   padding-top: 10%;
 
+  /* Magia para poner el texto a la izquierda y la foto a la derecha */
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center; 
+}
+
+/* ── NUEVO: Envuelve el texto para que no ocupe toda la pantalla ── */
+.textContent {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
+  flex: 1;
+  max-width: 600px;
 }
 
 /* ── Heading container ───────────────────────────────────── */
@@ -66,7 +77,7 @@
   align-items: flex-start;
 }
 
-/* ── Tipografía ──────────────────────────────────────────── */
+/* ── Tipografía (INTACTA) ────────────────────────────────── */
 .h1Title {
   display: block;
   font-family: var(--font-heading);
@@ -100,7 +111,7 @@
   color: var(--color-text);
 }
 
-/* ── Botones ─────────────────────────────────────────────── */
+/* ── Botones (INTACTOS) ──────────────────────────────────── */
 .buttonContainer {
   display: flex;
   gap: 1rem;
@@ -131,23 +142,47 @@
   transform: translateY(-1px);
 }
 
-/* Botón 1: GitHub */
 .button:first-child {
   background-color: var(--color-text);
   color: var(--color-background);
 }
 
-/* Botón 2: LinkedIn */
 .button:last-child {
   background-color: var(--color-primary);
   color: var(--color-background);
 }
 
-/* ── Iconos SVG ──────────────────────────────────────────── */
 .button svg {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+/* ── Contenedor de la Foto (Derecha) ─────────────────────── */
+.imageContent {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; 
+  opacity: 0;
+  transform: translateX(30px);
+  animation: heroFadeLeft 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; 
+}
+
+.selfieImage {
+  width: 100%;
+  max-width: 450px; 
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+  margin-bottom: 4rem;
+}
+
+@keyframes heroFadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -161,7 +196,24 @@
     padding-right: 1.5rem;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 43vh;
+    flex-direction: column; 
+  }
+
+  /* ── 3. AÑADIMOS EL ORDEN DE LA FOTO ── */
+  .imageContent {
+    order: -1; 
+    justify-content: center;
+    width: 100%;
+  }
+
+  .selfieImage {
+    max-width: 270px; 
+    height: auto;
+    margin: .5rem 0 .7rem 0;
+  }
+
+  .textContent {
+    align-items: center;
   }
 
   .mainHeading {

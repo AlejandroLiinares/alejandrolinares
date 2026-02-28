@@ -59,15 +59,6 @@
   align-items: center; 
 }
 
-/* ── NUEVO: Envuelve el texto para que no ocupe toda la pantalla ── */
-.textContent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1;
-  max-width: 600px;
-}
-
 /* ── Heading container ───────────────────────────────────── */
 .mainHeading {
   margin: 0;
@@ -97,7 +88,8 @@
   margin-top: .2rem;
   font-weight: 650;
   line-height: .80;
-  max-width: 13ch;
+  min-width: 13ch;
+  max-width: 14ch;
   color: var(--color-primary);
 }
 
@@ -124,11 +116,11 @@
   justify-content: center;
   gap: 0.75rem;
 
-  padding: 0.7rem 1.2rem;
-  border-radius: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1.35rem;
 
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 600; 
   text-decoration: none;
 
@@ -165,17 +157,19 @@
   justify-content: flex-end;
   align-items: flex-end; 
   opacity: 0;
-  transform: translateX(30px);
-  animation: heroFadeLeft 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; 
+  transform: translateY(15px);
+  animation: heroFadeLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards; 
 }
 
 .selfieImage {
+  margin-top: -3rem;
   width: 100%;
-  max-width: 450px; 
+  width: 450px;
+  max-width: 500px; 
+  min-width: 300px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
-  margin-bottom: 4rem;
 }
 
 @keyframes heroFadeLeft {
@@ -191,15 +185,14 @@
     overflow-x: hidden;
   }
 
+  /* CONTENEDOR GENERAL  */
   .contentLayer {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    margin-bottom: 6rem;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column; 
   }
 
-  /* ── 3. AÑADIMOS EL ORDEN DE LA FOTO ── */
   .imageContent {
     order: -1; 
     justify-content: center;
@@ -209,11 +202,7 @@
   .selfieImage {
     max-width: 270px; 
     height: auto;
-    margin: .5rem 0 .7rem 0;
-  }
-
-  .textContent {
-    align-items: center;
+    margin: 0 0 1.75rem 0;
   }
 
   .mainHeading {
@@ -255,7 +244,6 @@
   .button {
     flex: 1;
     max-width: 160px;
-    min-width: 120px;
     padding: 0.8rem 0;
   }
 }

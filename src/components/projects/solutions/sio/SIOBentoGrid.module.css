@@ -1,34 +1,37 @@
+/* ── SIO — sobreescribe solo el color de sombra ──────────── */
 .sioGrid {
-  display: grid;
-  width: 100%;
-  max-width: 85%;
-  margin: 0 auto;
-  gap: 0.9rem;
-  padding: 0 2rem;
+  --bento-shadow-color: 255, 0, 46;   /* #ff002e en RGB */
+  composes: bentoGrid from global;
 
   grid-template-columns: 250px 1fr 1fr 1fr 300px;
   grid-template-rows: auto auto auto;
 }
 
-/* ── Base card ───────────────────────────────────────────── */
+/* ── Cards: heredan bentoCard + animación ────────────────── */
 .card {
-  background-color: var(--color-card);
-  border-radius: 1.2rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
-
-  opacity: 0;
-  transform: translateY(20px) scale(0.985);
-  will-change: transform, opacity;
-
-  transition: transform 0.22s ease, background-color 0.3s ease;
+  composes: bentoCard bentoAnimate from global;
 }
 
-.card:hover {
-  transform: translateY(-3px) scale(1.005);
+.delay0 { composes: bentoDelay0 from global; }
+.delay1 { composes: bentoDelay1 from global; }
+.delay2 { composes: bentoDelay2 from global; }
+
+/* ── Wrapper roles + 2FA ─────────────────────────────────── */
+.cardSecurityWrapper {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--bento-gap);
+}
+
+.cardRoles,
+.card2FA {
+  composes: bentoCard bentoAnimate from global;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
 }
 
 /* ── Posiciones en el grid ───────────────────────────────── */
@@ -41,54 +44,7 @@
 .cardSpeed   { grid-column: 3 / 5; grid-row: 3 / 4; justify-content: center; }
 .cardTheme   { grid-column: 5 / 6; grid-row: 3 / 4; justify-content: center; }
 
-/* ── Wrapper roles + 2FA (col 5, fila 2) ────────────────── */
-.cardSecurityWrapper {
-  grid-column: 5 / 6;
-  grid-row: 2 / 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9rem;
-}
-
-.cardRoles,
-.card2FA {
-  background-color: var(--color-card);
-  border-radius: 1.2rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-align: center;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px) scale(0.985);
-  will-change: transform, opacity;
-  transition: transform 0.22s ease, background-color 0.3s ease;
-}
-
-.cardRoles:hover,
-.card2FA:hover {
-  transform: translateY(-3px) scale(1.005);
-}
-
-/* ── Animación ───────────────────────────────────────────── */
-.animate {
-  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-.delay0 { animation-delay: 0.05s; }
-.delay1 { animation-delay: 0.18s; }
-.delay2 { animation-delay: 0.32s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ── Tipografía compartida ───────────────────────────────── */
+/* ── Tipografía ──────────────────────────────────────────── */
 .cardLabel {
   font-family: var(--font-body);
   font-size: 1.2rem;
@@ -104,6 +60,15 @@
   font-weight: 600;
   color: var(--color-text);
   margin-top: -1.1rem;
+}
+
+.cardSubLabel {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  text-align: center;
 }
 
 /* ── CARD 1: Diseño amigable ─────────────────────────────── */
@@ -140,19 +105,18 @@
   object-fit: contain;
 }
 
-/* ── CARD 3: Tech stack (ahora arriba a la derecha) ──────── */
+/* ── CARD 3: Tech stack ──────────────────────────────────── */
 .techGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.1rem;
   height: 100%;
   align-content: center;
-  justify-content: center;  /* centra el grupo horizontalmente */
-  justify-items: center;    /* centra cada item dentro de su celda */
+  justify-content: center;
+  justify-items: center;
 }
 
 .techItem {
-  background: transparent;
   width: 48px;
   height: 48px;
   display: flex;
@@ -172,7 +136,7 @@
   object-fit: contain;
 }
 
-/* ── CARD 4: 28 días (ahora abajo a la izquierda) ─────────── */
+/* ── CARD 4: 28 días ─────────────────────────────────────── */
 .statValue {
   font-family: var(--font-body);
   font-size: 3.4rem;
@@ -189,41 +153,25 @@
   object-fit: contain;
 }
 
-/* ── Etiqueta secundaria (textos más discretos) ──────────── */
-.cardSubLabel {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.3;
-  text-align: center;
-}
-
-/* ── CARD 6: Offline ─────────────────────────────────────── */
-/* (estilos ya definidos en .cardOffline arriba) */
-
-/* ── CARD 7: Historial ───────────────────────────────────── */
-/* (estilos ya definidos en .cardHistory arriba) */
-
 /* ── CARD 8: Tema claro y oscuro ─────────────────────────── */
 .themeWrapper {
   display: flex;
   gap: 0.5rem;
-  align-items: flex-end;  /* pega las imágenes al fondo del wrapper */
-  margin: 0rem 0rem 0rem -0.5rem;
+  align-items: flex-end;
+  margin: 0 0 0 -0.5rem;
 }
 
 .themeImg {
   width: 50%;
   height: 120px;
   object-fit: cover;
-  object-position: left;  /* muestra la parte superior de la imagen — la más relevante */
-  margin: 0rem 0rem -1.7rem 0rem;
+  object-position: left;
+  margin: 0 0 -1.7rem 0;
   border-radius: 8px 8px 0 0;
   flex-shrink: 0;
 }
 
-/* ── CARD 9: x4000 (ahora en col 5) ──────────────────────── */
+/* ── CARD 9: x4000 ───────────────────────────────────────── */
 .speedValue {
   font-family: var(--font-body);
   font-size: 3rem;
@@ -232,19 +180,18 @@
   line-height: 1;
 }
 
-/* ── Todos los SVGs generales ────────────────────────────── */
+/* ── Iconos ──────────────────────────────────────────────── */
 .Icon {
   width: 5rem;
   height: 5rem;
   object-fit: contain;
 }
 
-/* ── SVGs en tema noche ────────────────────────────── */
 .darkInvert {
   transition: filter 0.25s ease;
 }
 
-:global([data-theme='dark']) .darkInvert {
+[data-theme='dark'] .darkInvert {
   filter: invert(1) brightness(1.2);
 }
 
@@ -262,7 +209,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: none; /* text-shadow no funciona con text transparent */
+  text-shadow: none;
   filter: drop-shadow(0 0 1px rgba(247, 154, 168, 0.5));
   letter-spacing: -0.04em;
 }
@@ -301,7 +248,7 @@
 @media (max-width: 600px) {
   .sioGrid {
     grid-template-columns: 1fr;
-    padding: 0 0rem;
+    padding: 0;
   }
 
   .cardHero,
@@ -317,6 +264,6 @@
     grid-row: auto;
   }
 
-  .cardHero    { order: -1; } /* fuerza al hero a ser el primero */
-  .cardDesign  { order: 0; }  /* el resto sigue su orden natural */
+  .cardHero   { order: -1; }
+  .cardDesign { order: 0; }
 }

@@ -17,6 +17,20 @@
   --font-heading: 'Momo Trust Display', sans-serif;
   --font-heading-cursive: 'Noto Serif Display', serif;
   --font-body: 'Inter', sans-serif;
+
+  /* BENTO — valores base sobreescribibles por proyecto */
+  --bento-gap: 0.9rem;
+  --bento-radius: 1.2rem;
+  --bento-padding: 1rem;
+  --bento-bg: rgba(255, 255, 255, 0.55);
+  --bento-border: rgba(255, 255, 255, 0.75);
+  --bento-blur: 18px;
+  --bento-saturate: 160%;
+  --bento-shadow-color: 0, 0, 0;         /* RGB — cada proyecto lo sobreescribe */
+  --bento-shadow-rest-a: 0.10;           /* opacidad capa difusa en reposo       */
+  --bento-shadow-rest-b: 0.06;           /* opacidad capa cercana en reposo      */
+  --bento-shadow-hover-a: 0.16;          /* opacidad capa difusa en hover        */
+  --bento-shadow-hover-b: 0.09;          /* opacidad capa cercana en hover       */
 }
 
 [data-theme="dark"] {
@@ -27,6 +41,14 @@
   --color-dot: #dbdbdb;
   --color-dot-hover: #c1c1c1;
   --color-card: #000000;
+
+  /* BENTO dark overrides */
+  --bento-bg: rgba(20, 10, 12, 0.45);
+  --bento-border: rgba(255, 255, 255, 0.1);
+  --bento-shadow-rest-a: 0.18;
+  --bento-shadow-rest-b: 0.10;
+  --bento-shadow-hover-a: 0.28;
+  --bento-shadow-hover-b: 0.15;
 }
 
 body {
@@ -35,4 +57,86 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
+}
+
+/* ════════════════════════════════════════════════════════════
+   BENTO GRID — clases base globales
+   Cada proyecto hereda estas y solo sobreescribe lo suyo
+   ════════════════════════════════════════════════════════════ */
+
+.bentoGrid {
+  display: grid;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+  gap: var(--bento-gap);
+  padding: 0 2rem;
+}
+
+/* ── Card base ───────────────────────────────────────────── */
+.bentoCard {
+  background: var(--bento-bg);
+  backdrop-filter: blur(var(--bento-blur)) saturate(var(--bento-saturate));
+  -webkit-backdrop-filter: blur(var(--bento-blur)) saturate(var(--bento-saturate));
+  border: 1px solid var(--bento-border);
+  box-shadow:
+    0 8px 48px rgba(var(--bento-shadow-color), var(--bento-shadow-rest-a)),
+    0 2px 12px rgba(var(--bento-shadow-color), var(--bento-shadow-rest-b)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  border-radius: var(--bento-radius);
+  padding: var(--bento-padding);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  will-change: transform, opacity;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.3s ease;
+}
+
+/* Glare diagonal */
+.bentoCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.bentoCard:hover {
+  transform: translateY(-3px) scale(1.005);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 12px 56px rgba(var(--bento-shadow-color), var(--bento-shadow-hover-a)),
+    0 4px 16px rgba(var(--bento-shadow-color), var(--bento-shadow-hover-b)),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .bentoCard:hover {
+  background: rgba(30, 14, 18, 0.55);
+}
+
+/* ── Animación fadeUp (compartida) ───────────────────────── */
+.bentoAnimate {
+  animation: bentoFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.bentoDelay0 { animation-delay: 0.05s; }
+.bentoDelay1 { animation-delay: 0.18s; }
+.bentoDelay2 { animation-delay: 0.32s; }
+
+@keyframes bentoFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

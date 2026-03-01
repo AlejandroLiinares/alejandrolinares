@@ -24,16 +24,19 @@ const ThemeToggle = () => {
 
   return (
     <button 
-      className={`${styles.toggleButton} ${theme === 'dark' ? styles.dark : styles.light}`}
+      className={`${styles.toggleWrapper} ${theme === 'dark' ? styles.dark : styles.light}`}
       onClick={toggleTheme}
       aria-label="Cambiar tema de color"
     >
-      {/* Texto fijo que cambia de lado */}
+      {/* 1. Fondo de la píldora (este lleva el glassmorphism, no recorta a los demás) */}
+      <div className={styles.pillBase}></div>
+
+      {/* 2. Texto */}
       <span className={styles.label}>
-        {theme === 'light' ? 'Light' : 'Sleep'}
+        {theme === 'light' ? 'Noche' : 'Día'}
       </span>
 
-      {/* Círculo de cristal gigante */}
+      {/* 3. Círculo de cristal gigante que sobresale libremente */}
       <div className={styles.slider}>
         <img 
           src={theme === 'light' ? sunIcon : moonIcon} 

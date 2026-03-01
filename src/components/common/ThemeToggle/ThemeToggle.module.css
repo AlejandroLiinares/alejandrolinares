@@ -1,134 +1,184 @@
 /* ============================================================
-   ThemeToggle.module.css — 3D Glassmorphism Overlapping Pill
+   ThemeToggle.module.css — Glass Glow Version
    ============================================================ */
 
-.toggleButton {
+/* ── Wrapper ───────────────────────────────────────────── */
+.toggleWrapper {
   position: fixed;
   top: 2rem;
   right: 2rem;
   z-index: 1000;
 
-  /* Tamaño de la base (Píldora) */
   width: 140px;
   height: 50px;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  
-  position: relative;
-  
-  /* Cristal base de la píldora */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  
-  /* Transición suave solo para colores y sombras */
-  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+
+  overflow: visible;
 }
 
-/* ── Estado Light ── */
-.toggleButton.light {
-  /* Fondo amarillo y brillo exterior */
-  background: rgba(255, 188, 39, 0.8);
-  box-shadow: 0 0 25px rgba(255, 188, 39, 0.7);
-  border-color: rgba(255, 255, 255, 0.5);
+/* ── Píldora Base ───────────────────────────────────────── */
+.pillBase {
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
-/* ── Estado Dark ── */
-.toggleButton.dark {
-  /* Azul profundo, sin brillo exterior (no brilla) */
-  background: rgba(40, 0, 200, 0.6); 
-  box-shadow: none;
-  border-color: rgba(255, 255, 255, 0.1);
+/* ───────────── LIGHT MODE ───────────── */
+
+.light .pillBase {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 220, 80, 0.6) 0%,
+    rgba(255, 200, 0, 0.5) 40%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 0 40px rgba(255, 190, 0, 0.5),
+    0 8px 40px rgba(255, 150, 0, 0.35);
 }
 
+/* ───────────── DARK MODE ───────────── */
 
-/* ── Texto (Light / Sleep) ───────────────────────────────── */
+.dark .pillBase {
+  background: rgba(20, 10, 12, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 8px 48px rgba(0, 0, 0, 0.25),
+    0 2px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ── Texto ─────────────────────────────────────────────── */
 .label {
   position: absolute;
   top: 0;
   bottom: 0;
   display: flex;
   align-items: center;
-  
-  font-family: sans-serif;
+
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 600;
-  color: #ffffff; /* Siempre blanco para contrastar */
+  color: #ffffff;
   letter-spacing: 0.02em;
   pointer-events: none;
-  
-  /* Animamos la posición left/right sin usar transforms */
+  z-index: 2;
+
   transition: right 0.5s ease, left 0.5s ease;
 }
 
-/* En Light, el texto va a la derecha */
 .light .label {
-  right: 20px;
-  left: auto;
+  right: 22px;
 }
 
-/* En Dark, el texto va a la izquierda */
 .dark .label {
-  left: 20px;
-  right: auto;
+  left: 22px;
 }
 
-
-/* ── Círculo deslizante (Esfera de cristal) ──────────────── */
+/* ── Slider circular ───────────────────────────────────── */
 .slider {
   position: absolute;
-  
-  /* Es más grande que la píldora (70px vs 50px) */
+  z-index: 3;
+
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  
-  /* Centrado vertical restando la diferencia (70-50 = 20 / 2 = 10) */
   top: -10px;
-  
-  /* Centrar el icono SVG */
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Efecto Glassmorphism 3D puro */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  
-  /* Borde brillante y sombras internas para el volumen de la esfera */
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow:
-    inset 2px 2px 8px rgba(255, 255, 255, 0.8),    /* Reflejo de luz superior */
-    inset -3px -3px 8px rgba(0, 0, 0, 0.1),        /* Sombra interna inferior */
-    0 4px 12px rgba(0, 0, 0, 0.2);                 /* Sombra proyectada en la píldora */
-  
-  /* Animación física del deslizamiento sin usar transform */
-  transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+
+  transition:
+    left 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-/* Posición Light: Sobresale 10px a la izquierda */
+/* ───────────── LIGHT SLIDER ───────────── */
+
 .light .slider {
   left: -10px;
+
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 230, 120, 0.95) 25%,
+    rgba(255, 200, 0, 0.95) 55%,
+    rgba(255, 160, 0, 0.9) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  box-shadow:
+    0 0 35px rgba(255, 190, 0, 0.85),
+    0 0 70px rgba(255, 160, 0, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Posición Dark: Sobresale 10px a la derecha 
-   (140px píldora - 70px esfera + 10px extra = 80px) */
+/* Halo externo */
+.light .slider::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 190, 0, 0.45) 0%,
+    rgba(255, 160, 0, 0.25) 40%,
+    transparent 70%
+  );
+  z-index: -1;
+  filter: blur(14px);
+}
+
+/* ───────────── DARK SLIDER ───────────── */
+
 .dark .slider {
   left: 80px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    inset 1px 1px 4px rgba(255, 255, 255, 0.25),
+    inset -2px -2px 6px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* ── Icono SVG dentro del círculo ────────────────────────── */
+/* ── Icono ─────────────────────────────────────────────── */
 .icon {
   width: 28px;
   height: 28px;
   object-fit: contain;
-  /* Mantenemos el icono puramente blanco sin que cambie */
+  pointer-events: none;
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
+/* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .toggleButton {
+  .toggleWrapper {
     top: 1.5rem;
     right: 1.5rem;
     width: 120px;
@@ -138,14 +188,13 @@
   .slider {
     width: 60px;
     height: 60px;
-    top: -8px; 
+    top: -8px;
   }
 
   .light .slider {
     left: -8px;
   }
 
-  /* 120 - 60 + 8 = 68px */
   .dark .slider {
     left: 68px;
   }

@@ -1,26 +1,161 @@
-.button {
+/* ============================================================
+   ThemeToggle.module.css — 3D Glassmorphism Overlapping Pill
+   ============================================================ */
+
+.toggleButton {
   position: fixed;
   top: 2rem;
-  right: 6rem;
+  right: 2rem;
   z-index: 1000;
 
-  background: var(--color-text);
-  border: none;
-  color: var(--color-background);
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
+  /* Tamaño de la base (Píldora) */
+  width: 140px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
   
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
+  position: relative;
   
-  display: flex;
-  align-items: center;
-  gap: .3rem;
+  /* Cristal base de la píldora */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Transición suave solo para colores y sombras */
+  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-.button:hover {
-  background-color: var(--color-primary);
-  color: var(--color-background);
+/* ── Estado Light ── */
+.toggleButton.light {
+  /* Fondo amarillo y brillo exterior */
+  background: rgba(255, 188, 39, 0.8);
+  box-shadow: 0 0 25px rgba(255, 188, 39, 0.7);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Estado Dark ── */
+.toggleButton.dark {
+  /* Azul profundo, sin brillo exterior (no brilla) */
+  background: rgba(40, 0, 200, 0.6); 
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ── Texto (Light / Sleep) ───────────────────────────────── */
+.label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff; /* Siempre blanco para contrastar */
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  
+  /* Animamos la posición left/right sin usar transforms */
+  transition: right 0.5s ease, left 0.5s ease;
+}
+
+/* En Light, el texto va a la derecha */
+.light .label {
+  right: 20px;
+  left: auto;
+}
+
+/* En Dark, el texto va a la izquierda */
+.dark .label {
+  left: 20px;
+  right: auto;
+}
+
+
+/* ── Círculo deslizante (Esfera de cristal) ──────────────── */
+.slider {
+  position: absolute;
+  
+  /* Es más grande que la píldora (70px vs 50px) */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  
+  /* Centrado vertical restando la diferencia (70-50 = 20 / 2 = 10) */
+  top: -10px;
+  
+  /* Centrar el icono SVG */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Efecto Glassmorphism 3D puro */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  /* Borde brillante y sombras internas para el volumen de la esfera */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 2px 2px 8px rgba(255, 255, 255, 0.8),    /* Reflejo de luz superior */
+    inset -3px -3px 8px rgba(0, 0, 0, 0.1),        /* Sombra interna inferior */
+    0 4px 12px rgba(0, 0, 0, 0.2);                 /* Sombra proyectada en la píldora */
+  
+  /* Animación física del deslizamiento sin usar transform */
+  transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Posición Light: Sobresale 10px a la izquierda */
+.light .slider {
+  left: -10px;
+}
+
+/* Posición Dark: Sobresale 10px a la derecha 
+   (140px píldora - 70px esfera + 10px extra = 80px) */
+.dark .slider {
+  left: 80px;
+}
+
+/* ── Icono SVG dentro del círculo ────────────────────────── */
+.icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  /* Mantenemos el icono puramente blanco sin que cambie */
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .toggleButton {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 120px;
+    height: 44px;
+  }
+
+  .slider {
+    width: 60px;
+    height: 60px;
+    top: -8px; 
+  }
+
+  .light .slider {
+    left: -8px;
+  }
+
+  /* 120 - 60 + 8 = 68px */
+  .dark .slider {
+    left: 68px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .label {
+    font-size: 0.95rem;
+  }
 }

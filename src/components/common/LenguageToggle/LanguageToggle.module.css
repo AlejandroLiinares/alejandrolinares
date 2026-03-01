@@ -1,7 +1,7 @@
 .button {
   position: fixed;
   top: 2rem;
-  right: 2rem;
+  right: 8rem;
   z-index: 1000;
 
   background: var(--color-text);

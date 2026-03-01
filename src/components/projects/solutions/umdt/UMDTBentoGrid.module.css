@@ -1,11 +1,20 @@
 /* ============================================================
-   UMDTBentoGrid.module.css — Estilos para "Un Millón de Traumas"
+   UMDTBentoGrid.module.css
+   "Un Millón de Traumas" — Hereda estilos globales
    ============================================================ */
 
-.umdtGrid {  
+.umdtGrid {
+  /* Variables locales de UMDT */
+  --umdt-blue: #5144ff;
+  --umdt-blue-dark: #0600aa;
+  --umdt-red: #ff4454;
+  --umdt-red-dark: #aa0022;
+  --bento-shadow-color: 81, 68, 255; /* RGB azul para sombras */
+
+  /* Layout flexbox horizontal */
   display: flex;
   flex-direction: row;
-  align-items: center; /* Alinea las tarjetas al centro verticalmente */
+  align-items: center;
   justify-content: center;
   gap: 1rem;
   width: 100%;
@@ -14,25 +23,122 @@
   padding: 0;
 }
 
-/* ── Estilos Base para Tarjetas ──────────────────────────── */
-.card, .heroCard {
-  background-color: var(--color-card);
+/* ── Base card con glassmorphism ─────────────────────────── */
+.card {
+  /* Glassmorphism manual */
+  background: var(--bento-bg);
+  backdrop-filter: blur(var(--bento-blur)) saturate(var(--bento-saturate));
+  -webkit-backdrop-filter: blur(var(--bento-blur)) saturate(var(--bento-saturate));
+  border: 1px solid var(--bento-border);
+  box-shadow:
+    0 8px 48px rgba(var(--bento-shadow-color), var(--bento-shadow-rest-a)),
+    0 2px 12px rgba(var(--bento-shadow-color), var(--bento-shadow-rest-b)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   
   opacity: 0;
   transform: translateY(20px) scale(0.985);
   will-change: transform, opacity;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.3s ease;
 }
 
-/* ── Sistema de Animación (Fade Up) ──────────────────────── */
+/* Glare diagonal */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-3px) scale(1.005);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 12px 56px rgba(var(--bento-shadow-color), var(--bento-shadow-hover-a)),
+    0 4px 16px rgba(var(--bento-shadow-color), var(--bento-shadow-hover-b)),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .card:hover {
+  background: rgba(30, 14, 18, 0.55);
+}
+
+/* ── Hero card con glassmorphism ─────────────────────────── */
+.heroCard {
+  /* Glassmorphism manual */
+  background: var(--bento-bg);
+  backdrop-filter: blur(var(--bento-blur)) saturate(var(--bento-saturate));
+  -webkit-backdrop-filter: blur(var(--bento-blur)) saturate(var(--bento-saturate));
+  border: 1px solid var(--bento-border);
+  box-shadow:
+    0 8px 48px rgba(var(--bento-shadow-color), var(--bento-shadow-rest-a)),
+    0 2px 12px rgba(var(--bento-shadow-color), var(--bento-shadow-rest-b)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  will-change: transform, opacity;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.3s ease;
+}
+
+/* Glare diagonal hero */
+.heroCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroCard:hover {
+  transform: translateY(-3px) scale(1.005);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 12px 56px rgba(var(--bento-shadow-color), var(--bento-shadow-hover-a)),
+    0 4px 16px rgba(var(--bento-shadow-color), var(--bento-shadow-hover-b)),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .heroCard:hover {
+  background: rgba(30, 14, 18, 0.55);
+}
+
+/* ── Animación ───────────────────────────────────────────── */
 .animate {
   animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
 .delay1 { animation-delay: 0.15s; }
 .delay2 { animation-delay: 0.30s; }
 
@@ -43,6 +149,12 @@
   }
 }
 
+/* Hero carga primero */
+.heroCard {
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+
+/* ── Tipografía ──────────────────────────────────────────── */
 .cardLabel {
   font-family: var(--font-body);
   font-size: 1.15rem;
@@ -50,9 +162,11 @@
   color: var(--color-text);
   text-align: center;
   line-height: 1.2;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── CARD 1: En construcción (Cuadrada) ──────────────────── */
+/* ── CARD 1: En construcción (cuadrada) ──────────────────── */
 .cardPencil {
   width: 200px;
   height: 200px;
@@ -64,27 +178,32 @@
   width: 75px;
   height: 75px;
   object-fit: contain;
+  position: relative;
+  z-index: 1;
 }
 
 .buildingText {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── CARD 2: Hero de la Novela (Alta/Central) ────────────── */
+/* ── CARD 2: Hero de la novela (alta/central) ────────────── */
 .heroCard {
   width: 280px;
   min-height: 420px;
   padding: 1.5rem 1rem;
   gap: 1.5rem;
-  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards; /* Carga un poco antes para destacar */
 }
 
 .heroTitleWrapper {
   display: flex;
   justify-content: center;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .heroTitle {
@@ -94,30 +213,32 @@
   text-align: center;
   margin: 0;
   line-height: 1;
-  letter-spacing: -0.015em; /* más sutil */
+  letter-spacing: -0.015em;
+  color: var(--color-text);
 }
 
 .blueText {
   background: linear-gradient(
     180deg,
-    #5144ff 30%,
-    #0600aa 100%
+    var(--umdt-blue) 30%,
+    var(--umdt-blue-dark) 100%
   );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 2px rgba(81, 68, 255, 0.5));
 }
 
 .redText {
   background: linear-gradient(
     180deg,
-    #ff4454 30%,
-    #aa0022 100%
+    var(--umdt-red) 30%,
+    var(--umdt-red-dark) 100%
   );
-}
-
-.blueText,
-.redText {
-  background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 2px rgba(255, 68, 84, 0.5));
 }
 
 .heroImage {
@@ -126,6 +247,8 @@
   justify-content: center;
   width: 100%;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .umdtNovel {
@@ -136,7 +259,7 @@
   border-radius: 6px;
 }
 
-/* ── CARD 3: Stack tecnológico (Rectangular) ─────────────── */
+/* ── CARD 3: Stack tecnológico (rectangular) ─────────────── */
 .cardTech {
   width: 280px;
   min-height: 200px;
@@ -152,6 +275,8 @@
   align-items: center;
   justify-items: center;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .techItem {
@@ -162,10 +287,11 @@
   justify-content: center;
   transition: transform 0.2s ease;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .techItem:hover {
-  transform: scale(1.1); /* Efecto pop en los iconos */
+  transform: scale(1.1);
 }
 
 .techIcon {
@@ -181,7 +307,9 @@
     gap: 1.5rem;
   }
   
-  .cardPencil, .heroCard, .cardTech {
+  .cardPencil,
+  .heroCard,
+  .cardTech {
     width: 100%;
     max-width: 340px;
     height: auto;
@@ -189,7 +317,7 @@
   }
   
   .heroCard {
-    order: -1; /* Pone la tarjeta de la novela arriba del todo en móviles */
+    order: -1;
     padding: 2.5rem 1.5rem;
   }
 }

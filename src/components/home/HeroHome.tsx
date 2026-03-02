@@ -1,10 +1,8 @@
 import styles from './HeroHome.module.css';
-import { useLanguage } from '../../context/LanguageContext';
 import HeroBackground from './HeroBackground/HeroBackground';
 import selfieImg from '../../assets/selfie-no-bg.png';
 
 const HeroHome = () => {
-  const { t } = useLanguage();
 
   return (
     <section className={styles.section}>
@@ -16,21 +14,16 @@ const HeroHome = () => {
       <div className={styles.contentLayer}>
         
         {/* ── Columna Izquierda: Textos y Botones ── */}
-        <div className={styles.textContent}>
-          <h1 className={styles.mainHeading}>
-            <span className={styles.h1Title}>
-              {t.hero.line1}
-            </span>
-            <span className={styles.h1Title}>
-              {t.hero.line2}
-            </span>
+        <div className={styles.mainHeading}>
+          <h1 className={styles.h1Title}>Menos código,
             <span className={styles.h1Cursive}>
-              {t.hero.line3}
+              más valor.
             </span>
           </h1>
 
           <p className={styles.description}>
-            {t.hero.description}
+            Diseño y desarrollo experiencias digitales de alta calidad, con rapidez 
+            y comunicación directa, enfocadas en elevar el valor y las ventas de tu producto.
           </p>
 
           <div className={styles.buttonContainer}>

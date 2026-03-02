@@ -46,11 +46,7 @@
   position: relative;
   z-index: 10;
   flex: 1;
-
-  /* Margen izquierdo y derecho */
-  padding-left: 10%;
-  padding-top: 10%;
-  padding-right: 9%;
+  margin: 0% 10% 0 10%;
 
   /* Magia para poner el texto a la izquierda y la foto a la derecha */
   display: flex;
@@ -61,8 +57,6 @@
 
 /* ── Heading container ───────────────────────────────────── */
 .mainHeading {
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -72,24 +66,18 @@
 .h1Title {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 8vw, 3.6rem);
+  font-size: clamp(2.8rem, 8vw, 5.7rem);
   font-weight: 500;
   line-height: .9;
-  letter-spacing: -0.03em;
-  max-width: 18ch;
   color: var(--color-text);
 }
 
 .h1Cursive {
   display: block;
   font-family: var(--font-heading-cursive);
-  font-size: clamp(3.3rem, 10vw, 3.9rem);
+  font-size: clamp(3.3rem, 10vw, 5.9rem);
   font-style: italic;
-  margin-top: .2rem;
   font-weight: 650;
-  line-height: .80;
-  min-width: 17ch;
-  max-width: 14ch;
   color: var(--color-primary);
 }
 
@@ -98,12 +86,12 @@
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.6;
-  margin: 1.5rem 0;
-  max-width: 55ch;
+  margin: -2.8rem 0 1.2rem 0;
+  max-width: 60ch;
   color: var(--color-text);
 }
 
-/* ── Botones (INTACTOS) ──────────────────────────────────── */
+/* ── Botones  ──────────────────────────────────── */
 .buttonContainer {
   display: flex;
   gap: 1rem;
@@ -121,27 +109,80 @@
 
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 600; 
+  font-weight: 600;
   text-decoration: none;
-
-  border: 1px solid transparent;
   white-space: nowrap;
+  cursor: pointer;
 
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.button:hover {
-  transform: translateY(-1px);
+/* ── Glare diagonal (capa superior fija) ── */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.06) 40%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
+/* ── Luz central en hover ── */
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 110%,
+    rgba(255, 255, 255, 0.40) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.50s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+/* ── Botón primario (color-text) ── */
 .button:first-child {
   background-color: var(--color-text);
   color: var(--color-background);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
+/* ── Botón secundario (color-primary naranja) ── */
 .button:last-child {
   background-color: var(--color-primary);
-  color: var(--color-background);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.20);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(160, 60, 0, 0.25),
+    0 2px 14px rgba(255, 131, 42, 0.30);
+}
+
+/* ── Texto e iconos sobre las capas ── */
+.button span,
+.button svg {
+  position: relative;
+  z-index: 3;
 }
 
 .button svg {
@@ -162,13 +203,12 @@
 }
 
 .selfieImage {
-  margin-top: -3rem;
   width: 100%;
-  width: 450px;
-  max-width: 500px; 
+  max-width: 480px; 
   min-width: 300px;
   height: auto;
   object-fit: contain;
+  margin: 3rem 0 0 2rem;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
 }
 

@@ -104,10 +104,10 @@ body {
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(
-    135deg,
+    145deg,
     rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
+    rgba(255, 255, 255, 0.1) 10%,
+    transparent 90%
   );
   pointer-events: none;
 }

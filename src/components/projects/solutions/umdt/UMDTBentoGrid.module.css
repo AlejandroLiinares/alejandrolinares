@@ -56,10 +56,10 @@
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(
-    135deg,
+    145deg,
     rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
+    rgba(255, 255, 255, 0.1) 10%,
+    transparent 90%
   );
   pointer-events: none;
 }
@@ -111,10 +111,10 @@
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(
-    135deg,
+    145deg,
     rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
+    rgba(255, 255, 255, 0.1) 10%,
+    transparent 90%
   );
   pointer-events: none;
   z-index: 0;
@@ -226,7 +226,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 2px rgba(81, 68, 255, 0.5));
 }
 
 .redText {
@@ -238,7 +237,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 2px rgba(255, 68, 84, 0.5));
 }
 
 .heroImage {

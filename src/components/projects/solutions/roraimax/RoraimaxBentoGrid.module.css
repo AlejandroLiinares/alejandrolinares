@@ -55,10 +55,10 @@
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(
-    135deg,
+    145deg,
     rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
+    rgba(255, 255, 255, 0.1) 10%,
+    transparent 90%
   );
   pointer-events: none;
 }
@@ -129,10 +129,10 @@
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(
-    135deg,
+    145deg,
     rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
+    rgba(255, 255, 255, 0.1) 10%,
+    transparent 90%
   );
   pointer-events: none;
   z-index: 0;
@@ -266,7 +266,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 2px rgba(217, 147, 48, 0.5));
   letter-spacing: -0.04em;
   font-weight: 700;
   margin-top: -0.5rem;
@@ -443,25 +442,28 @@
   }
   
   .heroLaptop {
-    max-width: 85%;
+    max-width: 90%;
+    margin: 1rem 0 0 0;
   }
   
+  .heroExperience {
+    margin: 2rem 0 0 0;
+  }
+
   .heroPhone {
     max-width: 40%;
     margin-top: 1rem;
-    overflow: hidden;
-    margin-bottom: 0;
-  }
-
-  .heroExperience {
-    margin-top: 5.5rem;
-    text-align: left;
-    max-width: none;
-    margin-bottom: 0;
+    justify-self: end;
   }
 
   .brandingRow {
     flex-direction: column;
     gap: 0.8rem;
+  }
+
+  .teamImg {
+    max-height: none;
+    width: 100%;
+    height: auto;
   }
 }

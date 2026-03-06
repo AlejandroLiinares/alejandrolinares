@@ -1,6 +1,6 @@
 import styles from './AboutMe.module.css';
 
-import myselfIcon      from '../../assets/aboutme/selfie-mirror.jpeg';
+import myselfIcon      from '../../assets/aboutme/myself.jpg';
 import githubIcon      from '../../assets/SIO/github-circular.svg';
 import linkedinIcon    from '../../assets/linkedin.svg';
 import cvIcon          from '../../assets/aboutme/cv.svg';
@@ -34,7 +34,7 @@ const AboutMe = () => {
             <a href="https://www.linkedin.com/in/alejandroliinares/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialLink}>
               <img src={linkedinIcon} alt="LinkedIn" className={styles.socialIcon} />
             </a>
-            <a href="" 
+            <a href="https://docs.google.com/document/d/1jDdF2QN2e-lKu-L5uxZBg_Bhuc25xTyTcS40d9Yyn6Y/edit?usp=sharing" 
             target="_blank" rel="noopener noreferrer" aria-label="CV" className={styles.socialLink}>
               <img src={cvIcon} alt="CV" className={styles.socialIcon} />
             </a>

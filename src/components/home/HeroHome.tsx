@@ -22,8 +22,8 @@ const HeroHome = () => {
           </h1>
 
           <p className={styles.description}>
-            Diseño y desarrollo experiencias digitales de alta calidad, con rapidez 
-            y comunicación directa, enfocadas en elevar el valor y las ventas de tu producto.
+            Diseño y desarrollo páginas web de alta calidad en pocas semanas, con 
+            comunicación directa y foco en aumentar el valor y las ventas de tu negocio.
           </p>
 
           <div className={styles.buttonContainer}>

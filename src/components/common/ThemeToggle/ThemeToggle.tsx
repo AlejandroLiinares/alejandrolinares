@@ -5,43 +5,46 @@ import sunIcon from '../../../assets/sun.svg';
 import moonIcon from '../../../assets/moon.svg';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(() => {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
+      return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
     }
     return 'light';
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  return (
-    <button 
-      className={`${styles.toggleWrapper} ${theme === 'dark' ? styles.dark : styles.light}`}
-      onClick={toggleTheme}
-      aria-label="Cambiar tema de color"
-    >
-      {/* 1. Fondo de la píldora (este lleva el glassmorphism, no recorta a los demás) */}
-      <div className={styles.pillBase}></div>
+  const isDark = theme === 'dark';
 
-      {/* 2. Texto */}
-      <span className={styles.label}>
-        {theme === 'light' ? 'Noche' : 'Día'}
+  return (
+    <button
+      className={`${styles.toggleWrapper} ${isDark ? styles.dark : styles.light}`}
+      onClick={toggleTheme}
+      aria-label={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+      aria-pressed={isDark}
+    >
+      {/* Fondo píldora */}
+      <div className={styles.pillBase} />
+
+      {/* Label: "Dark" o "Light" */}
+      <span className={styles.label} aria-hidden="true">
+        {isDark ? 'Día' : 'Noche'}
       </span>
 
-      {/* 3. Círculo de cristal gigante que sobresale libremente */}
+      {/* Burbuja de cristal */}
       <div className={styles.slider}>
-        <img 
-          src={theme === 'light' ? sunIcon : moonIcon} 
-          alt={theme === 'light' ? 'Sun' : 'Moon'} 
+        <img
+          src={isDark ? moonIcon : sunIcon}
+          alt=""
           className={styles.icon}
+          aria-hidden="true"
         />
       </div>
     </button>
